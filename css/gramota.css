@@ -1,0 +1,370 @@
+/*  Во имя Отца и Сына и Святаго Духа. Аминь. */
+
+
+/* =================== */
+/* project variables */
+
+:root {
+    --kino-var: #e34234;
+    --body-size: 1.4em;
+    --body-background: #fffdfa;
+}
+
+.background-number {
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 3%;
+    padding: 4% 3% 2%;
+    
+}
+
+.color-brown {
+    color: rgb(134, 72, 0);
+}
+
+
+/* ========= TABLES ========== */
+/* table.WordTable {} */
+
+table.WordTable tr td {
+    vertical-align: middle;
+}
+
+table.WordTable tr td.RightDelim {
+    border-right: 2px solid var(--body-background);
+}
+
+table.Header {
+    border-width: 0;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+table.Decline {
+    border: 2px solid var(--body-background);
+}
+
+table.Decline tr td {
+    border: 1px solid var(--body-background);
+    vertical-align: middle;
+}
+
+table.Decline tr th {
+    padding-top: 42px;
+    padding-bottom: 22px;
+    border-top-width: 2px;
+    border-style: solid;
+    border-color: var(--body-background);
+}
+
+table.Decline tr th.Internal {
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+table.Decline tr th.InternalEnd {
+    border-left-width: 1px;
+    border-right-width: 2px;
+}
+
+table.Decline tr th span.CSText {
+    font-weight: normal;
+}
+
+table.Decline tr td.LeftDelim {
+    border-left-width: 2px;
+}
+
+table.Decline tr td.RightDelim {
+    border-right-width: 2px;
+}
+
+table.Decline tr td.DeclName {
+    border-right-width: 2px;
+    border-left-width: 2px;
+    background-color: #ffffff;
+}
+
+table.Decline tr td.BottomDelim {
+    border-bottom-width: 2px;
+}
+
+table.Decline tr td.TopDelim {
+    border-top-width: 2px;
+}
+
+table.Decline tr td.TopRightDelim {
+    border-top-width: 2px;
+    border-right-width: 2px;
+}
+
+table.Decline tr td.TopNoDelim {
+    border-top: 1px dashed var(--body-background);
+}
+
+
+/* =================== */
+/* =================== */
+
+@font-face {
+    font-family: 'Irmologion';
+    font-display: auto;
+    src: local('Clunya-IrmIEUcs'), url('https://a374ru.github.io/aprakos.ru/font/Clunya-IrmIEUcs.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: var(--body-background);
+    color: #5e5a51;
+    margin: 17px 33px 7px;
+    text-indent: 12px;
+    font-size: var(--body-size);
+}
+
+.videlenie {
+    border-radius: 22px;
+    background: rgb(255, 255, 255);
+    /* font-weight: bold; */
+    padding: 0px 13px;
+    box-shadow: 0px 2px 7px 3px #7c7c7c50
+}
+
+.fs2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.fs3 {
+    font-size: 1.3em;
+    color: rgb(88, 88, 88);
+    margin-left: 20px;
+    margin-right: 12px;
+}
+
+.InlineSubheader {
+    font-size: 1.1em;
+    color: #000000;
+    font-style: var(--body-size);
+    font-weight: bold;
+}
+
+.fs4 {
+    font-size: 1.1em;
+}
+
+.FootText a:link,
+a:visited {
+    color: #000000;
+}
+
+.FootText a:visited {
+    color: #372bdd;
+}
+
+.stepper {
+    margin-bottom: 77px;
+    margin-top: 50px;
+    text-align: center;
+    clear: both;
+    font-size: 90%;
+}
+
+h1 {
+    /* margin: 110px 0px; */
+    /* text-align: center; */
+    font-size: 2em;
+    color: rgb(0, 102, 255);
+}
+
+h2 {
+    color: rgb(0, 102, 255);
+}
+
+.red {
+    color: var(--kino-var);
+}
+
+.gray2 {
+    color: #000000;
+    font-style: italic
+}
+
+.ItalicAccent {
+    /* font-style: italic; */
+    font-weight: 800;
+    color: black;
+}
+
+.sedmica {
+    font-size: 1.2em;
+}
+
+a:link {
+    color: var(--kino-var, rgb(134, 72, 0));
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--kino-var, rgb(134, 72, 0));
+    text-decoration: none;
+}
+
+.date {
+    margin: 22px 33px 33px;
+    font-size: 1rem;
+    /* date size */
+    /* margin-left: 15px */
+}
+
+.link-ancor a {
+    color: #021458;
+}
+
+.name {
+    margin: 22px 13px 13px;
+    font-family: Irmologion;
+    font-size: 2.1em;
+    text-indent: 0px;
+    color: var(--kino-var, red);
+    text-transform: uppercase;
+}
+
+.old {
+    margin: 22px 13px 13px;
+    color: var(--kino-var, red);
+}
+
+.new {
+    margin: 22px 13px 13px;
+    color: rgb(0, 0, 0);
+}
+
+.csl {
+    margin: 7px;
+    font-family: Irmologion;
+    font-size: 1.2em;
+    color: #e34234
+}
+
+.hr-1 {
+    margin-left: 10px;
+    width: 220px;
+    border-top-color: var(--kino-var)
+}
+
+.hr-mejjdu {
+    margin-top: 73px;
+}
+
+sup {
+    font-size: 57%;
+    font-weight: bold;
+    color: #372bdd;
+}
+
+@media only screen and (min-device-width: 320px)and (max-device-width: 414px) and (orientation: portrait) {
+    body {
+        margin: 22px 12px 12px;
+        text-indent: 0px;
+        font-size: 1em;
+    }
+    .name {
+        font-family: Irmologion;
+        /* font-size: 1.2rem; */
+    }
+    .hr-1 {
+        margin-left: 10px;
+        width: 220px;
+        border-top-color: var(--kino-var)
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+    body {
+        margin: 22px 13px 13px;
+        text-indent: 0px;
+        font-size: 1.8em;
+    }
+    .csl {
+        /* font-family: Irmologion; */
+        /* margin: 23px 3px 23px 13px; */
+        font-size: 2em
+    }
+    .name {
+        font-family: Irmologion;
+        font-size: 2.3em;
+    }
+}
+
+@media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
+    body {
+        margin: 22px 23px 23px;
+        text-indent: 0px;
+        /* font-size: 1.2em; */
+    }
+    .csl {
+        font-family: Irmologion;
+        font-size: 2em
+    }
+    .name {
+        margin: 12px 13px 13px;
+        font-family: Irmologion;
+        font-size: 3em;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-device-width: 1752px) {
+    body {
+        margin: 52px 73px 73px;
+        text-indent: 0px;
+        /* font-size: 1.7em; */
+    }
+    /* .csl {
+        font-family: Irmologion; 
+        font-size: 2.3em 
+    } */
+    .name {
+        font-family: Irmologion;
+        font-size: 3em;
+    }
+    .hr-1 {
+        width: 350px;
+    }
+    /* sup {
+        font-size: 22px;
+    } */
+}
+
+@media only screen and (min-width: 1752px) {
+    body {
+        margin: 152px 52px 53px 122px;
+        text-indent: 0px;
+        font-size: 3em;
+    }
+    .name {
+        font-family: Irmologion;
+        font-size: 3.5em;
+    }
+    .hr-1 {
+        width: 87%;
+    }
+    /* sup {
+        font-size: 3.2px;
+    } */
+    .gray {
+        color: #cacaca;
+    }
+    .csl {
+        font-family: Irmologion;
+        /* margin: 123px 20px 3px 13px; */
+    }
+    .date {
+        margin: 1sedmica22px 33px 33px;
+        font-size: 3rem;
+        /* date size */
+        /* margin-left: 15px */
+    }
+}

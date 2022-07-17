@@ -1,0 +1,83 @@
+body {
+    background-color: #fffbf0;
+    color: #6b3b00;
+    margin: 22px 33px 33px;
+    text-indent: 22px;
+}
+
+.name a {
+    color: #e34234;
+    text-decoration: none;
+}
+
+a:link {
+    color: #e34234;
+    text-decoration: none;
+}
+
+.date {
+    font-size: 1em;
+    /* date size */
+}
+
+.name {
+    font-size: 2em;
+    text-indent: 0px;
+    color: #e34234;
+    text-transform: uppercase;
+}
+
+.old {
+    color: rgb(255, 0, 0);
+}
+
+.new {
+    color: rgb(0, 0, 0);
+}
+
+.abzac {
+    font-size: 1.5em
+}
+
+.hr-1 {
+    margin-left: 12px;
+    width: 120px;
+    border-top-color: #e34234
+}
+
+.hr-mejjdu {
+    margin-top: 73px;
+}
+
+sup {
+    font-size: 11px;
+    font-weight: bold;
+    color: #e34234;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
+    body {
+        margin: 12px 13px 13px;
+        text-indent: 12px;
+    }
+    .name {
+        font-size: 1.7em;
+    }
+}
+
+@media only screen and (min-width: 1278px) {
+    body {
+        margin: 52px 73px 73px;
+        text-indent: 72px;
+        font-size: 2em;
+    }
+    .name {
+        font-size: 2.4em;
+    }
+    .hr-1 {
+        width: 320px;
+    }
+    sup {
+        font-size: 22px;
+    }
+}

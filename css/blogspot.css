@@ -1,0 +1,371 @@
+/*  Во имя Отца и Сына и Святаго Духа. Аминь. */
+
+/* "-=-=-=-=-=-=-=-=-=- */
+/* "суббота, 10 апреля 2021 г. 14:58:33 */
+/* "-=-=-=-=-=-=-=-=-=-" */
+
+/* =================== */
+
+/* project variables */
+
+/* =================== */
+
+:root {
+  --kino-var: #e34234;
+  --date-var: #ffd8d4;
+  --seedday-var: #6fbf5f;
+  --backgroгnd-color-fff2e4: #fff2e4;
+}
+
+@font-face {
+  font-family: "Irmologion";
+  font-display: auto;
+  src: local("Clunya-IrmIEUcs"),
+    url("https://a374ru.github.io/aprakos.ru/font/Clunya-IrmIEUcs.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Clunya";
+  font-display: auto;
+  src: local("Clunya-IrmIEUcs"),
+    url("https://a374ru.github.io/aprakos.ru/font/Clunya-IrmIEUcs.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+.selection{
+    color: #693;
+}
+h1 {
+  margin: 110px 0px;
+  text-align: center;
+  font-size: 3em;
+  color: rgb(0, 102, 255);
+}
+
+.memory-ol {
+  color: #000000;
+}
+
+.red {
+  color: var(--kino-var);
+}
+
+a:link {
+  color: var(--kino-var, rgb(134, 72, 0));
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--kino-var, rgb(134, 72, 0));
+  text-decoration: none;
+}
+
+.date {
+  margin: 22px 33px 33px;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  /* date size */
+  /* margin-left: 15px */
+  color: #000000;
+}
+
+.dug a {
+  color: #fffdfa;
+}
+
+.dugpre {
+  color: #ffffff;
+  background-color: var(--date-var);
+  margin-right: 0px;
+  padding: 4px 20px 2px 12px;
+  border-radius: 20px 32px 27px 7px;
+  /* font-weight: bold; */
+}
+
+.dugprePlusUngles {
+  color: #dbdbdb;
+  /* background-color: var(--date-var); */
+  margin-right: 0px;
+  padding: 1px 16px 1px 12px;
+  border-radius: 7px 7px 7px 7px;
+}
+
+.gray {
+  color: #999999;
+}
+
+.abzac.colorBlock {
+  /* margin-right: 12px; */
+  background-color: #c8ff94;
+  -webkit-animation-name: example;
+  /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 7s;
+  animation-iteration-count: 1;
+  /* width: auto; */
+  box-shadow: 0px 0px 7px 2px #7f585854;
+  padding: 5%;
+}
+
+.seeddayON {
+  color: #000000;
+  /* background-color: var(--seedday-var); */
+  margin-right: 0px;
+  background-color: #e6ffbd;
+  padding: 12px 8px 3px 10px;
+  border-radius: 7px 7px 7px 7px;
+  border-bottom: 4px solid var(--seedday-var);
+  line-height: 2.5em;
+  /* border-right: 40px solid transparent; */
+  /* border-right: 110px solid #ec3504; */
+}
+
+.dug {
+  color: #ffffff;
+  background-color: var(--seedday-var);
+  padding: 4px 16px 2px 12px;
+  border-radius: 41px 1px 35px 32px;
+  font-weight: bold;
+}
+
+.link-ancor a {
+  color: #021458;
+}
+
+.name {
+  margin: 52px 33px 33px;
+  font-family: Irmologion;
+  font-size: 2.5em;
+  text-indent: 0px;
+  color: var(--kino-var, red);
+  text-transform: uppercase;
+}
+
+.abzac {
+  margin: 22px 1px 33px;
+  padding: 12px;
+  font-family: Irmologion;
+  font-size: 1.7em;
+  color: #502c00;
+}
+
+.snoska {
+  color: dimgrey;
+  text-indent: 0px;
+}
+
+hr {
+  border-width: 3px;
+  border-top-color: #000000;
+  border-bottom-color: #600000;
+  opacity: 0.1;
+}
+
+.hr-1 {
+  margin-left: 17px;
+  width: 250px;
+  border-top-color: var(--kino-var);
+}
+
+sup {
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--kino-var);
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 414px) and (orientation: portrait) {
+  .abzac {
+    margin: 3px 3px 23px 3px;
+    /* font-family: Irmologion; */
+    /* font-size: 1.3em */
+  }
+
+  .name {
+    font-family: Irmologion;
+    font-size: 1.7em;
+    margin: 0px;
+  }
+
+  .hr-1 {
+    /* margin-left: 10px; */
+    width: 240px;
+    border-top-color: var(--kino-var);
+  }
+
+  .date {
+    margin: auto;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+  .abzac {
+    /* font-family: Irmologion; */
+    margin: auto;
+    font-size: 1.7em;
+  }
+
+  .name {
+    font-family: Irmologion;
+    font-size: 2em;
+  }
+
+  .memory-ol a:visited {
+    color: #000000;
+  }
+}
+
+@media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .abzac {
+    font-family: Irmologion;
+    font-size: 1.7em;
+  }
+
+  .name {
+    margin: 12px 13px 13px;
+    font-family: Irmologion;
+    font-size: 2.5em;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-device-width: 1752px) {
+  .abzac {
+    /* font-family: Irmologion; */
+    font-size: 1.7rem;
+  }
+
+  .name {
+    font-family: Irmologion;
+    font-size: 3em;
+  }
+
+  .hr-1 {
+    width: 300px;
+  }
+
+  sup {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (min-width: 1752px) {
+  .name {
+    font-family: Irmologion;
+    font-size: 3em;
+  }
+
+  .hr-1 {
+    width: 77%;
+  }
+
+  sup {
+    font-size: 1.2rem;
+  }
+
+  .abzac {
+    font-family: Irmologion;
+    /* margin: 77px 20px 55px 13px; */
+    font-size: 1.8rem;
+  }
+
+  .date {
+    margin: 42px 33px 33px;
+    font-size: 1.5rem;
+    /* date size */
+    /* margin-left: 15px */
+  }
+}
+
+/* Дополнительные стили */
+
+/* Плавный скролл страницы*/
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables */
+:root {
+  --background-color-fff2e4: #fff2e4;
+}
+
+/*маскировка бага в лайтбоксе*/
+.CSS_LAYOUT_COMPONENT {
+  color: #fff0;
+}
+
+.post-body img {
+  border-radius: 4px;
+}
+
+.dug a:visited {
+  color: #ffffff;
+}
+
+.dug a:hover {
+  color: #dadada;
+}
+
+blockquote {
+  text-align: left;
+  text-shadow: 0px 0px 14px #ffffff;
+}
+
+#comments {
+  border-top: 3px dashed #f1dbce;
+  padding: 3px;
+}
+
+.blogger {
+  display: none;
+}
+
+a:hover .sedmica {
+  color: #e34234;
+  cursor: url("https://a374ru.github.io/aprakos.ru/izo/scrollTop.png"), n-resize;
+}
+
+/* Скрытие кнопки `Показать все` на странице результатов поиска */
+.post-filter-message div:last-child {
+  display: none;
+}
+
+/* Всплывающая подсказка */
+/* .ttt { */
+/*   display: inline-block; */
+/*   position: relative; */
+/*   text-indent: 0px; */
+/* } */
+
+.ttt:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  left: 0%;
+  top: auto;
+  /* Положение подсказки */
+  z-index: 3;
+  text-indent: 0px;
+  width: auto;
+  background: #202020;
+  font-family: Arial, sans-serif;
+  color: blanchedalmond;
+  font-size: 55%;
+
+  /* padding: 5px 10px; */
+  /* border-radius: 3px; */
+  /* box-shadow: 7px 7px #e3433480; */
+}
+
+.selected-verses {
+  padding: 0px 7px;
+  background: #fff4f4;
+  border-radius: 7px;
+}
+
+/* Этот клас реализован в шаблоне blogspot `stvol.html` */
+/* .promWeek {
+        background-image: url(http://4.bp.blogspot.com/-dv2GlbhPPjI/YAqLcjX5FcI/AAAAAAAAGJ8/3vnfw6qjxfstsIe3nzE-Kbxv4P84O-tKgCK4BGAYYCw/s100/Untitled-794055.png);
+        background-position-x: right;
+        background-position-y: top;
+        background-repeat: no-repeat;
+} */

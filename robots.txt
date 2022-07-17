@@ -1,0 +1,19 @@
+# a374ru.github.io/aprakos.ru
+User-agent: *
+Disallow: /000/
+Disallow: /000.html
+Disallow: /izo/
+Disallow: /font/
+Disallow: /css/
+Disallow: /js/
+Disallow: /doc/
+Disallow: /m/
+Disallow: /task/
+Disallow: /draft/
+Disallow: /!!!-OFFGIT/
+Disallow: /OFFROBOTS-OFFGIT/
+Disallow: /- information.txt
+Disallow: /- information.rtf
+Disallow: /clunya.html
+Disallow: *swp 
+

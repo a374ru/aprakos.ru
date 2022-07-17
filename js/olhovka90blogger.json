@@ -1,0 +1,18 @@
+{
+  "name": "Маленькая библиотека данных",
+  "date": "2021/03/30",
+  "description": "Массив адресов изображений с разных ресурсов. Подготовлено для смены изображений на сайте olhovka-90.blogspot.com",
+  "surl": [
+    "url(https://a374.ru/assets/img/bgr/planet-3-yaflag.jpg)",
+    "url(https://a374.ru/assets/img/bgr/winter-90.jpg)",
+    "url(https://a374.ru/assets/img/bgr/o90-717409.jpg)",
+    "url(https://a374.ru/assets/img/bgr/bg-blogger.jpg)",
+    "url(https://a374.ru/assets/img/bgr/bg-summertime.jpg)",
+    "url(https://a374.ru/assets/img/bgr/InTheEvening.jpg)",
+    "url(https://a374.ru/assets/img/bgr/summerSunset.jpg)",
+    "url(https://a374.ru/assets/img/bgr/winter.jpg)",
+    "url(https://a374.ru/assets/img/bgr/winter-vecher.jpg)",
+    "url(https://a374.ru/assets/img/bgr/winter2021.jpg)",
+    "url(https://a374.ru/assets/img/bgr/trava.jpg)"
+  ]
+}

@@ -1,0 +1,67 @@
+<HTML>
+
+<HEAD>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</HEAD>
+
+<BODY>
+
+	<script>
+		var mn = new Array('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC');
+		var mnn = new Array('31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
+		var mnl = new Array('31', '29', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
+
+		var dd = 0;
+		d = new Date();
+		td = d.getDate();
+		if (td < 10) {
+			td = "0" + td;
+		}
+		tm = d.getMonth();
+		ty = d.getYear();
+		tmpVar = ((ty % 4) == 0) ? mnl : mnn;
+
+		if (tm == 0 && td <= 13) {
+			mm = 11;
+			pravkaNaVisokos = tmpVar[mm] - (13 - td);
+
+		}
+
+		else if (tmpVar == mnl && tm == 2 && td <= 13) {
+			mm = tm - 1;
+			pravkaNaVisokos = tmpVar[mm] - (13 - td);
+			if (td < 10) {
+				plusZero = "0"
+			} else { plusZero = "" }
+			td = plusZero + (1 + Number(td))
+			console.log("--- Ныне високосный сдвиг ---");
+		}
+
+
+		else if (tm > 0 && td <= 13) {
+			mm = tm - 1;
+			pravkaNaVisokos = tmpVar[mm] - (13 - td);
+		}
+		else {
+			mm = tm;
+			pravkaNaVisokos = (td - 13);
+		}
+
+		if (pravkaNaVisokos < 10) { dd = '0' + pravkaNaVisokos; } else { dd = pravkaNaVisokos; }
+
+		//  перенаправление на директорию текущего дня
+		var linkToPageCurrentDay = (mn[mm] + "/" + dd + td + "/" + "index.html");
+		console.log(linkToPageCurrentDay);
+		location.replace(mn[mm] + "/" + dd + td + "/" + "index.html");
+
+	</script>
+
+	<noscript>
+		<p>У вас не работает JavaScript. Попробуйте перейти по
+			<a href="APRAKOS/stvol.html">ссылке</a> на сайт.
+		</p>
+	</noscript>
+
+</BODY>
+
+</HTML>

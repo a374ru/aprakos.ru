@@ -1,0 +1,5 @@
+#!/bin/bash
+p=pwd
+cd $p
+open ~/server
+

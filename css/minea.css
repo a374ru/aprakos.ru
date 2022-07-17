@@ -1,0 +1,267 @@
+/*  Во имя Отца и Сына и Святаго Духа. Аминь. */
+
+/* =================== */
+
+
+/* project variables */
+
+
+/* =================== */
+
+:root {
+    --kino-var: #e34234;
+}
+
+
+/* =================== */
+
+
+/* =================== */
+
+
+/* =================== */
+
+@font-face {
+    font-family: 'Irmologion';
+    font-display: auto;
+    /* src: url('../font/IrmUcs.ttf'); */
+    /* src: url('../font/Clunya-IrmIEUcs.otf'); */
+    src: local('Clunya-IrmIEUcs'), url('https://a374ru.github.io/aprakos.ru/font/Clunya-IrmIEUcs.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: #fffdfa;
+    /* margin: 7px 33px 7px; */
+    text-indent: 22px;
+    font-size: 20px;
+}
+
+.gray, .slavic_gray {
+    display: none;
+}
+
+h1 {
+    margin: 110px 0px;
+    text-align: center;
+    font-size: 3em;
+    color: rgb(0, 102, 255);
+}
+
+.red {
+    color: var(--kino-var);
+}
+
+.sedmica {
+    font-size: 1.2em;
+}
+
+a:link {
+    color: rgb(134, 72, 0);
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(134, 72, 0);
+    text-decoration: none;
+}
+
+.date {
+    margin: 22px 33px 33px;
+    font-size: 4vw;
+    /* date size */
+    /* margin-left: 15px */
+}
+
+.link-ancor a {
+    color: #021458;
+}
+
+.name {
+    margin: 22px 33px 33px;
+    font-family: Irmologion;
+    font-size: 1.7em;
+    text-indent: 0px;
+    color: var(--kino-var, red);
+    text-transform: uppercase;
+}
+
+.old {
+    margin: 22px 33px 33px;
+    color:  #dcd;
+}
+
+.new {
+    margin: 22px 33px 33px;
+    color: rgb(0, 0, 0);
+}
+
+.abzac {
+    translate: no;
+    margin: 22px 33px 33px;
+    font-family: Irmologion;
+    font-size: 1.3em;
+}
+
+#dolu {
+    display: none;
+}
+
+.hr-1 {
+    margin-left: 20px;
+    width: 240px;
+    border-top-color: var(--kino-var)
+}
+
+.hr-mejjdu {
+    margin-top: 73px;
+}
+
+sup {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--kino-var);
+}
+
+@media only screen and (min-device-width: 320px)and (max-device-width: 414px) and (orientation: portrait) {
+    body {
+        margin: 12px 13px 13px;
+        text-indent: 0px;
+        /* font-size: 1.4em; */
+    }
+    .abzac {
+        margin: 3px 3px 23px 3px;
+        /* font-family: Irmologion; */
+        font-size: 1.3em
+    }
+    .name {
+        margin: 3px 3px 23px 3px;
+        font-family: Irmologion;
+        font-size: 1.6em;
+    }
+    .hr-1 {
+        margin-left: 10px;
+        width: 200px;
+        border-top-color: var(--kino-var)
+    }
+     .old{
+        font-size: 1.5em;
+        color: #afa4a4;
+        
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+    body {
+        margin: 12px 13px 13px;
+        text-indent: 0px;
+        /* font-size: 1.5em; */
+    }
+    .abzac {
+        /* font-family: Irmologion; */
+        margin: 43px 3px 23px 33px;
+        font-size: 1.5em
+    }
+    .name {
+        font-family: Irmologion;
+        font-size: 2.3em;
+    }
+    .old{
+        color: #afa4a4;
+        font-size:1.4em;
+        
+    }
+    
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+    body {
+        margin: 12px 13px 13px;
+        text-indent: 0px;
+        /* font-size: 1.5em; */
+    }
+    .abzac {
+        /* font-family: Irmologion; */
+        margin: 43px 3px 23px 3px;
+        font-size: 1.8em
+    }
+    .name {
+        font-family: Irmologion;
+        font-size: 2.3em;
+    }
+    .old{
+        color: #afa4a4;
+        font-size:1.4em;
+        
+    }
+    
+}
+
+@media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
+    body {
+        margin: 22px 23px 23px;
+        text-indent: 0px;
+        /* font-size: 1.2em; */
+    }
+    .abzac {
+        font-family: Irmologion;
+        font-size: 2.5em
+    }
+    .name {
+        margin: 12px 13px 13px;
+        font-family: Irmologion;
+        font-size: 3em;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1752px) {
+    body {
+        margin: 52px 73px 73px;
+        text-indent: 0px;
+/*         font-size: 1.7em; */
+    }
+    .abzac {
+        /* font-family: Irmologion; */
+        font-size: 2em
+    }
+    .name {
+        font-family: Irmologion;
+        font-size: 3.2em;
+    }
+    .hr-1 {
+        width: 350px;
+    }
+    sup {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (min-width: 1752px) {
+    body {
+        margin: 52px 52px 12vw 73px;
+        text-indent: 0px;
+        font-size: 2em;
+    }
+    .name {
+        font-family: Irmologion;
+        font-size: 2.5em;
+    }
+    .hr-1 {
+        width: 87%;
+    }
+    sup {
+        font-size: 2rem
+    }
+    .abzac {
+        font-family: Irmologion;
+        margin: 2vw 5vw 13px;
+    }
+    .date {
+        margin: 55px 22px 33px 33px;
+        font-size: 2rem;
+        /* date size */
+        /* margin-left: 15px */
+    }
+}
+

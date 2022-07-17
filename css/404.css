@@ -1,0 +1,297 @@
+/*  Во имя Отца и Сына и Святаго Духа. Аминь. */
+
+
+/* INDEXDAY */
+
+/* =================== */
+
+
+/* project variables */
+
+
+/* =================== */
+
+
+/* =================== */
+
+:root {
+    --kino-var: #e34234;
+    --sizeDate-var: 1.1em;
+    --alink-var: #6b6b6b;
+    --blink-var: #860000;
+    --fontIrmUCS-var: Irmologion;
+    --font-var: Fontics;
+    --fontEvng-var: Evangeliecs;
+}
+
+
+/* =================== */
+
+
+/* For external */
+
+
+/* =================== */
+
+.evangeliecs {
+    font-family: var(--fontEvng-var);
+}
+
+.irmologion {
+    font-family: var(--fontIrmUCS-var);
+}
+
+
+/* ==================== */
+
+@font-face {
+    font-family: 'Fontics';
+    font-display: auto;
+    src: local('Fontics-Regular'), url('https://a374ru.github.io/aprakos.ru/font/Fontics-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'Evangeliecs';
+    src: url('../font/Evangeliecs-Regular.eot');
+    src: url('https://a374ru.github.io/aprakos.ru/font/Evangeliecs-Regular.woff') format('woff'), url('https://a374ru.github.io/aprakos.ru/font/Evangeliecs-Regular.ttf') format('truetype'), url('https://a374ru.github.io/aprakos.ru/font/Evangeliecs-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+body {
+    /* margin: 22px 33px 100px; */
+    padding-bottom: 77px;
+    /* text-indent: 22px; */
+    /* color: rgb(134, 72, 0) */
+    background: rgb(0, 0, 0);
+    color: #4f2b00;
+}
+
+.cs {
+    font-family: var(--fontEvng-var);
+    padding: 30px 22px 22px;
+    min-width: 340px;
+    max-width: 960px;
+    font-size: 2.3em;
+    margin: auto;
+}
+
+.bukvica {
+    font-size: 120%;
+}
+
+.pesni {
+    font-family: var(--font-var);
+    font-size: var(--sizeDate-var);
+    margin-left: 12px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.red {
+    color: var(--kino-var);
+}
+
+.gray {
+    color: lightgray;
+}
+
+.name-link-color a:visited {
+    font-family: var(--fontIrmUCS-var);
+    color: #e34234;
+}
+
+a:link {
+    color: var(--link-var, rgb(134, 72, 0));
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--blink-var, rgb(134, 72, 0));
+    text-decoration: none;
+}
+
+.date {
+    margin: 22px 43px 33px;
+    font-size: var(--sizeDate-var);
+    text-indent: 0px;
+    /* date size */
+    /* margin-left: 15px */
+}
+
+.name {
+    margin: 22px 33px 23px;
+    font-family: var(--fontIrmUCS-var);
+    font-size: 2.5em;
+    text-indent: 0px;
+    color: var(--kino-var, red);
+    text-transform: uppercase;
+}
+
+.old {
+    /* margin: 22px 33px 33px; */
+    color: var(--kino-var, red);
+    font-size: 1.3em;
+}
+
+.new {
+    margin: 22px 33px 33px;
+    color: rgb(0, 0, 0);
+}
+
+.abzac {
+    margin: 17px 3px 3px 33px;
+    font-family: var(--fontIrmUCS-var);
+    font-size: 1.7em;
+    /* color: #7e4500; */
+}
+
+.gitiya {
+    margin: 13px 7px 23px 7px;
+    font-family: var(--font-var);
+    font-size: 1.4em;
+    /* text-transform: uppercase; */
+}
+
+.hr-1 {
+    margin-left: 22px;
+    width: 77%;
+    border-top-color: var(--kino-var)
+}
+
+.hr-mejjdu {
+    margin-top: 73px;
+}
+
+sup {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--kino-var);
+}
+
+@media only screen and (min-device-width: 320px)and (max-device-width: 414px) and (orientation: portrait) {
+    body {
+        /* margin: 2px 13px 13px; */
+        text-indent: 0px;
+    }
+    .abzac {
+        /* margin: 0px 0px 0px 0px; */
+        font-family: var(--fontIrmUCS-var);
+        font-size: 1.3em
+    }
+    .name {
+        font-family: var(--fontIrmUCS-var);
+        font-size: 1.8em;
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+    body {
+        margin: 2px 3px 3px 3px;
+        text-indent: 0px;
+        /* font-size: 1.2em; */
+    }
+    .abzac {
+        font-family: var(--fontIrmUCS-var);
+        /* margin: 30px 30px 0px 30px; */
+        /* font-size: 2em */
+    }
+    .name {
+        font-family: var(--fontIrmUCS-var);
+        font-size: 2.3em;
+    }
+    .hr-1 {
+        /* margin-left: 20px; */
+        margin-bottom: 20px;
+        width: 350px;
+    }
+}
+
+@media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
+    body {
+        margin: 22px 23px 23px;
+        text-indent: 0px;
+        /* font-size: 1.2em; */
+    }
+    .abzac {
+        font-family: var(--fontIrmUCS-var);
+        font-size: 2.5em;
+        padding: 1em 0em 0em;
+    }
+    .name {
+        margin: 12px 13px 13px;
+        font-family: var(--fontIrmUCS-var);
+        font-size: 3em;
+    }
+    .hr-1 {
+        width: 550px;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-device-width: 1752px) {
+    body {
+        /* margin: 52px 0px 53px 73px; */
+        text-indent: 0px;
+        /* font-size: 1.7em; */
+    }
+    .abzac {
+        font-family: var(--fontIrmUCS-var);
+        font-size: 2.3em;
+        padding: 0.7em 0em 0em 0em;
+    }
+    .name {
+        font-family: var(--fontIrmUCS-var);
+        font-size: 3.2em;
+    }
+    .hr-1 {
+        width: 550px;
+    }
+    sup {
+        font-size: 22px;
+    }
+    .gitiya {
+        margin: 23px 23px 73px;
+        font-family: var(--font-var);
+        font-size: 1.7em
+    }
+}
+
+@media only screen and (min-width: 1752px) {
+    body {
+        /* margin: 52px 73px 73px; */
+        text-indent: 0px;
+        font-size: 3em;
+    }
+    .name {
+        font-family: var(--fontIrmUCS-var);
+        font-size: 3.5em;
+    }
+    .cs {
+        max-width: 90%;
+    }
+    .date {
+        margin: 22px 73px 33px;
+        font-size: var(--sizeDate-var);
+        text-indent: 0px;
+        /* date size */
+        /* margin-left: 15px */
+    }
+    .gitiya {
+        margin: 23px 23px 73px;
+        font-family: var(--font-var);
+        /* font-size: 1.3em */
+    }
+    .abzac {
+        padding-top: 0.5em;
+    }
+    .hr-1 {
+        width: 920px;
+    }
+    sup {
+        font-size: 3.2px;
+    }
+}

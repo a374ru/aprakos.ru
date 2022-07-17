@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square150x150logo src="https://a374ru.github.io/aprakos.ru/izo/tern/mstile-150x150.png"/>
+            <TileColor>#a10000</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>
