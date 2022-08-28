@@ -717,3 +717,8 @@ function mifTime() {
     false;
   }
 }
+
+/**
+Ссылка на текущий день Апракоса без учета двунадесятых празнеств.
+ */
+backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
