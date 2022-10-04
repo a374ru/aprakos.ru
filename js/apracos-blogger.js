@@ -417,7 +417,7 @@ function otstupkaVozdvijjenie() {
 if (mondayAfterVozdviggenie()) {
   //S:S
 
-  //   var sedmica = sedmica + otstupkaVozdvijjenie();
+  var sedmica = sedmica + otstupkaVozdvijjenie();
   var sedmicaNorm = sedmica - otstupkaVozdvijjenie();
 
   // IMPORTANT: Если нужно вывести на странице седмицы читаемые c учетом ступок, тогда заменить переменную `sedmica`  на `sedmicaStupka`
