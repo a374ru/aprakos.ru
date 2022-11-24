@@ -1,4 +1,4 @@
-// Sun Jan 16 12:48:36 MSK 2022
+// четверг, 24 ноября 2022 г. 07:45:28 (MSK)
 /*
 
     --- APRAKOS.BLOGSPOT.COM VERSION ---
@@ -677,7 +677,9 @@ function seedPyatidesyatnica() {
     document.getElementById("date3").innerHTML = "По Пятидесятнице";
     document.getElementById("date4").innerHTML =
       '<a href="' + "#" + seedIn + '">' + sedmicaPyatidesyatnice + "</a>";
-    document.getElementById("date5").innerHTML = "Глас " + glasSedmici(sedmica);
+    glas = glasSedmici(sedmicaNorm);
+    document.getElementById("date5").innerHTML = "Глас " + glas;
+
   } else {
     glas = glasSedmici(sedmica);
     sedmicaPyatidesyatnice =
