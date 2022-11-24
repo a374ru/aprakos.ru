@@ -23,4 +23,9 @@ month_ru = {
 
 gitie = document.querySelector('.name').innerText;
 
-b = document.title = `Юл. ${ul_numDay} ${month_ru[monthM]}, Жития святых: ${gitie}`;
+if (!ul_numDay) {
+	b =
+		document.title = `Юл. ${ul_numDay} ${month_ru[monthM]}, Жития святых: ${gitie}`;
+} else {
+	b2 = document.title = `${gitie}`;
+}
