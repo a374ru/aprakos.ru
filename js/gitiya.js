@@ -1,4 +1,4 @@
-
+// четверг, 24 ноября 2022 г. 23: 00: 39(MSK)
 // segment – это часть адреса `url` между двумя слешами.
 segment = document.URL.split('/');
 all_seg = segment.length;
