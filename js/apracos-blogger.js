@@ -730,21 +730,16 @@ backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
  * Замена слова при поиске в зачалах
  */
 
-// function replaceSearchContent(word) {
+function replaceSearchContent(word) {
 
-//   getWord = document.querySelector('.post-filter-message').innerHTML;
-//   replaceWord = document.querySelector('.post-filter-message').innerHTML = getWord.replace('сообщения', word);
+  getWord = document.querySelector('.post-filter-message').innerHTML;
+  replaceWord = document.querySelector('.post-filter-message').innerHTML = getWord.replace('сообщения', word);
 
-// }
-
-// replaceSearchContent('зачало')
-
+}
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  word = 'зачало';
-  getWord = document.querySelector('.post-filter-message').innerHTML;
-  replaceWord = document.querySelector('.post-filter-message').innerHTML = getWord.replace('сообщения', word);
+  replaceSearchContent('зачала')
 
 }, false);
 
