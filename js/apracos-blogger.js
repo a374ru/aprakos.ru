@@ -366,15 +366,15 @@ if (zakheyTime() == true) {
 
 console.log(
   "От Пасхи " +
-    dataPashi.toString().slice(11, 15) +
-    " года и до Пасхи " +
-    dataPashiNext.toString().slice(11, 15) +
-    " года случается " +
-    " седмиц /// " +
-    (allSedmica - 1) +
-    " /// \n Соответственно промежуточных седмиц пред Неделей МиФ  /// " +
-    intermediateWeeks +
-    " ///"
+  dataPashi.toString().slice(11, 15) +
+  " года и до Пасхи " +
+  dataPashiNext.toString().slice(11, 15) +
+  " года случается " +
+  " седмиц /// " +
+  (allSedmica - 1) +
+  " /// \n Соответственно промежуточных седмиц пред Неделей МиФ  /// " +
+  intermediateWeeks +
+  " ///"
 );
 
 // flag
@@ -730,14 +730,23 @@ backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
  * Замена слова при поиске в зачалах
  */
 
-function replaceSearchContent(word) {
+// function replaceSearchContent(word) {
 
+//   getWord = document.querySelector('.post-filter-message').innerHTML;
+//   replaceWord = document.querySelector('.post-filter-message').innerHTML = getWord.replace('сообщения', word);
+
+// }
+
+// replaceSearchContent('зачало')
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  word = 'зачало';
   getWord = document.querySelector('.post-filter-message').innerHTML;
   replaceWord = document.querySelector('.post-filter-message').innerHTML = getWord.replace('сообщения', word);
 
-}
-
-replaceSearchContent('зачало')
+}, false);
 
 
 // •••••••••••••••••••••••••••••••••••
