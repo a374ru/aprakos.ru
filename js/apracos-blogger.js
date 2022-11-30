@@ -727,21 +727,22 @@ backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
 
 
 /**
- * Замена слова при поиске в зачалах
+ * Функция замены системного текста после выдачи результатов поиска.
  */
+function replaceSearchContent() {
 
-function replaceSearchContent(word) {
+  let getText = document.querySelector('.post-filter-message').innerHTML;
+  newText = 'Есть зачала';
 
-  getWord = document.querySelector('.post-filter-message').innerHTML;
-  replaceWord = document.querySelector('.post-filter-message').innerHTML = getWord.replace('сообщения', word);
+  if (document.querySelector('.no-posts-message') != null) {
+    newText = 'Отсутствуют зачала';
+  }
+  replaceWord = document.querySelector('.post-filter-message').innerHTML = getText.replace('Показаны сообщения', newText);
 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  replaceSearchContent('зачала')
+  replaceSearchContent()
 
-}, false);
-
-
-// •••••••••••••••••••••••••••••••••••
+}, true);
