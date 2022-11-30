@@ -367,7 +367,7 @@ if (zakheyTime() == true) {
 console.log(
   `\n\n\t\tОт Пасхи ${dataPashi.toString().slice(11, 15)} года и до Пасхи ${dataPashiNext.toString().slice(11, 15)} года случается седмиц ••• ${allSedmica - 1}` +
   `\n\t\tСоответственно промежуточных седмиц пред Неделей МиФ  ••• ${allSedmica - 1 - 50}` +
-  `\n\t\tОтступка по чтениям в седмицах ••• ${intermediateWeeks}\n` +
+  `\n\t\tОтступка по чтениям для промежуточных седмиц ••• ${intermediateWeeks}\n` +
   `\n\t\tНеделя Закхея: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 11)).toDateString()}` +
   `\n\t\t   Неделя МИФ: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 10)).toDateString()}` +
   `\n\t\t   Неделя ОБС: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 9)).toDateString()}` +
@@ -729,18 +729,22 @@ backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
  */
 function replaceSearchContent() {
 
-  let getText = document.querySelector('.post-filter-message').innerHTML;
+  let getTextOfElement = document.querySelector('.post-filter-message').innerHTML;
   newText = 'Есть зачала';
 
   if (document.querySelector('.no-posts-message') != null) {
     newText = 'Отсутствуют зачала';
   }
-  replaceWord = document.querySelector('.post-filter-message').innerHTML = getText.replace('Показаны сообщения', newText);
+
+  document.querySelector('.post-filter-message').innerHTML = getTextOfElement.replace('Показаны сообщения', newText);
 
 }
 
+// После полной загрузки документа
 document.addEventListener('DOMContentLoaded', function () {
 
-  replaceSearchContent()
-
+  getElement = document.querySelector('.post-filter-message');
+  if (getElement != null) {
+    replaceSearchContent();
+  }
 }, true);
