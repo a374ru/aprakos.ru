@@ -1,4 +1,4 @@
-// четверг, 24 ноября 2022 г. 07:45:28 (MSK)
+// среда, 30 ноября 2022 г. 08:46:39 (MSK)
 /*
 
     --- APRAKOS.BLOGSPOT.COM VERSION ---
@@ -724,3 +724,20 @@ function mifTime() {
 Ссылка на текущий день Апракоса без учета двунадесятых празнеств.
  */
 backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
+
+
+/**
+ * Замена слова при поиске в зачалах
+ */
+
+function replaceSearchContent(word) {
+
+  getWord = document.querySelector('.post-filter-message').innerHTML;
+  replaceWord = document.querySelector('.post-filter-message').innerHTML = getWord.replace('сообщения', word);
+
+}
+
+replaceSearchContent('зачало')
+
+
+// •••••••••••••••••••••••••••••••••••
