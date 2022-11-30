@@ -1,4 +1,4 @@
-// среда, 30 ноября 2022 г. 08:46:39 (MSK)
+// среда, 30 ноября 2022 г. 16:12:15 (MSK)
 /*
 
     --- APRAKOS.BLOGSPOT.COM VERSION ---
@@ -221,10 +221,10 @@ if (
   );
 
   console.log(
-    "Год и дата прошедшей Пасхи: " + dataPashi.toString().slice(0, 15)
+    "\n\n\t\tГод и дата прошедшей Пасхи: " + dataPashi.toString().slice(0, 15)
   );
   console.log(
-    "Год и дата ===ОЖИДАЕМОЙ=== Пасхи: " + dataPashiNext.toString().slice(0, 16)
+    "\t\tГод и дата ===ОЖИДАЕМОЙ=== Пасхи: " + dataPashiNext.toString().slice(0, 16)
   );
 } else {
   // Если Пасхи еще не было в текущем году
@@ -242,7 +242,7 @@ if (
   );
 
   console.log(
-    "Год и дата прошедшей Пасхи: " + dataPashi.toString().slice(0, 15)
+    `\t\tГод и дата прошедшей Пасхи: ${dataPashi.toString().slice(0, 15)}`
   );
 }
 
@@ -365,16 +365,15 @@ if (zakheyTime() == true) {
 }
 
 console.log(
-  "От Пасхи " +
-  dataPashi.toString().slice(11, 15) +
-  " года и до Пасхи " +
-  dataPashiNext.toString().slice(11, 15) +
-  " года случается " +
-  " седмиц /// " +
-  (allSedmica - 1) +
-  " /// \n Соответственно промежуточных седмиц пред Неделей МиФ  /// " +
-  intermediateWeeks +
-  " ///"
+  `\n\n\t\tОт Пасхи ${dataPashi.toString().slice(11, 15)} года и до Пасхи ${dataPashiNext.toString().slice(11, 15)} года случается седмиц ••• ${allSedmica - 1}` +
+  `\n\t\tСоответственно промежуточных седмиц пред Неделей МиФ  ••• ${allSedmica - 1 - 50}` +
+  `\n\t\tОтступка по чтениям в седмицах ••• ${intermediateWeeks}\n` +
+  `\n\t\tНеделя Закхея: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 11)).toDateString()}` +
+  `\n\t\t   Неделя МИФ: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 10)).toDateString()}` +
+  `\n\t\t   Неделя ОБС: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 9)).toDateString()}` +
+  `\n\t\tПрощенное ВСК: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 7)).toDateString()}` +
+  `\n\t\t    Начало ВП: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 7) + 864e5).toDateString()}\n\n\n\n\n`
+
 );
 
 // flag
@@ -451,7 +450,7 @@ if (sedmica > 40 && intermediateWeeks != 0) {
     sedmica +
     "</a>";
 
-  console.log(`Страница Апракоса-Евангелия с учетом отступки и промежуточных седмиц:
+  console.log(`\n\n\n\t\tСтраница Апракоса-Евангелия с учетом отступки и промежуточных седмиц:
 ${location.host}${linkToAprakos}`);
 }
 
@@ -701,10 +700,9 @@ function zakheyTime() {
   var dateZakhey = new Date(dataPashiNext.getTime() - (864e5 * 7 * 11 + 1000));
   if (theMomentTime < dateZakhey) {
     otstupkaK23Sedmice = 9;
-    console.log(dateZakhey);
     return true;
   } else {
-    console.log(intermediateWeeks);
+    console.log(`${intermediateWeeks}`);
     return false;
   }
 }
@@ -727,7 +725,7 @@ backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
 
 
 /**
- * Функция замены системного текста после выдачи результатов поиска.
+ * Функция замены слова при выдаче результатов в поиске.
  */
 function replaceSearchContent() {
 
