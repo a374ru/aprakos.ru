@@ -1,4 +1,4 @@
-// среда, 30 ноября 2022 г. 16:12:15 (MSK)
+// понедельник, 19 декабря 2022 г. 11:47:16 (MSK)
 /*
 
     --- APRAKOS.BLOGSPOT.COM VERSION ---
@@ -26,7 +26,92 @@ var massDays = [
 
 // Пасхалия, где месяц -03 это апрель, -04 май и тд
 var pashalia = {
-  year2015: [03, 12], year2016: [04, 01], year2017: [03, 16], year2018: [03, 08], year2019: [03, 28], year2020: [03, 19], year2021: [04, 02], year2022: [03, 24], year2023: [03, 16], year2024: [04, 05], year2025: [03, 20], year2026: [03, 12], year2027: [04, 02], year2028: [03, 16], year2029: [03, 08], year2030: [03, 28], year2031: [03, 13], year2032: [04, 02], year2033: [03, 24], year2034: [03, 09], year2035: [03, 29], year2036: [03, 20], year2037: [03, 05], year2038: [03, 25], year2039: [03, 17], year2040: [04, 06], year2041: [03, 21], year2042: [03, 13], year2043: [04, 03], year2044: [03, 24], year2045: [03, 09], year2046: [03, 29], year2047: [03, 21], year2048: [03, 05], year2049: [03, 25], year2050: [03, 17], year2051: [04, 07], year2052: [04, 21], year2053: [03, 13], year2054: [04, 03], year2055: [04, 18], year2056: [03, 09], year2057: [03, 29], year2058: [03, 14], year2059: [04, 04], year2060: [03, 25], year2061: [03, 10], year2062: [03, 30], year2063: [03, 22], year2064: [03, 13], year2065: [03, 26], year2066: [03, 18], year2067: [03, 10], year2068: [03, 29], year2069: [03, 14], year2070: [04, 04], year2071: [03, 19], year2072: [03, 10], year2073: [03, 30], year2074: [03, 22], year2075: [03, 07], year2076: [03, 26], year2077: [03, 18], year2078: [04, 08], year2079: [03, 23], year2080: [03, 14], year2081: [04, 04], year2082: [03, 19], year2083: [03, 11], year2084: [03, 30], year2085: [03, 15], year2086: [03, 07], year2087: [03, 27], year2088: [03, 18], year2089: [04, 01], year2090: [03, 23], year2091: [03, 08], year2092: [03, 27], year2093: [03, 19], year2094: [03, 11], year2095: [03, 24], year2096: [03, 15], year2097: [04, 05], year2098: [03, 27], year2099: [03, 12], year2100: [04, 02],
+  year2015: [03, 12],
+  year2016: [04, 01],
+  year2017: [03, 16],
+  year2018: [03, 08],
+  year2019: [03, 28],
+  year2020: [03, 19],
+  year2021: [04, 02],
+  year2022: [03, 24],
+  year2023: [03, 16],
+  year2024: [04, 05],
+  year2025: [03, 20],
+  year2026: [03, 12],
+  year2027: [04, 02],
+  year2028: [03, 16],
+  year2029: [03, 08],
+  year2030: [03, 28],
+  year2031: [03, 13],
+  year2032: [04, 02],
+  year2033: [03, 24],
+  year2034: [03, 09],
+  year2035: [03, 29],
+  year2036: [03, 20],
+  year2037: [03, 05],
+  year2038: [03, 25],
+  year2039: [03, 17],
+  year2040: [04, 06],
+  year2041: [03, 21],
+  year2042: [03, 13],
+  year2043: [04, 03],
+  year2044: [03, 24],
+  year2045: [03, 09],
+  year2046: [03, 29],
+  year2047: [03, 21],
+  year2048: [03, 05],
+  year2049: [03, 25],
+  year2050: [03, 17],
+  year2051: [04, 07],
+  year2052: [04, 21],
+  year2053: [03, 13],
+  year2054: [04, 03],
+  year2055: [04, 18],
+  year2056: [03, 09],
+  year2057: [03, 29],
+  year2058: [03, 14],
+  year2059: [04, 04],
+  year2060: [03, 25],
+  year2061: [03, 10],
+  year2062: [03, 30],
+  year2063: [03, 22],
+  year2064: [03, 13],
+  year2065: [03, 26],
+  year2066: [03, 18],
+  year2067: [03, 10],
+  year2068: [03, 29],
+  year2069: [03, 14],
+  year2070: [04, 04],
+  year2071: [03, 19],
+  year2072: [03, 10],
+  year2073: [03, 30],
+  year2074: [03, 22],
+  year2075: [03, 07],
+  year2076: [03, 26],
+  year2077: [03, 18],
+  year2078: [04, 08],
+  year2079: [03, 23],
+  year2080: [03, 14],
+  year2081: [04, 04],
+  year2082: [03, 19],
+  year2083: [03, 11],
+  year2084: [03, 30],
+  year2085: [03, 15],
+  year2086: [03, 07],
+  year2087: [03, 27],
+  year2088: [03, 18],
+  year2089: [04, 01],
+  year2090: [03, 23],
+  year2091: [03, 08],
+  year2092: [03, 27],
+  year2093: [03, 19],
+  year2094: [03, 11],
+  year2095: [03, 24],
+  year2096: [03, 15],
+  year2097: [04, 05],
+  year2098: [03, 27],
+  year2099: [03, 12],
+  year2100: [04, 02],
 };
 
 // Девять двунадесятых праздников
@@ -139,7 +224,8 @@ if (
     "\n\n\t\tГод и дата прошедшей Пасхи: " + dataPashi.toString().slice(0, 15)
   );
   console.log(
-    "\t\tГод и дата ===ОЖИДАЕМОЙ=== Пасхи: " + dataPashiNext.toString().slice(0, 16)
+    "\t\tГод и дата ===ОЖИДАЕМОЙ=== Пасхи: " +
+    dataPashiNext.toString().slice(0, 16)
   );
 } else {
   // Если Пасхи еще не было в текущем году
@@ -168,7 +254,7 @@ if (
  * @returns boolean
  */
 function mondayAfterVozdviggenie() {
-  // Дата Воздвижения Креста
+	// Дата Воздвижения Креста
 
   var a = new Date(curentYearPrefics.slice(-4) + "-09-27T00:00:00");
   var aaa = 1 + 7 - (a.getDay() % 7);
@@ -280,15 +366,29 @@ if (zakheyTime() == true) {
 }
 
 console.log(
-  `\n\n\t\tОт Пасхи ${dataPashi.toString().slice(11, 15)} года и до Пасхи ${dataPashiNext.toString().slice(11, 15)} года случается седмиц ••• ${allSedmica - 1}` +
-  `\n\t\tСоответственно промежуточных седмиц пред Неделей МиФ  ••• ${allSedmica - 1 - 50}` +
+  `\n\n\t\tОт Пасхи ${dataPashi
+    .toString()
+    .slice(11, 15)} года и до Пасхи ${dataPashiNext
+      .toString()
+      .slice(11, 15)} года случается седмиц ••• ${allSedmica - 1}` +
+  `\n\t\tСоответственно промежуточных седмиц пред Неделей МиФ  ••• ${allSedmica - 1 - 50
+  }` +
   `\n\t\tОтступка по чтениям для промежуточных седмиц ••• ${intermediateWeeks}\n` +
-  `\n\t\tНеделя Закхея: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 11)).toDateString()}` +
-  `\n\t\t   Неделя МИФ: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 10)).toDateString()}` +
-  `\n\t\t   Неделя ОБС: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 9)).toDateString()}` +
-  `\n\t\tПрощенное ВСК: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 7)).toDateString()}` +
-  `\n\t\t    Начало ВП: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 7) + 864e5).toDateString()}\n\n\n\n\n`
-
+  `\n\t\tНеделя Закхея: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 11
+  ).toDateString()}` +
+  `\n\t\t   Неделя МИФ: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 10
+  ).toDateString()}` +
+  `\n\t\t   Неделя ОБС: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 9
+  ).toDateString()}` +
+  `\n\t\tПрощенное ВСК: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 7
+  ).toDateString()}` +
+  `\n\t\t    Начало ВП: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 7 + 864e5
+  ).toDateString()}\n\n\n\n\n`
 );
 
 // flag
@@ -301,10 +401,10 @@ let promWeek = 0;
  * @returns number
  */
 function otstupkaVozdvijjenie() {
-  // Функция определяет Воздвиженскую отступку.
+	// Функция определяет Воздвиженскую отступку.
 
-  // Дата воздвижения, 27 сентября по Григорианскому календарю.
-  // или 14 сентября по Юлианскому календарю.
+	// Дата воздвижения, 27 сентября по Григорианскому календарю.
+	// или 14 сентября по Юлианскому календарю.
 
   /**
    * Дата Воздвижения.
@@ -329,14 +429,14 @@ function otstupkaVozdvijjenie() {
 }
 
 if (mondayAfterVozdviggenie()) {
-  //S:S
+	//S:S
 
   var sedmica = sedmica + otstupkaVozdvijjenie();
   var sedmicaNorm = sedmica - otstupkaVozdvijjenie();
 
-  // IMPORTANT: Если нужно вывести на странице седмицы читаемые c учетом ступок, тогда заменить переменную `sedmica`  на `sedmicaStupka`
+	// IMPORTANT: Если нужно вывести на странице седмицы читаемые c учетом ступок, тогда заменить переменную `sedmica`  на `sedmicaStupka`
 
-  //   alert(`mondayAfterVozdviggenie()`)
+	//   alert(`mondayAfterVozdviggenie()`)
 }
 
 // конкатенация сегмента URL с учетом ступок
@@ -350,7 +450,7 @@ if (sedmica > 40 && intermediateWeeks != 0) {
   promWeek = 1;
   var sedDayStupka = sedmica - intermediateWeeks + "" + ul_numDay;
 
-  // Изменяем `sedDay` с учетом отступок и преступок
+	// Изменяем `sedDay` с учетом отступок и преступок
 
   linkToAprakos = "/" + yearMonthPath(sedDayStupka) + sedDayStupka + ".html";
 
@@ -360,7 +460,7 @@ if (sedmica > 40 && intermediateWeeks != 0) {
     sedmica +
     '"' +
     ' title="Сегодня : ' +
-  massDays[ul_numDay] +
+    massDays[ul_numDay] +
     '">' +
     sedmica +
     "</a>";
@@ -424,7 +524,7 @@ function seeddayON() {
       '<a href="' +
       ("#seed" + sedmica + '"') +
       ' title="Сегодня : ' +
-    massDays[ul_numDay] +
+      massDays[ul_numDay] +
       '">' +
       sedmica;
   } else {
@@ -432,7 +532,7 @@ function seeddayON() {
       '<a href="' +
       ("#seed" + (sedmica - intermediateWeeks) + '"') +
       ' title="Сегодня : ' +
-    massDays[ul_numDay] +
+      massDays[ul_numDay] +
       '">' +
       sedmica;
   }
@@ -474,7 +574,7 @@ function seedON() {
   }
 
   var b = (document.getElementById(a).className += " colorBlock");
-  // document.getElementsByClassName("colorBlock")[0].style.border = "3px";
+	// document.getElementsByClassName("colorBlock")[0].style.border = "3px";
 
   if (stupka != 0 && sedmica > 39) {
     document.getElementById(a).className += " promWeek";
@@ -499,7 +599,71 @@ var glas = undefined;
  */
 function glasSedmici(sedmica) {
   glasSedmici = {
-    1: 8, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5, 7: 6, 8: 7, 9: 8, 10: 1, 11: 2, 12: 3, 13: 4, 14: 5, 15: 6, 16: 7, 17: 8, 18: 1, 19: 2, 20: 3, 21: 4, 22: 5, 23: 6, 24: 7, 25: 8, 26: 1, 27: 2, 28: 3, 29: 4, 30: 5, 31: 6, 32: 7, 33: 8, 34: 1, 35: 2, 36: 3, 37: 4, 38: 5, 39: 6, 40: 7, 41: 8, 42: 1, 43: 2, 44: 3, 45: 4, 46: 5, 47: 6, 48: 7, 49: 8, 50: 1, 51: 2, 52: 3, 53: 4, 54: 5, 55: 6, 56: 7, 57: 8, 58: 1, 59: 2, 60: 3, 61: 4, 62: 5, 63: 6, 64: 7, 65: 8,
+    1: 8,
+    2: 1,
+    3: 2,
+    4: 3,
+    5: 4,
+    6: 5,
+    7: 6,
+    8: 7,
+    9: 8,
+    10: 1,
+    11: 2,
+    12: 3,
+    13: 4,
+    14: 5,
+    15: 6,
+    16: 7,
+    17: 8,
+    18: 1,
+    19: 2,
+    20: 3,
+    21: 4,
+    22: 5,
+    23: 6,
+    24: 7,
+    25: 8,
+    26: 1,
+    27: 2,
+    28: 3,
+    29: 4,
+    30: 5,
+    31: 6,
+    32: 7,
+    33: 8,
+    34: 1,
+    35: 2,
+    36: 3,
+    37: 4,
+    38: 5,
+    39: 6,
+    40: 7,
+    41: 8,
+    42: 1,
+    43: 2,
+    44: 3,
+    45: 4,
+    46: 5,
+    47: 6,
+    48: 7,
+    49: 8,
+    50: 1,
+    51: 2,
+    52: 3,
+    53: 4,
+    54: 5,
+    55: 6,
+    56: 7,
+    57: 8,
+    58: 1,
+    59: 2,
+    60: 3,
+    61: 4,
+    62: 5,
+    63: 6,
+    64: 7,
+    65: 8,
   };
 
   if (sedmica) {
@@ -529,7 +693,6 @@ function seedPyatidesyatnica() {
       '<a href="' + "#" + seedIn + '">' + sedmicaPyatidesyatnice + "</a>";
     glas = glasSedmici(sedmicaNorm);
     document.getElementById("date5").innerHTML = "Глас " + glas;
-
   } else {
     glas = glasSedmici(sedmica);
     sedmicaPyatidesyatnice =
@@ -537,7 +700,7 @@ function seedPyatidesyatnica() {
       glas +
       "<br>" +
       " Сейчас идет счет седмиц от Пасхи до Пятидесятницы. ";
-    // linkToAprakos = "/" + yM + sedDay + '.html';
+		// linkToAprakos = "/" + yM + sedDay + '.html';
 
     if (sedmica <= 39) {
       document.getElementById("date3").className += "PlusUngles";
@@ -574,28 +737,84 @@ function mifTime() {
  */
 backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
 
-
 /**
  * Функция замены слова при выдаче результатов в поиске.
  */
 function replaceSearchContent() {
+  let getTextOfElement = document.querySelector(
+    ".post-filter-message"
+  ).innerHTML;
+  newText = "Есть зачала";
 
-  let getTextOfElement = document.querySelector('.post-filter-message').innerHTML;
-  newText = 'Есть зачала';
-
-  if (document.querySelector('.no-posts-message') != null) {
-    newText = 'Отсутствуют зачала';
+  if (document.querySelector(".no-posts-message") != null) {
+    newText = "Отсутствуют зачала";
   }
 
-  document.querySelector('.post-filter-message').innerHTML = getTextOfElement.replace('Показаны сообщения', newText);
-
+  document.querySelector(".post-filter-message").innerHTML =
+    getTextOfElement.replace("Показаны сообщения", newText);
 }
 
 // После полной загрузки документа
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    getElement = document.querySelector(".post-filter-message");
+    if (getElement != null) {
+      replaceSearchContent();
+    }
+  },
+  true
+);
 
-  getElement = document.querySelector('.post-filter-message');
-  if (getElement != null) {
-    replaceSearchContent();
-  }
-}, true);
+// if (document.readyState !== 'loading') {
+//    us_clickInterception();
+//  } else {
+//    document.addEventListener('DOMContentLoaded', us_clickInterception);
+//  }
+
+//  function us_clickInterception() {
+//    var links = document.querySelectorAll('a');
+//    Array.prototype.forEach.call(links, function (link) {
+//      link.addEventListener('click', function () {
+//        /* здесь пишем нужное действие */
+//       alert('РАБОТАЕТ ПЕРЕОПРЕДЕЛЕНИЕ…');
+//      });
+//    });
+//  }
+
+if (localStorage.ystm == undefined) {
+  localStorage.ystm = JSON.stringify({ entries: null, views: "flex" });
+}
+
+var lastSegment = location.pathname.split("/");
+lastSegment = lastSegment[lastSegment.length - 1];
+
+function firstPreview() {
+  document.getElementsByClassName("first-preview")[0].style = `display:${JSON.parse(localStorage.ystm).views
+    }`;
+  document.getElementById(
+    "first-preview"
+  ).innerHTML = `Текущая седмица:<br> по Пасхе: ${sedmicaNorm}, по Пятьдесятнице: ${sedmicaNorm - 7
+    }.<br>В древе жизни указаны читаемые седмицы<br /> с учетом преступок или отступок. <span class="close" onclick="closeFirstPreview()">+</span>`;
+  document.getElementsByClassName("page")[0].style = "filter: blur(4px)";
+}
+
+if (
+  lastSegment == "stvol.html" &&
+  JSON.parse(localStorage.ystm).entries !== 1
+) {
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      firstPreview();
+    },
+    false
+  );
+}
+
+function closeFirstPreview() {
+  // alert(lastSegment);
+  document.getElementsByClassName("first-preview")[0].style.display = "none";
+  document.getElementsByClassName("page")[0].style.filter = "none";
+  aa = localStorage.ystm = JSON.stringify({ entries: 1, views: "none" });
+}
