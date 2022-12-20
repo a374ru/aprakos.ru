@@ -224,8 +224,7 @@ if (
     "\n\n\t\tГод и дата прошедшей Пасхи: " + dataPashi.toString().slice(0, 15)
   );
   console.log(
-    "\t\tГод и дата ===ОЖИДАЕМОЙ=== Пасхи: " +
-    dataPashiNext.toString().slice(0, 16)
+    "\t\tГод и дата ===ОЖИДАЕМОЙ=== Пасхи: " + dataPashiNext.toString().slice(0, 16)
   );
 } else {
   // Если Пасхи еще не было в текущем году
@@ -254,7 +253,7 @@ if (
  * @returns boolean
  */
 function mondayAfterVozdviggenie() {
-	// Дата Воздвижения Креста
+  // Дата Воздвижения Креста
 
   var a = new Date(curentYearPrefics.slice(-4) + "-09-27T00:00:00");
   var aaa = 1 + 7 - (a.getDay() % 7);
@@ -366,29 +365,15 @@ if (zakheyTime() == true) {
 }
 
 console.log(
-  `\n\n\t\tОт Пасхи ${dataPashi
-    .toString()
-    .slice(11, 15)} года и до Пасхи ${dataPashiNext
-      .toString()
-      .slice(11, 15)} года случается седмиц ••• ${allSedmica - 1}` +
-  `\n\t\tСоответственно промежуточных седмиц пред Неделей МиФ  ••• ${allSedmica - 1 - 50
-  }` +
+  `\n\n\t\tОт Пасхи ${dataPashi.toString().slice(11, 15)} года и до Пасхи ${dataPashiNext.toString().slice(11, 15)} года случается седмиц ••• ${allSedmica - 1}` +
+  `\n\t\tСоответственно промежуточных седмиц пред Неделей МиФ  ••• ${allSedmica - 1 - 50}` +
   `\n\t\tОтступка по чтениям для промежуточных седмиц ••• ${intermediateWeeks}\n` +
-  `\n\t\tНеделя Закхея: ${new Date(
-    dataPashiNext.getTime() - 864e5 * 7 * 11
-  ).toDateString()}` +
-  `\n\t\t   Неделя МИФ: ${new Date(
-    dataPashiNext.getTime() - 864e5 * 7 * 10
-  ).toDateString()}` +
-  `\n\t\t   Неделя ОБС: ${new Date(
-    dataPashiNext.getTime() - 864e5 * 7 * 9
-  ).toDateString()}` +
-  `\n\t\tПрощенное ВСК: ${new Date(
-    dataPashiNext.getTime() - 864e5 * 7 * 7
-  ).toDateString()}` +
-  `\n\t\t    Начало ВП: ${new Date(
-    dataPashiNext.getTime() - 864e5 * 7 * 7 + 864e5
-  ).toDateString()}\n\n\n\n\n`
+  `\n\t\tНеделя Закхея: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 11)).toDateString()}` +
+  `\n\t\t   Неделя МИФ: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 10)).toDateString()}` +
+  `\n\t\t   Неделя ОБС: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 9)).toDateString()}` +
+  `\n\t\tПрощенное ВСК: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 7)).toDateString()}` +
+  `\n\t\t    Начало ВП: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 7) + 864e5).toDateString()}\n\n\n\n\n`
+
 );
 
 // flag
@@ -401,10 +386,10 @@ let promWeek = 0;
  * @returns number
  */
 function otstupkaVozdvijjenie() {
-	// Функция определяет Воздвиженскую отступку.
+  // Функция определяет Воздвиженскую отступку.
 
-	// Дата воздвижения, 27 сентября по Григорианскому календарю.
-	// или 14 сентября по Юлианскому календарю.
+  // Дата воздвижения, 27 сентября по Григорианскому календарю.
+  // или 14 сентября по Юлианскому календарю.
 
   /**
    * Дата Воздвижения.
@@ -429,14 +414,14 @@ function otstupkaVozdvijjenie() {
 }
 
 if (mondayAfterVozdviggenie()) {
-	//S:S
+  //S:S
 
   var sedmica = sedmica + otstupkaVozdvijjenie();
   var sedmicaNorm = sedmica - otstupkaVozdvijjenie();
 
-	// IMPORTANT: Если нужно вывести на странице седмицы читаемые c учетом ступок, тогда заменить переменную `sedmica`  на `sedmicaStupka`
+  // IMPORTANT: Если нужно вывести на странице седмицы читаемые c учетом ступок, тогда заменить переменную `sedmica`  на `sedmicaStupka`
 
-	//   alert(`mondayAfterVozdviggenie()`)
+  //   alert(`mondayAfterVozdviggenie()`)
 }
 
 // конкатенация сегмента URL с учетом ступок
@@ -450,7 +435,7 @@ if (sedmica > 40 && intermediateWeeks != 0) {
   promWeek = 1;
   var sedDayStupka = sedmica - intermediateWeeks + "" + ul_numDay;
 
-	// Изменяем `sedDay` с учетом отступок и преступок
+  // Изменяем `sedDay` с учетом отступок и преступок
 
   linkToAprakos = "/" + yearMonthPath(sedDayStupka) + sedDayStupka + ".html";
 
@@ -574,7 +559,7 @@ function seedON() {
   }
 
   var b = (document.getElementById(a).className += " colorBlock");
-	// document.getElementsByClassName("colorBlock")[0].style.border = "3px";
+  // document.getElementsByClassName("colorBlock")[0].style.border = "3px";
 
   if (stupka != 0 && sedmica > 39) {
     document.getElementById(a).className += " promWeek";
@@ -693,6 +678,7 @@ function seedPyatidesyatnica() {
       '<a href="' + "#" + seedIn + '">' + sedmicaPyatidesyatnice + "</a>";
     glas = glasSedmici(sedmicaNorm);
     document.getElementById("date5").innerHTML = "Глас " + glas;
+
   } else {
     glas = glasSedmici(sedmica);
     sedmicaPyatidesyatnice =
@@ -700,7 +686,7 @@ function seedPyatidesyatnica() {
       glas +
       "<br>" +
       " Сейчас идет счет седмиц от Пасхи до Пятидесятницы. ";
-		// linkToAprakos = "/" + yM + sedDay + '.html';
+    // linkToAprakos = "/" + yM + sedDay + '.html';
 
     if (sedmica <= 39) {
       document.getElementById("date3").className += "PlusUngles";
@@ -737,34 +723,31 @@ function mifTime() {
  */
 backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
 
+
 /**
  * Функция замены слова при выдаче результатов в поиске.
  */
 function replaceSearchContent() {
-  let getTextOfElement = document.querySelector(
-    ".post-filter-message"
-  ).innerHTML;
-  newText = "Есть зачала";
 
-  if (document.querySelector(".no-posts-message") != null) {
-    newText = "Отсутствуют зачала";
+  let getTextOfElement = document.querySelector('.post-filter-message').innerHTML;
+  newText = 'Есть зачала';
+
+  if (document.querySelector('.no-posts-message') != null) {
+    newText = 'Отсутствуют зачала';
   }
 
-  document.querySelector(".post-filter-message").innerHTML =
-    getTextOfElement.replace("Показаны сообщения", newText);
+  document.querySelector('.post-filter-message').innerHTML = getTextOfElement.replace('Показаны сообщения', newText);
+
 }
 
 // После полной загрузки документа
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
-    getElement = document.querySelector(".post-filter-message");
-    if (getElement != null) {
-      replaceSearchContent();
-    }
-  },
-  true
-);
+document.addEventListener('DOMContentLoaded', function () {
+
+  getElement = document.querySelector('.post-filter-message');
+  if (getElement != null) {
+    replaceSearchContent();
+  }
+}, true);
 
 // if (document.readyState !== 'loading') {
 //    us_clickInterception();
@@ -782,39 +765,51 @@ document.addEventListener(
 //    });
 //  }
 
+// Инициализация хранилища 
 if (localStorage.ystm == undefined) {
-  localStorage.ystm = JSON.stringify({ entries: null, views: "flex" });
+  instalLocalStorage();
 }
 
-var lastSegment = location.pathname.split("/");
+// Проверка url-сегмента страницы stvol.html
+var lastSegment = location.pathname.split('/');
 lastSegment = lastSegment[lastSegment.length - 1];
 
+// Установка в хранилище свойств CSS для модального окна
+function instalLocalStorage() {
+  localStorage.ystm = JSON.stringify({ entries: null, display: "flex" });
+}
+
+// Показ стартового модального окна
 function firstPreview() {
-  document.getElementsByClassName("first-preview")[0].style = `display:${JSON.parse(localStorage.ystm).views
-    }`;
-  document.getElementById(
-    "first-preview"
-  ).innerHTML = `Текущая седмица:<br> по Пасхе: ${sedmicaNorm}, по Пятьдесятнице: ${sedmicaNorm - 7
-    }.<br>В древе жизни указаны читаемые седмицы<br /> с учетом преступок или отступок. <span class="close" onclick="closeFirstPreview()">+</span>`;
-  document.getElementsByClassName("page")[0].style = "filter: blur(4px)";
+  document.getElementsByClassName('first-preview')[0].style = `display:${JSON.parse(localStorage.ystm).display}`;
+  document.getElementById('first-preview').innerHTML = `Текущая седмица:<br> по Пасхе: ${sedmicaNorm}, по Пятьдесятнице: ${sedmicaNorm - 7}.<br>В древе жизни указаны читаемые седмицы<br /> с учетом преступок или отступок. <span class="close" onclick="closeFirstPreview()">+</span>`;
+  document.getElementsByClassName('page')[0].style = "filter: blur(4px)";
+
 }
 
-if (
-  lastSegment == "stvol.html" &&
-  JSON.parse(localStorage.ystm).entries !== 1
-) {
-  document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-      firstPreview();
-    },
-    false
-  );
+// Вызов модального окна после полной загрузки страницы
+if (lastSegment == 'stvol.html' && JSON.parse(localStorage.ystm).entries !== 1) {
+  document.addEventListener('DOMContentLoaded', () => {
+    firstPreview();
+  }
+    , false);
+
 }
 
+// Закрытие модального окна
 function closeFirstPreview() {
   // alert(lastSegment);
-  document.getElementsByClassName("first-preview")[0].style.display = "none";
-  document.getElementsByClassName("page")[0].style.filter = "none";
-  aa = localStorage.ystm = JSON.stringify({ entries: 1, views: "none" });
+  document.getElementsByClassName('first-preview')[0].style.display = 'none';
+  document.getElementsByClassName('page')[0].style.filter = 'none';
+  aa = localStorage.ystm = JSON.stringify({ entries: 1, display: "none" });
 }
+
+// Прослушивание нажатий клавиатуры
+document.addEventListener('keyup', function (event) {
+  if (event.key === '§') {
+    instalLocalStorage();
+    firstPreview();
+  } else if (event.key === 'Escape') {
+    closeFirstPreview();
+  }
+});
