@@ -1,7 +1,7 @@
 /*  Во имя Отца и Сына и Святаго Духа. Аминь. */
 
 /* "-=-=-=-=-=-=-=-=-=- */
-/* "суббота, 10 апреля 2021 г. 14:58:33 */
+/* вторник, 20 декабря 2022 г. 08:34:39 (MSK) */
 /* "-=-=-=-=-=-=-=-=-=-" */
 
 /* =================== */
@@ -21,30 +21,25 @@
 	right: 1.2rem;
 	rotate: 45deg;
 	font-size: 2em;
-	color: #ffffff;
+	color: #dfc2c2;
+	cursor: pointer;
 }
 
 .first-preview {
-	margin: 3% 25%;
+	margin: 2% 21%;
 	display: none;
 	position: fixed;
 	align-items: center;
 	justify-content: center;
-	/* align-content: center; */
 	border-radius: 0.3rem;
-	box-shadow: #743d1a 0px 0px 44px;
+	box-shadow: #743d1a82 0px 1px 10px 7px;
 	top: 0px;
 	z-index: 111;
 	width: 50%;
 	min-height: 50%;
-	background: linear-gradient(
-		0deg,
-		rgb(255, 234, 234),
-		#fff,
-		rgb(255, 235, 238)
-	);
+	background: linear-gradient(0deg, #ffecd9, #fffe, #f9f4e7);
 	font-size: x-large;
-	color: #760f0f;
+	color: #695319;
 	padding: 1em;
 	transform: translateY(-150%);
 	animation: ani 0.22s forwards;
@@ -238,6 +233,12 @@ sup {
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+	.first-preview {
+		margin: 12%;
+		width: 64%;
+		/* min-height: 50%; */
+	}
+
 	.abzac {
 		/* font-family: Irmologion; */
 		margin: auto;
