@@ -24,7 +24,9 @@
     --fontEvng-var: Evangeliecs;
 }
 
-
+img{
+width: 33%;
+}
 /* =================== */
 
 
@@ -155,6 +157,14 @@ a:visited {
     font-family: var(--font-var);
     font-size: 1.4em;
     /* text-transform: uppercase; */
+}
+
+.page-404{
+
+font-size: 2em;
+text-align: center;
+
+
 }
 
 .hr-1 {
