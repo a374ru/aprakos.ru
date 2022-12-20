@@ -215,6 +215,11 @@ sup {
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 414px) and (orientation: portrait) {
+	.first-preview {
+		margin: 22px 12%;
+		width: 64%;
+		/* min-height: 50%; */
+	}
 	.abzac {
 		margin: 3px 3px 23px 3px;
 		/* font-family: Irmologion; */
@@ -239,7 +244,7 @@ sup {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 	.first-preview {
-		margin: 12%;
+		margin: 2em 12%;
 		width: 64%;
 		/* min-height: 50%; */
 	}
