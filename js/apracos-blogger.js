@@ -765,12 +765,10 @@ document.addEventListener('DOMContentLoaded', function () {
 //    });
 //  }
 
-// Инициализация хранилища 
 if (localStorage.ystm == undefined) {
   instalLocalStorage();
 }
 
-// Проверка url-сегмента страницы stvol.html
 var lastSegment = location.pathname.split('/');
 lastSegment = lastSegment[lastSegment.length - 1];
 
@@ -781,8 +779,9 @@ function instalLocalStorage() {
 
 // Показ стартового модального окна
 function firstPreview() {
+  instalLocalStorage();
   document.getElementsByClassName('first-preview')[0].style = `display:${JSON.parse(localStorage.ystm).display}`;
-  document.getElementById('first-preview').innerHTML = `Текущая седмица:<br> по Пасхе: ${sedmicaNorm}, по Пятьдесятнице: ${sedmicaNorm - 7}.<br>В древе жизни указаны читаемые седмицы<br /> с учетом преступок или отступок. <span class="close" onclick="closeFirstPreview()">+</span>`;
+  document.getElementById('first-preview').innerHTML = `Текущая седмица:<br> по Пасхе: ${sedmicaNorm}, по Пятьдесятнице: ${sedmicaNorm - 7}.<br />В стволе указаны читаемые седмицы<br /> с учетом ступок. <span class="close" onclick="closeFirstPreview()">+</span>`;
   document.getElementsByClassName('page')[0].style = "filter: blur(4px)";
 
 }
@@ -802,14 +801,23 @@ function closeFirstPreview() {
   document.getElementsByClassName('first-preview')[0].style.display = 'none';
   document.getElementsByClassName('page')[0].style.filter = 'none';
   aa = localStorage.ystm = JSON.stringify({ entries: 1, display: "none" });
+  doubleClick700 = "";
 }
 
+doubleClick700 = "";
 // Прослушивание нажатий клавиатуры
 document.addEventListener('keyup', function (event) {
-  if (event.key === '§') {
-    instalLocalStorage();
+  console.log(event.code);
+  if (event.code == 'Backquote') {
+    doubleClick700 += event.code + "";
+    setTimeout(() => { doubleClick700 = "" }, 700);
+    console.log(doubleClick700);
+  }
+  if (doubleClick700 == event.code + event.code) {
     firstPreview();
-  } else if (event.key === 'Escape') {
+  }
+
+  if (event.code === 'Escape') {
     closeFirstPreview();
   }
 });
