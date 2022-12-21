@@ -26,7 +26,7 @@
 }
 
 .first-preview {
-	margin: 14vh 21%;
+	margin: 7vh 22vw;
 	display: none;
 	position: fixed;
 	align-items: center;
@@ -216,7 +216,7 @@ sup {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 414px) and (orientation: portrait) {
 	.first-preview {
-		margin: 22px 12%;
+		margin: 2vh 12vw;
 		width: 64%;
 		/* min-height: 50%; */
 	}
@@ -244,8 +244,8 @@ sup {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 	.first-preview {
-		margin: 2em 12%;
-		width: 64%;
+		margin: 2vh 12vw;
+		/* width: 64%; */
 		/* min-height: 50%; */
 	}
 
