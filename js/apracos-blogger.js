@@ -778,15 +778,17 @@ function instalLocalStorage() {
 }
 
 // Показ стартового модального окна
+let close = '<span class="close" onclick="closeFirstPreview()">+</span>'
+const commentStvol = `<br />В стволе указаны читаемые седмицы<br /> с учетом ступок. ${close}`;
 function firstPreview() {
   instalLocalStorage();
   document.getElementsByClassName('first-preview')[0].style = `display:${JSON.parse(localStorage.ystm).display}`;
-  document.getElementById('first-preview').innerHTML = `Текущая седмица:<br> по Пасхе: ${sedmicaNorm}, по Пятьдесятнице: ${sedmicaNorm - 7}.<br />В стволе указаны читаемые седмицы<br /> с учетом ступок. <span class="close" onclick="closeFirstPreview()">+</span>`;
+  document.getElementById('first-preview').innerHTML = `Текущая седмица:<br> по Пасхе: ${sedmicaNorm}, по Пятьдесятнице: ${sedmicaNorm - 7}.${lastSegment === "stvol.html" ? commentStvol : ""} ${close}`;
   document.getElementsByClassName('page')[0].style = "filter: blur(4px)";
 
 }
 
-// Вызов модального окна после полной загрузки страницы
+// Вызов модального окна первый раз после полной загрузки страницы
 if (lastSegment == 'stvol.html' && JSON.parse(localStorage.ystm).entries !== 1) {
   document.addEventListener('DOMContentLoaded', () => {
     firstPreview();
@@ -807,13 +809,13 @@ function closeFirstPreview() {
 doubleClick700 = "";
 // Прослушивание нажатий клавиатуры
 document.addEventListener('keyup', function (event) {
-  console.log(event.code);
-  if (event.code == 'Backquote') {
+  // console.log(event.code);
+  if (event.code == 'Backquote' || event.code == 'F1') {
     doubleClick700 += event.code + "";
     setTimeout(() => { doubleClick700 = "" }, 700);
     console.log(doubleClick700);
   }
-  if (doubleClick700 == event.code + event.code) {
+  if (doubleClick700 == event.code + event.code + event.code) {
     firstPreview();
   }
 
