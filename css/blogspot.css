@@ -11,14 +11,12 @@
 /* =================== */
 
 .sup {
-	color: #5e4e4e;
+	color: #ffffff;
 	border-width: 2px;
-	border-style: dotted;
-	border-color: #ff0000;
 	cursor: pointer;
-	border-radius: 50%;
-	padding: 1px 7px 1px 7px;
-	background-color: #94949400;
+	border-radius: 34px 2px 47px 51%;
+	padding: 0px 7px 0px 7px;
+	background-color: #6fbf5f;
 }
 
 .sup:hover {
