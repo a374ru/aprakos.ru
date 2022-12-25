@@ -704,21 +704,25 @@ if (lastSegment == 'stvol.html' & JSON.parse(localStorage.ystm).entries != 1) {
 // Показ стартового модального окна
 const closeClick = '<span class="close" onclick="closeFirstPreview()">+</span>';
 const commentStvol = "<div class='comment-stvol'>В стволе указаны читаемые седмицы с учетом ступок.</div>";
-
+timerOff = undefined;
 function firstPreview() {
   instalLocalStorage();
+  page = document.getElementsByClassName('page')[0].style = "filter: blur(12px)";
+  fp = document.getElementById('first-preview').innerHTML = `<b>Текущая седмица:</b>&nbsp;по Пасхе:&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пятьдесятнице:&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
   document.getElementsByClassName('first-preview')[0].style = `
   display:${JSON.parse(localStorage.ystm).display}`;
-  fp = document.getElementById('first-preview').innerHTML = `<b>Текущая седмица:</b>&nbsp;по Пасхе:&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пятьдесятнице:&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
-  page = document.getElementsByClassName('page')[0].style = "filter: blur(7px)";
   reversePack = false;
-  return fp;
+
+  timerOff = setTimeout(() => { closeFirstPreview(); alert("ДОЛГО ВЫ НЕ ОТКЛИКАЛИСЬ…") }, 119000);
+
+
+  return { page, fp, reversePack };
 
 }
 
 
 // Закрытие модального окна
-function closeFirstPreview() {
+function closeFirstPreview(toff = undefined) {
   // alert(lastSegment);
   document.getElementsByClassName('first-preview')[0].style = 'display:none';
   document.getElementsByClassName('page')[0].style.filter = 'none';
@@ -729,6 +733,7 @@ function closeFirstPreview() {
   });
   doubleClick700 = "";
   reversePack = true;
+  clearTimeout(timerOff);
 }
 
 var reversePack = true;
@@ -767,7 +772,7 @@ document.addEventListener('keyup', function (event) {
 //     console.log("CLICK-CLACK")
 //   });
 // }
-// else { console.log('666 666 666 6666'); }
+// else { console.log('=========================='); }
 
 
 

@@ -1,15 +1,10 @@
 /*  Во имя Отца и Сына и Святаго Духа. Аминь. */
-
 /* "-=-=-=-=-=-=-=-=-=- */
 /* "суббота, 10 апреля 2021 г. 14:58:33 */
 /* "-=-=-=-=-=-=-=-=-=-" */
-
 /* =================== */
-
 /* project variables */
-
 /* =================== */
-
 :root {
 	--kino-var: #e34234;
 	--date-var: #ffd8d4;
@@ -62,11 +57,13 @@
 	color: #dfc2c2;
 	cursor: pointer;
 }
+
 .bold {
 	font-weight: var(--bold-size);
 }
+
 .first-preview {
-	display: contents;
+	display: none;
 	position: fixed;
 	flex-wrap: wrap;
 	box-shadow: #00000077 0px 0px 9px 0px;
@@ -87,13 +84,14 @@
 	border-radius: 1em;
 	margin: 7vh 0rem 0rem 23vw;
 	padding: 2em;
-	animation: ani 0.5s forwards;
+	animation: ystm 0.7s forwards;
 }
 
-@keyframes ani {
+@keyframes ystm {
 	0% {
-		transform: translateY(-150%);
+		transform: translateY(150%);
 	}
+
 	100% {
 		transform: translateY(0);
 	}
@@ -251,6 +249,7 @@ sup {
 		/* width: 100%; */
 		/* min-height: 50%; */
 	}
+
 	.abzac {
 		margin: 3px 3px 23px 3px;
 		/* font-family: Irmologion; */
@@ -358,7 +357,6 @@ sup {
 }
 
 /* Дополнительные стили */
-
 /* Плавный скролл страницы*/
 html {
 	scroll-behavior: smooth;
@@ -416,7 +414,6 @@ a:hover .sedmica {
 /*   position: relative; */
 /*   text-indent: 0px; */
 /* } */
-
 .ttt:hover::after {
 	content: attr(data-title);
 	position: absolute;
@@ -430,7 +427,6 @@ a:hover .sedmica {
 	font-family: Arial, sans-serif;
 	color: blanchedalmond;
 	font-size: 55%;
-
 	/* padding: 5px 10px; */
 	/* border-radius: 3px; */
 	/* box-shadow: 7px 7px #e3433480; */
