@@ -66,7 +66,7 @@
 	font-weight: var(--bold-size);
 }
 .first-preview {
-	display: none;
+	display: contents;
 	position: fixed;
 	flex-wrap: wrap;
 	box-shadow: #00000077 0px 0px 9px 0px;
@@ -87,7 +87,7 @@
 	border-radius: 1em;
 	margin: 7vh 0rem 0rem 23vw;
 	padding: 2em;
-	animation: ani 0.22s forwards;
+	animation: ani 0.5s forwards;
 }
 
 @keyframes ani {

@@ -761,13 +761,13 @@ document.addEventListener('keyup', function (event) {
 })
 
 
-rrr = document.getElementById('#first-preview');
-if (rrr) {
-  rrr.addEventListener('click', () => {
-    console.log("CLICK-CLACK")
-  });
-}
-else { console.log('666 666 666 6666'); }
+// rrr = document.getElementById('#first-preview');
+// if (rrr) {
+//   rrr.addEventListener('click', () => {
+//     console.log("CLICK-CLACK")
+//   });
+// }
+// else { console.log('666 666 666 6666'); }
 
 
 
