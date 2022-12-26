@@ -12,7 +12,7 @@
 	--backgroгnd-color-fff2e4: #fff2e4;
 	--bold-size: 900;
 	--comment-color: #ccc;
-	--size-block-pv: 25%;
+	--margin-block-pv: 25%;
 }
 
 @font-face {
@@ -83,7 +83,7 @@
 	background-position: bottom right;
 	border: solid #fcf6e6 0.44em;
 	border-radius: 1em;
-	margin: 7vh 0rem 0rem var(--size-block-pv);
+	margin: 7vh 0rem 0rem var(--margin-block-pv);
 	padding: 2em;
 	animation: ystm 0.7s forwards;
 }
@@ -244,9 +244,9 @@ sup {
 	color: var(--kino-var);
 }
 
-@media only screen and (min-device-width: 279px) and (max-device-width: 414px) and (orientation: portrait) {
+@media only screen and (min-device-width: 200px) and (max-device-width: 414px) and (orientation: portrait) {
 	.first-preview {
-		margin: 7% calc(var(--size-block-pv)/1.8);
+		margin: 7% calc(var(--margin-block-pv)/1.8);
 		/* width: 100%; */
 		/* min-height: 50%; */
 	}
@@ -275,7 +275,7 @@ sup {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 	.first-preview {
-		margin: 2vh calc(var(--size-block-pv)/1.6);
+		margin: 2vh calc(var(--margin-block-pv)/1.6);
 		/* 		width: 64%; */
 		/* min-height: 50%; */
 	}

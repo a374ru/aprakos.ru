@@ -708,7 +708,7 @@ timerOff = undefined;
 function firstPreview() {
   instalLocalStorage();
   page = document.getElementsByClassName('page')[0].style = "filter: blur(12px)";
-  fp = document.getElementById('first-preview').innerHTML = `<b>Текущая седмица</b>&nbsp;по Пасхе:&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пятьдесятнице&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
+  fp = document.getElementById('first-preview').innerHTML = `<b>Текущая седмица</b>&nbsp;по Пасхе&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пять&shy;десят&shy;нице&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
   document.getElementsByClassName('first-preview')[0].style = `
   display:${JSON.parse(localStorage.ystm).display}`;
   reversePack = false;
