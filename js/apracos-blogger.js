@@ -708,14 +708,12 @@ timerOff = undefined;
 function firstPreview() {
   instalLocalStorage();
   page = document.getElementsByClassName('page')[0].style = "filter: blur(12px)";
-  fp = document.getElementById('first-preview').innerHTML = `<b>Текущая седмица:</b>&nbsp;по Пасхе:&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пятьдесятнице:&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
+  fp = document.getElementById('first-preview').innerHTML = `<b>Текущая седмица</b>&nbsp;по Пасхе:&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пятьдесятнице&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
   document.getElementsByClassName('first-preview')[0].style = `
   display:${JSON.parse(localStorage.ystm).display}`;
   reversePack = false;
 
-  timerOff = setTimeout(() => {
-    closeFirstPreview(); alert("\n\n Чтобы увидеть текущую седмицу\n дважды нажмите клавишу SHIFT ⬆…")
-  }, 13200000);
+  timerOff = setTimeout(() => { closeFirstPreview(); alert("\n\n Чтобы увидеть текущую седмицу\n дважды нажмите клавишу SHIFT ⬆…") }, 1320000);
 
 
   return { page, fp, reversePack };
