@@ -713,7 +713,9 @@ function firstPreview() {
   display:${JSON.parse(localStorage.ystm).display}`;
   reversePack = false;
 
-  timerOff = setTimeout(() => { closeFirstPreview(); alert("ДОЛГО ВЫ НЕ ОТКЛИКАЛИСЬ…") }, 119000);
+  timerOff = setTimeout(() => {
+    closeFirstPreview(); alert("\n\n Чтобы увидеть текущую седмицу\n дважды нажмите клавишу SHIFT ⬆…")
+  }, 13200000);
 
 
   return { page, fp, reversePack };

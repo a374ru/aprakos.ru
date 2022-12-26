@@ -12,6 +12,7 @@
 	--backgroгnd-color-fff2e4: #fff2e4;
 	--bold-size: 900;
 	--comment-color: #ccc;
+	--size-block-pv: 25%;
 }
 
 @font-face {
@@ -69,7 +70,7 @@
 	box-shadow: #00000077 0px 0px 9px 0px;
 	top: 0px;
 	z-index: 111;
-	width: 50vw;
+	width: 43%;
 	/* min-height: 33%; */
 	font-size: 1.7em;
 	color: #695319;
@@ -82,7 +83,7 @@
 	background-position: bottom right;
 	border: solid #fcf6e6 0.44em;
 	border-radius: 1em;
-	margin: 7vh 0rem 0rem 23vw;
+	margin: 7vh 0rem 0rem var(--size-block-pv);
 	padding: 2em;
 	animation: ystm 0.7s forwards;
 }
@@ -243,9 +244,9 @@ sup {
 	color: var(--kino-var);
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 414px) and (orientation: portrait) {
+@media only screen and (min-device-width: 279px) and (max-device-width: 414px) and (orientation: portrait) {
 	.first-preview {
-		margin: 2vh 12vw;
+		margin: 7% calc(var(--size-block-pv)/1.8);
 		/* width: 100%; */
 		/* min-height: 50%; */
 	}
@@ -274,7 +275,7 @@ sup {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 	.first-preview {
-		margin: 2vh 12vw;
+		margin: 2vh calc(var(--size-block-pv)/1.6);
 		/* 		width: 64%; */
 		/* min-height: 50%; */
 	}
@@ -296,6 +297,8 @@ sup {
 }
 
 @media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
+
+	
 	.abzac {
 		font-family: Irmologion;
 		font-size: 1.7em;
