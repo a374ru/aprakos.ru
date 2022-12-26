@@ -1,6 +1,6 @@
 /*  Во имя Отца и Сына и Святаго Духа. Аминь. */
 /* "-=-=-=-=-=-=-=-=-=- */
-/* "суббота, 10 апреля 2021 г. 14:58:33 */
+/* "понедельник, 26 декабря 2022 г. 10:34:05 (MSK) */
 /* "-=-=-=-=-=-=-=-=-=-" */
 /* =================== */
 /* project variables */
@@ -246,7 +246,8 @@ sup {
 
 @media only screen and (min-device-width: 200px) and (max-device-width: 414px) and (orientation: portrait) {
 	.first-preview {
-		margin: 7% calc(var(--margin-block-pv)/1.8);
+		margin: 22% calc(var(--margin-block-pv)/1.8);
+
 		/* width: 100%; */
 		/* min-height: 50%; */
 	}

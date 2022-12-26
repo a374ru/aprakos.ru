@@ -713,7 +713,7 @@ function firstPreview() {
   display:${JSON.parse(localStorage.ystm).display}`;
   reversePack = false;
 
-  timerOff = setTimeout(() => { closeFirstPreview(); alert("\n\n Чтобы увидеть текущую седмицу\n дважды нажмите клавишу SHIFT ⬆…") }, 1320000);
+  timerOff = setTimeout(() => { closeFirstPreview(); alert("\n\n (MACOS) Чтобы увидеть текущую седмицу\n дважды нажмите клавишу SHIFT ⬆…") }, 1320000);
 
 
   return { page, fp, reversePack };
