@@ -675,24 +675,31 @@ document.addEventListener('DOMContentLoaded', function () {
 //    });
 //  }
 
-if (localStorage.ystm == undefined) {
-  instalLocalStorage();
+
+
+reversePack = true;
+
+if (localStorage.ystm === undefined) {
+  setLocalStorage();
 }
 
 var lastSegment = location.pathname.split('/');
 lastSegment = lastSegment[lastSegment.length - 1];
 
 // Установка в хранилище свойств CSS для модального окна
-function instalLocalStorage() {
+function setLocalStorage() {
   localStorage.ystm = JSON.stringify({
     entries: null,
-    display: "flex",
-    flexWrap: "wrap"
+    reversePack: true,
+    timerOff: 0,
+    visibility: "visible",
+    lastSegment: lastSegment
   });
-}
 
+
+}
 // Вызов модального окна первый раз после полной загрузки страницы
-if (lastSegment == 'stvol.html' & JSON.parse(localStorage.ystm).entries != 1) {
+if (lastSegment == 'stvol.html' & JSON.parse(localStorage.ystm).entries == null) {
   document.addEventListener('DOMContentLoaded', () => {
     firstPreview();
   }
@@ -700,43 +707,41 @@ if (lastSegment == 'stvol.html' & JSON.parse(localStorage.ystm).entries != 1) {
 
 }
 
-
 // Показ стартового модального окна
-const closeClick = '<span class="close" onclick="closeFirstPreview()">+</span>';
+const closeClick = '<span class="close" onclick="closeFP00()">+</span>';
 const commentStvol = "<div class='comment-stvol'>В стволе указаны читаемые седмицы с учетом ступок.</div>";
-timerOff = undefined;
+
+
 function firstPreview() {
-  instalLocalStorage();
-  page = document.getElementsByClassName('page')[0].style = "filter: blur(12px)";
-  fp = document.getElementById('first-preview').innerHTML = `<b>Текущая седмица</b>&nbsp;по Пасхе&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пять&shy;десят&shy;нице&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
-  document.getElementsByClassName('first-preview')[0].style = `
-  display:${JSON.parse(localStorage.ystm).display}`;
+  // instalLocalStorage();
+  str = `<b>Текущая седмица</b>&nbsp;по Пасхе&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пять&shy;десят&shy;нице&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
+
+  fp = document.getElementById('first-preview').innerHTML = str;
+  document.querySelector('#fp00').classList.add('fp00');
+  document.querySelector('#first-preview').classList.add('fp01');
   reversePack = false;
 
-  timerOff = setTimeout(() => { closeFirstPreview(); alert("\n\n (MACOS) Чтобы увидеть текущую седмицу\n дважды нажмите клавишу SHIFT ⬆…") }, 1320000);
-
-
-  return { page, fp, reversePack };
+  timerOff = setTimeout(() => { closeFP00(); alert("\n\n Чтобы увидеть текущую седмицу\n дважды нажмите клавишу SHIFT ⬆…") }, 3600000);
+  // return { fp, reversePack };
 
 }
 
 
 // Закрытие модального окна
-function closeFirstPreview(toff = undefined) {
-  // alert(lastSegment);
-  document.getElementsByClassName('first-preview')[0].style = 'display:none';
-  document.getElementsByClassName('page')[0].style.filter = 'none';
+function closeFP00() {
+
   localStorage.ystm = JSON.stringify({
     entries: 1,
-    display: "none",
-    flexWrap: "nowrap"
+    opasity: 0,
+    visibility: "hidden"
   });
+  document.querySelector('#fp00').classList.remove('fp00');
+  document.querySelector('#first-preview').classList.remove('fp01');
   doubleClick700 = "";
   reversePack = true;
   clearTimeout(timerOff);
 }
 
-var reversePack = true;
 doubleClick700 = "";
 // Прослушивание нажатий клавиатуры
 document.addEventListener('keyup', function (event) {
@@ -756,12 +761,12 @@ document.addEventListener('keyup', function (event) {
   if (state && reversePack) {
     firstPreview();
   } else if (state && !reversePack) {
-    closeFirstPreview();
+    closeFP00();
 
   }
 
   if (event.code === 'Escape') {
-    closeFirstPreview();
+    closeFP00();
   }
 })
 
