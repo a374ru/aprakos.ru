@@ -1,4 +1,4 @@
-// понедельник, 19 декабря 2022 г. 11:47:16 (MSK)
+// понедельник, 26 декабря 2022 г. 22:54:36 (MSK)
 /*
 
     --- APRAKOS.BLOGSPOT.COM VERSION ---
@@ -721,7 +721,7 @@ function firstPreview() {
   document.querySelector('#first-preview').classList.add('fp01');
   reversePack = false;
 
-  timerOff = setTimeout(() => { closeFP00(); alert("\n\n Чтобы увидеть текущую седмицу\n дважды нажмите клавишу SHIFT ⬆…") }, 3600000);
+  timerOff = setTimeout(() => { closeFP00(); alert("\n\n Долгое отсутствие увеличивает расстояние разлуки\n SHIFT(2) ⬆…") }, 3600000);
   // return { fp, reversePack };
 
 }
