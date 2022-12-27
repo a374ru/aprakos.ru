@@ -72,11 +72,12 @@
 	left: 0px;
 	min-width: 100%;
 	min-height: 100%;
-	background-color: #5430048c;
+	background-color: #ffffff8c;
 	backdrop-filter: blur(7px);
 	justify-content: center;
 	cursor: pointer;
 	/*   align-items: center; */
+	transition: 0.3s;
 }
 
 .fp01 {
@@ -101,12 +102,12 @@
 	background-position: bottom right;
 	border: solid #fcf6e6 0.44em;
 	border-radius: 12px;
-	animation: ystm 0.4s forwards;
+	animation: ystm 0.3s forwards;
 }
 
 @keyframes ystm {
 	0% {
-		transform: translateY(150%);
+		transform: translateY(-150%);
 	}
 
 	100% {
