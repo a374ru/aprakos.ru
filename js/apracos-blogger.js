@@ -640,10 +640,10 @@ backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
 function replaceSearchContent() {
 
   let getTextOfElement = document.querySelector('.post-filter-message').innerHTML;
-  newText = 'Есть зачала';
+  newText = 'Есть ответы';
 
   if (document.querySelector('.no-posts-message') != null) {
-    newText = 'Отсутствуют зачала';
+    newText = 'Отсутствуют результаты';
   }
 
   document.querySelector('.post-filter-message').innerHTML = getTextOfElement.replace('Показаны сообщения', newText);
@@ -709,7 +709,7 @@ if (lastSegment == 'stvol.html' & JSON.parse(localStorage.ystm).entries == null)
 
 // Показ стартового модального окна
 const closeClick = '<span class="close" onclick="closeFP00()">+</span>';
-const commentStvol = "<div class='comment-stvol'>В стволе указаны читаемые седмицы с учетом ступок.</div>";
+const commentStvol = "<div class='comment-stvol'>В стволе указаны читаемые седмицы с учетом ступок.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
 
 
 function firstPreview() {
