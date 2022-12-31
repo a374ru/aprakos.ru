@@ -273,14 +273,14 @@ sup {
 	.fp01 {
 		position: relative;
 		top: 0;
-		padding: 2rem 1rem 1rem 1rem;
 		width: 100%;
 		border: solid #fcf6e6 1em;
 		animation: 0.3s forwards;
 		border-radius: 0px 0px 12px 12px;
+	}
 
-
-
+	#close{
+	display: none;
 	}
 
 	.abzac {
