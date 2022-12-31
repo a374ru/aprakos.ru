@@ -859,8 +859,8 @@ function closeFP00() {
   document.querySelector("#fp00").classList.remove("fp00");
   document.querySelector("#first-preview").classList.remove("fp01");
   // Removed items
-  document.querySelector("#close").uoterHTML = '<!-- Will embed code-->';
-  document.querySelector("#fp-content").uoterHTML = '<!-- Will embed code-->';
+  document.querySelector("#close").outerHTML = '<!-- Will embed element-->';
+  document.querySelector("#fp-content").outerHTML = '<!-- Will embed element-->';
   doubleClick700 = "";
   reversePack = true;
   clearTimeout(timerOff);

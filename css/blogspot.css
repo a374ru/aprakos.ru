@@ -96,7 +96,7 @@
 	background-blend-mode: luminosity;
 	background-position: bottom right;
 	border: solid #fcf6e6 0.44em;
-	border-radius: 12px;
+	border-radius: 0px  0px 12px 12px;
 	animation: ystm 0.2s forwards;
 	align-items: center;
 }
@@ -274,7 +274,8 @@ sup {
 		border: solid #fcf6e6 1em;
 		animation: 0.3s forwards;
 		border-radius: 0;
-		align-content: start;
+
+
 	}
 
 	.abzac {
