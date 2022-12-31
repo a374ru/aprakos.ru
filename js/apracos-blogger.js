@@ -818,7 +818,7 @@ if (
 }
 
 // Показ стартового модального окна
-const closeClick = '<span class="close" onclick="closeFP00()">+</span>';
+const closeClick = '<span id="close" class="close" onclick="closeFP00()">+</span>';
 const commentStvol =
   "<span class='comment-stvol'>В стволе указаны читаемые седмицы с учетом ступок.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
 
@@ -858,6 +858,9 @@ function closeFP00() {
   });
   document.querySelector("#fp00").classList.remove("fp00");
   document.querySelector("#first-preview").classList.remove("fp01");
+  // Removed items
+  document.querySelector("#close").uoterHTML = '<!-- Will embed code-->';
+  document.querySelector("#fp-content").uoterHTML = '<!-- Will embed code-->';
   doubleClick700 = "";
   reversePack = true;
   clearTimeout(timerOff);
