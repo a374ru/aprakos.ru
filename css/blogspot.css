@@ -296,8 +296,8 @@ sup {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
 	.fp01 {
-		top: 7%;
-				width: 64%;
+		top: 0%;
+				width: 100%;
 		/* min-height: 50%; */
 	}
 
