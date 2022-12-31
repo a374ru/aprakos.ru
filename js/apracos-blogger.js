@@ -1,4 +1,4 @@
-// понедельник, 26 декабря 2022 г. 22:54:36 (MSK)
+// Thu Dec 29 2022 09:12:30 GMT+0300
 /*
 
     --- APRAKOS.BLOGSPOT.COM VERSION ---
@@ -13,7 +13,16 @@
 
 var url = "https://" + location.host + "/currentday/APRAKOS/";
 var linkToCurrentSeed;
-var massDays = ["0", "ВОСРЕСЕНЬЕ", "ПОНЕДЕЛЬНИК", "ВТОРНИК", "СРЕДА", "ЧЕТВЕРГ", "ПЯТНИЦА", "СУББОТА",];
+var massDays = [
+  "0",
+  "ВОСРЕСЕНЬЕ",
+  "ПОНЕДЕЛЬНИК",
+  "ВТОРНИК",
+  "СРЕДА",
+  "ЧЕТВЕРГ",
+  "ПЯТНИЦА",
+  "СУББОТА",
+];
 
 // Пасхалия, где месяц -03 это апрель, -04 май и тд
 var pashalia = {
@@ -189,23 +198,53 @@ var curentYearPrefics = "year" + theMomentTime.getFullYear();
 var curentYearPreficsNext = "year" + (theMomentTime.getFullYear() + 1);
 
 // Проверка и установка даты Пасхи для начала вычислений.
-if (// проверяем Пасху текущего года, была или нет?
+if (
+  // проверяем Пасху текущего года, была или нет?
   // Если Пасха была то:
-  theMomentTime >= new Date(theMomentTime.getFullYear(), pashalia[curentYearPrefics][0], pashalia[curentYearPrefics][1])) {
-  dataPashi = new Date(theMomentTime.getFullYear(), pashalia[curentYearPrefics][0], pashalia[curentYearPrefics][1]);
+  theMomentTime >=
+  new Date(
+    theMomentTime.getFullYear(),
+    pashalia[curentYearPrefics][0],
+    pashalia[curentYearPrefics][1]
+  )
+) {
+  dataPashi = new Date(
+    theMomentTime.getFullYear(),
+    pashalia[curentYearPrefics][0],
+    pashalia[curentYearPrefics][1]
+  );
   curentYearPreficsNext = "year" + (theMomentTime.getFullYear() + 1);
-  dataPashiNext = new Date(theMomentTime.getFullYear() + 1, pashalia[curentYearPreficsNext][0], pashalia[curentYearPreficsNext][1]);
+  dataPashiNext = new Date(
+    theMomentTime.getFullYear() + 1,
+    pashalia[curentYearPreficsNext][0],
+    pashalia[curentYearPreficsNext][1]
+  );
 
-  console.log("\n\n\t\tГод и дата прошедшей Пасхи: " + dataPashi.toString().slice(0, 15));
-  console.log("\t\tГод и дата ===ОЖИДАЕМОЙ=== Пасхи: " + dataPashiNext.toString().slice(0, 16));
+  console.log(
+    "\n\n\t\tГод и дата прошедшей Пасхи: " + dataPashi.toString().slice(0, 15)
+  );
+  console.log(
+    "\t\tГод и дата ===ОЖИДАЕМОЙ=== Пасхи: " +
+    dataPashiNext.toString().slice(0, 16)
+  );
 } else {
   // Если Пасхи еще не было в текущем году
   curentYearPrefics = "year" + (theMomentTime.getFullYear() - 1);
-  dataPashi = new Date(theMomentTime.getFullYear() - 1, pashalia[curentYearPrefics][0], pashalia[curentYearPrefics][1]);
+  dataPashi = new Date(
+    theMomentTime.getFullYear() - 1,
+    pashalia[curentYearPrefics][0],
+    pashalia[curentYearPrefics][1]
+  );
   curentYearPreficsNext = "year" + theMomentTime.getFullYear();
-  dataPashiNext = new Date(theMomentTime.getFullYear(), pashalia[curentYearPreficsNext][0], pashalia[curentYearPreficsNext][1]);
+  dataPashiNext = new Date(
+    theMomentTime.getFullYear(),
+    pashalia[curentYearPreficsNext][0],
+    pashalia[curentYearPreficsNext][1]
+  );
 
-  console.log(`\t\tГод и дата прошедшей Пасхи: ${dataPashi.toString().slice(0, 15)}`);
+  console.log(
+    `\t\tГод и дата прошедшей Пасхи: ${dataPashi.toString().slice(0, 15)}`
+  );
 }
 
 /**
@@ -320,12 +359,37 @@ var otstupkaK23Sedmice = 0;
 
 if (zakheyTime() == true) {
   // отступка от Закхея, можно использовать функцию `mifTime()`
-  var intermediateWeeks = allSedmica + otstupkaK23Sedmice + otstupkaVozdvijjenie() - 1 - 50;
+  var intermediateWeeks =
+    allSedmica + otstupkaK23Sedmice + otstupkaVozdvijjenie() - 1 - 50;
 } else {
   var intermediateWeeks = 1;
 }
 
-console.log(`\n\n\t\tОт Пасхи ${dataPashi.toString().slice(11, 15)} года и до Пасхи ${dataPashiNext.toString().slice(11, 15)} года случается седмиц ••• ${allSedmica - 1}` + `\n\t\tСоответственно промежуточных седмиц пред Неделей МиФ  ••• ${allSedmica - 1 - 50}` + `\n\t\tОтступка по чтениям для промежуточных седмиц ••• ${intermediateWeeks}\n` + `\n\t\tНеделя Закхея: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 11)).toDateString()}` + `\n\t\t   Неделя МИФ: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 10)).toDateString()}` + `\n\t\t   Неделя ОБС: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 9)).toDateString()}` + `\n\t\tПрощенное ВСК: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 7)).toDateString()}` + `\n\t\t    Начало ВП: ${new Date(dataPashiNext.getTime() - (864e5 * 7 * 7) + 864e5).toDateString()}\n\n\n\n\n`);
+console.log(
+  `\n\n\t\tОт Пасхи ${dataPashi
+    .toString()
+    .slice(11, 15)} года и до Пасхи ${dataPashiNext
+      .toString()
+      .slice(11, 15)} года случается седмиц ••• ${allSedmica - 1}` +
+  `\n\t\tСоответственно промежуточных седмиц пред Неделей МиФ  ••• ${allSedmica - 1 - 50
+  }` +
+  `\n\t\tОтступка по чтениям для промежуточных седмиц ••• ${intermediateWeeks}\n` +
+  `\n\t\tНеделя Закхея: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 11
+  ).toDateString()}` +
+  `\n\t\t   Неделя МИФ: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 10
+  ).toDateString()}` +
+  `\n\t\t   Неделя ОБС: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 9
+  ).toDateString()}` +
+  `\n\t\tПрощенное ВСК: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 7
+  ).toDateString()}` +
+  `\n\t\t    Начало ВП: ${new Date(
+    dataPashiNext.getTime() - 864e5 * 7 * 7 + 864e5
+  ).toDateString()}\n\n\n\n\n`
+);
 
 // flag
 let promWeek = 0;
@@ -350,7 +414,8 @@ function otstupkaVozdvijjenie() {
   /**
    *   Высчитываем номер седмицы для праздника Воздвижения по Пасхе.
    */
-  sedmicaVozdvijjenie = Math.trunc((timeBoxVozdvijjenie - dataPashi) / 864e5 / 7) - 6;
+  sedmicaVozdvijjenie =
+    Math.trunc((timeBoxVozdvijjenie - dataPashi) / 864e5 / 7) - 6;
 
   // Высчитываем ступку Воздвижения (может быть отступкой и преступкой).
   stupka = -(sedmicaVozdvijjenie - 17);
@@ -389,7 +454,16 @@ if (sedmica > 40 && intermediateWeeks != 0) {
 
   linkToAprakos = "/" + yearMonthPath(sedDayStupka) + sedDayStupka + ".html";
 
-  linkToCurrentSeed = '<a href="' + "#seed" + sedmica + '"' + ' title="Сегодня : ' + massDays[ul_numDay] + '">' + sedmica + "</a>";
+  linkToCurrentSeed =
+    '<a href="' +
+    "#seed" +
+    sedmica +
+    '"' +
+    ' title="Сегодня : ' +
+    massDays[ul_numDay] +
+    '">' +
+    sedmica +
+    "</a>";
 
   console.log(`\n\n\n\t\tСтраница Апракоса-Евангелия с учетом отступки и промежуточных седмиц:
 ${location.host}${linkToAprakos}`);
@@ -400,7 +474,9 @@ ${location.host}${linkToAprakos}`);
  */
 // S:S // Добавить условие ВЫКЛючение отступки для двунадесятых праздников. 433-2021-333
 function promWeeks() {
-  var per = document.getElementById("apracos-dolu").children[0].getAttribute("kpage");
+  var per = document
+    .getElementById("apracos-dolu")
+    .children[0].getAttribute("kpage");
 
   if (promWeek == 1 && per != "12") {
     var labelOfintermediateWeeks = document.getElementsByClassName("name");
@@ -412,9 +488,19 @@ var nineHoliday = theMomentTime.getMonth() + ", " + theMomentTime.getDate();
 
 for (const item in NINEHOLIDAYS) {
   // Проверка на двунадесятые праздники и комплектация ссылки на день праздника.
-  if (nineHoliday != "7, 28" && nineHoliday == NINEHOLIDAYS[item].month + ", " + NINEHOLIDAYS[item].day) {
+  if (
+    nineHoliday != "7, 28" &&
+    nineHoliday == NINEHOLIDAYS[item].month + ", " + NINEHOLIDAYS[item].day
+  ) {
     promWeek = 9;
-    linkToAprakos = "/" + NINEHOLIDAYS[item].year + "/" + NINEHOLIDAYS[item].monthRU + "/" + theMomentTime.getDate() + ".html";
+    linkToAprakos =
+      "/" +
+      NINEHOLIDAYS[item].year +
+      "/" +
+      NINEHOLIDAYS[item].monthRU +
+      "/" +
+      theMomentTime.getDate() +
+      ".html";
     console.warn("Сегодня двунадесятый праздник… ", nineHoliday);
   }
 
@@ -434,9 +520,21 @@ function seeddayON() {
 
   linkToCurrentSeed = "";
   if (sedmica < 40) {
-    linkToCurrentSeed = '<a href="' + ("#seed" + sedmica + '"') + ' title="Сегодня : ' + massDays[ul_numDay] + '">' + sedmica;
+    linkToCurrentSeed =
+      '<a href="' +
+      ("#seed" + sedmica + '"') +
+      ' title="Сегодня : ' +
+      massDays[ul_numDay] +
+      '">' +
+      sedmica;
   } else {
-    linkToCurrentSeed = '<a href="' + ("#seed" + (sedmica - intermediateWeeks) + '"') + ' title="Сегодня : ' + massDays[ul_numDay] + '">' + sedmica;
+    linkToCurrentSeed =
+      '<a href="' +
+      ("#seed" + (sedmica - intermediateWeeks) + '"') +
+      ' title="Сегодня : ' +
+      massDays[ul_numDay] +
+      '">' +
+      sedmica;
   }
   document.getElementById("date2").innerHTML = linkToCurrentSeed;
 
@@ -451,7 +549,8 @@ function seeddayON() {
     var rrrrrr = (document.getElementById(a).className += "ON");
   } catch (error) {
     // alert('Сработало исключение : ' + error.stack + " для элемента " + b);
-    document.getElementById("date4").innerHTML = "Отсутствуют данные текущей седмицы";
+    document.getElementById("date4").innerHTML =
+      "Отсутствуют данные текущей седмицы";
   }
 
   return a;
@@ -482,7 +581,8 @@ function seedON() {
   }
 
   if (promWeek != 0 || sedmica < 0) {
-    document.getElementsByClassName("colorBlock")[0].style.backgroundColor = "#d5d5d5";
+    document.getElementsByClassName("colorBlock")[0].style.backgroundColor =
+      "#d5d5d5";
   }
 
   return a;
@@ -568,8 +668,7 @@ function glasSedmici(sedmica) {
 
   if (sedmica) {
     return glasSedmici[sedmica];
-  } else
-    return "невнятный";
+  } else return "невнятный";
 }
 
 /**
@@ -590,13 +689,17 @@ function seedPyatidesyatnica() {
   if (sedmica > 7) {
     sedmicaPyatidesyatnice = sedmica - 7;
     document.getElementById("date3").innerHTML = "По Пятидесятнице";
-    document.getElementById("date4").innerHTML = '<a href="' + "#" + seedIn + '">' + sedmicaPyatidesyatnice + "</a>";
+    document.getElementById("date4").innerHTML =
+      '<a href="' + "#" + seedIn + '">' + sedmicaPyatidesyatnice + "</a>";
     glas = glasSedmici(sedmicaNorm);
     document.getElementById("date5").innerHTML = "Глас " + glas;
-
   } else {
     glas = glasSedmici(sedmica);
-    sedmicaPyatidesyatnice = "Глас " + glas + "<br>" + " Сейчас идет счет седмиц от Пасхи до Пятидесятницы. ";
+    sedmicaPyatidesyatnice =
+      "Глас " +
+      glas +
+      "<br>" +
+      " Сейчас идет счет седмиц от Пасхи до Пятидесятницы. ";
     // linkToAprakos = "/" + yM + sedDay + '.html';
 
     if (sedmica <= 39) {
@@ -632,32 +735,38 @@ function mifTime() {
 /**
 Ссылка на текущий день Апракоса без учета двунадесятых празнеств.
  */
-backToRowAprakos = `/${yearMonthPath(sedDay)}${sedDay}.html`;
+backToRowAprakos = `
+  /${yearMonthPath(sedDay)}${sedDay}.html
+`;
 
 /**
  * Функция замены слова при выдаче результатов в поиске.
  */
 function replaceSearchContent() {
+  let getTextOfElement = document.querySelector(
+    ".post-filter-message"
+  ).innerHTML;
+  newText = "Есть ответы";
 
-  let getTextOfElement = document.querySelector('.post-filter-message').innerHTML;
-  newText = 'Есть ответы';
-
-  if (document.querySelector('.no-posts-message') != null) {
-    newText = 'Отсутствуют результаты';
+  if (document.querySelector(".no-posts-message") != null) {
+    newText = "Отсутствуют результаты";
   }
 
-  document.querySelector('.post-filter-message').innerHTML = getTextOfElement.replace('Показаны сообщения', newText);
-
+  document.querySelector(".post-filter-message").innerHTML =
+    getTextOfElement.replace("Показаны сообщения", newText);
 }
 
 // После полной загрузки документа
-document.addEventListener('DOMContentLoaded', function () {
-
-  getElement = document.querySelector('.post-filter-message');
-  if (getElement != null) {
-    replaceSearchContent();
-  }
-}, true);
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    getElement = document.querySelector(".post-filter-message");
+    if (getElement != null) {
+      replaceSearchContent();
+    }
+  },
+  true
+);
 
 // if (document.readyState !== 'loading') {
 //    us_clickInterception();
@@ -675,15 +784,13 @@ document.addEventListener('DOMContentLoaded', function () {
 //    });
 //  }
 
-
-
 reversePack = true;
 
 if (localStorage.ystm === undefined) {
   setLocalStorage();
 }
 
-var lastSegment = location.pathname.split('/');
+var lastSegment = location.pathname.split("/");
 lastSegment = lastSegment[lastSegment.length - 1];
 
 // Установка в хранилище свойств CSS для модального окна
@@ -693,50 +800,64 @@ function setLocalStorage() {
     reversePack: true,
     timerOff: 0,
     visibility: "visible",
-    lastSegment: lastSegment
+    lastSegment: lastSegment,
   });
-
-
 }
 // Вызов модального окна первый раз после полной загрузки страницы
-if (lastSegment == 'stvol.html' & JSON.parse(localStorage.ystm).entries == null) {
-  document.addEventListener('DOMContentLoaded', () => {
-    firstPreview();
-  }
-    , false);
-
+if (
+  (lastSegment == "stvol.html") &
+  (JSON.parse(localStorage.ystm).entries == null)
+) {
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      firstPreview();
+    },
+    false
+  );
 }
 
 // Показ стартового модального окна
 const closeClick = '<span class="close" onclick="closeFP00()">+</span>';
-const commentStvol = "<div class='comment-stvol'>В стволе указаны читаемые седмицы с учетом ступок.<br> Подробнее<a class='a-href' href='https://aprakos.blogspot.com/p/blog-page.html'> здесь</a>.</div>";
-
+const commentStvol =
+  "<span class='comment-stvol'>В стволе указаны читаемые седмицы с учетом ступок.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
 
 function firstPreview() {
   // instalLocalStorage();
-  str = `<b>Текущая седмица</b>&nbsp;по Пасхе&nbsp; <div class="red bold">${sedmicaNorm},</div>&nbsp;по Пять&shy;десят&shy;нице&nbsp;<br /><div class="red bold">${sedmicaNorm - 7}.</div>${lastSegment === "stvol.html" ? commentStvol : ""} ${closeClick}`;
+  str = `
+        <section id="fp-content" class="fp-content">
+        <b>Текущая седмица:</b>
+        <div>по Пасхе&nbsp; <span class="red bold">${sedmicaNorm},</span></div>
+        <div>по Пять&shy;десят&shy;нице <span class="red bold">
+        ${sedmicaNorm - 7}.</span>
+        <div>${lastSegment === "stvol.html" ? commentStvol : ""}</div></div>
+        ${closeClick}
+        </section>
+        `;
 
-  fp = document.getElementById('first-preview').innerHTML = str;
-  document.querySelector('#fp00').classList.add('fp00');
-  document.querySelector('#first-preview').classList.add('fp01');
+  fp = document.getElementById("first-preview").innerHTML = str;
+  document.querySelector("#fp00").classList.add("fp00");
+  document.querySelector("#first-preview").classList.add("fp01");
   reversePack = false;
 
-  timerOff = setTimeout(() => { closeFP00(); alert("\n\n Долгое отсутствие увеличивает расстояние разлуки\n SHIFT(2) ⬆…") }, 3600000);
+  timerOff = setTimeout(() => {
+    closeFP00();
+    alert(
+      "\n Долгое отсутствие увеличивает расстояние разлуки."
+    );
+  }, 3600000);
   // return { fp, reversePack };
-
 }
-
 
 // Закрытие модального окна
 function closeFP00() {
-
   localStorage.ystm = JSON.stringify({
     entries: 1,
     opasity: 0,
-    visibility: "hidden"
+    visibility: "hidden",
   });
-  document.querySelector('#fp00').classList.remove('fp00');
-  document.querySelector('#first-preview').classList.remove('fp01');
+  document.querySelector("#fp00").classList.remove("fp00");
+  document.querySelector("#first-preview").classList.remove("fp01");
   doubleClick700 = "";
   reversePack = true;
   clearTimeout(timerOff);
@@ -744,32 +865,27 @@ function closeFP00() {
 
 doubleClick700 = "";
 // Прослушивание нажатий клавиатуры
-document.addEventListener('keyup', function (event) {
-
-  if (event.code == 'F2' || event.key == 'Shift') {
-
+document.addEventListener("keyup", function (event) {
+  if (event.code == "F2" || event.key == "Shift") {
     doubleClick700 += event.code + "";
     setTimeout(() => {
       doubleClick700 = "";
-    }
-      , 700);
+    }, 700);
     console.log(doubleClick700);
   }
 
-  const state = (doubleClick700 == event.code + event.code);
+  const state = doubleClick700 == event.code + event.code;
   console.log(state);
   if (state && reversePack) {
     firstPreview();
   } else if (state && !reversePack) {
     closeFP00();
-
   }
 
-  if (event.code === 'Escape') {
+  if (event.code === "Escape") {
     closeFP00();
   }
-})
-
+});
 
 // rrr = document.getElementById('#first-preview');
 // if (rrr) {
@@ -778,7 +894,3 @@ document.addEventListener('keyup', function (event) {
 //   });
 // }
 // else { console.log('=========================='); }
-
-
-
-
