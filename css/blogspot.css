@@ -312,18 +312,18 @@ sup {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
 	.fp01 {
-		align-content: start;
-		
 		position: relative;
 		top: 0;
-		padding: 1em;
 		width: 100%;
-		animation: ystm 0.5s forward;
+		border: solid #fcf6e6;
+/* 		border-width: 0em .5em .5em; */
+		animation: 0.3s forwards;
 		border-radius: 0px 0px 12px 12px;
 	}
-	.fp-content{
-		padding:2rem 1rem 2rem 2rem ;
-		
+
+	#fp-content{
+		padding: 1rem;
+	
 	}
 	.close {
 		display: none;
