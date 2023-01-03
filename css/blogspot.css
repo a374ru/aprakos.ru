@@ -269,6 +269,12 @@ sup {
 	color: var(--kino-var);
 }
 
+.click-pointer{
+	cursor: pointer;
+	font-style: oblique;
+	color: #692727;
+}
+
 @media only screen and (min-device-width: 240px) and (max-device-width: 414px) and (orientation: portrait) {
 	.fp01 {
 		position: relative;
