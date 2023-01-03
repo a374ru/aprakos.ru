@@ -831,6 +831,7 @@ function firstPreview() {
         <div>по Пять&shy;десят&shy;нице <span class="red bold">
         ${sedmicaNorm - 7}.</span>
         <div>${lastSegment === "stvol.html" ? commentStvol : ""}</div></div>
+        <div>${lastSegment === "blog-post.html" ? `Отступка <span class="red bold">${stupka}</span> седм.` : ""}</div></div>
         ${closeClick}
         </section>
         `;

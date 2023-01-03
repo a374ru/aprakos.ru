@@ -279,6 +279,11 @@ sup {
 		border-radius: 0px 0px 12px 12px;
 	}
 
+	#fp-content{
+		padding: .3rem;
+	
+	}
+
 	#close{
 	display: none;
 	}
