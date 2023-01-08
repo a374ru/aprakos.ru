@@ -102,7 +102,7 @@ background: linear-gradient(0deg, rgba(63,94,251,0) 0%, rgba(43,28,7,0.939284336
 	border: solid #fcf6e6 0.44em;
 	border-radius: 0px  0px 12px 12px;
 	align-items: center;
-	animation: ystm 100ms linear 100ms 1 normal both;
+	animation: ystm 200ms linear 0ms 1 normal both;
 }
 
 .fp-content{
