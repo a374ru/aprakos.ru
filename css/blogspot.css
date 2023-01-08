@@ -352,7 +352,7 @@ sup {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 	.fp01 {
-		margin: 12vh 12vw;
+		/* margin: 12vh 12vw; */
 		/* 		width: 64%; */
 		/* min-height: 50%; */
 	}
