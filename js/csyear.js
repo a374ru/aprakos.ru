@@ -12,9 +12,7 @@ const massYearsCSL = {
 	tschi: "¤",
 	cifri: ['', 'а', "в", 'г', 'д', 'є', 's', 'з', 'и', 'f'],
 	desyatki: ['', 'i', 'к', 'л', 'м', 'н', '…', 'o', 'п', 'ч'],
-	// FIXME: В шрифте отсутствует глиф числа 400 – у.
-
-	sotni: ['', 'р', 'с', 'т', 'u', 'f', 'х', 'p', 't', 'ц']
+	sotni: ['', 'р', 'с', 'т', '¢', 'f', 'х', 'p', 't', 'ц']
 };
 function currentYearCSl() {
 	let yearInsert = massYearsCSL.tschi;
