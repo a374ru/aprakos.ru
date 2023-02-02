@@ -43,8 +43,9 @@ html {
 	font-family: "Irmologion";
 	font-display: auto;
 	/* src: url('../font/IrmUcs.ttf'); */
-	src: local("Clunya-IrmIEUcs"),
-		url("https://a374ru.github.io/aprakos.ru/font/Clunya-IrmIEUcs.otf");
+	/* src: local("Clunya-IrmIEUcs"), url('https://a374ru.github.io/aprakos.ru/font/Clunya-IrmIEUcs.otf'); */
+    src: local('Clunya-IrmIEUcs'), url('https://aprakos.a374.ru/font/Clunya-IrmIEUcs.otf');
+
 	font-weight: normal;
 	font-style: normal;
 }
