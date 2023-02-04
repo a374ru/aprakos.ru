@@ -5,7 +5,7 @@
 "use strict";
 // источник данных bg
 // var url = 'https://cdn.jsdelivr.net/gh/a374ru/aprakos.ru@latest/js/olhovka90blogger.json';
-var url = 'https://a374ru.github.io/aprakos.ru/js/olhovka90blogger.json';
+var url = 'https://aprakos.a374.ru/js/olhovka90blogger.json';
 
 fetch(url).then(function (one) { return one.text(); }).then(function (two) { return tmbgr.backGroundChange(JSON.parse(two)); });
 var TimeBackground = /** @class */ (function () {
