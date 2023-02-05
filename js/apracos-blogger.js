@@ -1,4 +1,4 @@
-// воскресенье, 5 февраля 2023 г. 15: 15: 11(MSK)
+// Thu Dec 29 2022 09:12:30 GMT+0300
 /*
 
     --- APRAKOS.BLOGSPOT.COM VERSION ---
@@ -11,10 +11,7 @@
 
 */
 
-
-var url = "https://" + location.host + "/currentday/APRAKOS/";
-
-// переменная на текущую страницу Апракоса
+// var url = "https://" + location.host + "/currentday/APRAKOS/";
 var linkToCurrentSeed;
 var massDays = [
   "0",
@@ -536,7 +533,7 @@ function seeddayON() {
       ' title="Сегодня : ' +
       massDays[ul_numDay] +
       '">' +
-      sedmica;
+      (sedmicaNorm - intermediateWeeks);
   }
   document.getElementById("date2").innerHTML = linkToCurrentSeed;
 
@@ -576,7 +573,7 @@ function seedON() {
   if (sedmica < 40) {
     a = "seed" + sedmica;
   } else {
-    a = "seed" + (sedmica - intermediateWeeks);
+    a = "seed" + (sedmicaNorm - intermediateWeeks);
   }
 
   var b = (document.getElementById(a).className += " colorBlock");
@@ -588,7 +585,7 @@ function seedON() {
 
   if (promWeek != 0 || sedmica > 0) {
     document.getElementsByClassName("colorBlock")[0].style.backgroundColor =
-      "#d5d5d5";
+      "#d5d5d566";
   }
 
   return a;
@@ -696,7 +693,7 @@ function seedPyatidesyatnica() {
     sedmicaPyatidesyatnice = sedmica - 7;
     document.getElementById("date3").innerHTML = "По Пятидесятнице";
     document.getElementById("date4").innerHTML =
-      '<a href="' + "#" + seedIn + '">' + sedmicaPyatidesyatnice + "</a>";
+      '<a href="' + "#" + seedIn + '">' + (sedmicaPyatidesyatnice) + "</a>";
     glas = glasSedmici(sedmicaNorm);
     document.getElementById("date5").innerHTML = "Глас " + glas;
   } else {
@@ -707,12 +704,12 @@ function seedPyatidesyatnica() {
       "<br>" +
       " Сейчас идет счет седмиц от Пасхи до Пятидесятницы. ";
     // linkToAprakos = "/" + yM + sedDay + '.html';
-
-    if (sedmica <= 39) {
-      document.getElementById("date3").className += "PlusUngles";
-      document.getElementById("date3").innerHTML = sedmicaPyatidesyatnice;
-      document.getElementById("date4").className += "blockOFF";
-    }
+  }
+  if (sedmica > 39) {
+    sedmicaPyatidesyatnice = sedmicaNorm - 7 - promWeek;
+    // document.getElementById("date3").className += "PlusUngles";
+    document.getElementById("date4").innerHTML =
+      '<a href="' + "#" + seedIn + '">' + (sedmicaPyatidesyatnice) + "</a>";
   }
 }
 
