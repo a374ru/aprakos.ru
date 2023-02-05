@@ -447,7 +447,7 @@ var sedDayStupka = sedmica + "" + ul_numDay;
 
 if (sedmica > 40 && intermediateWeeks != 0) {
   promWeek = 1;
-  var sedDayStupka = sedmica - intermediateWeeks + "" + ul_numDay;
+  var sedDayStupka = sedmicaNorm - intermediateWeeks + "" + ul_numDay;
 
   // Изменяем `sedDay` с учетом отступок и преступок
 
@@ -456,12 +456,12 @@ if (sedmica > 40 && intermediateWeeks != 0) {
   linkToCurrentSeed =
     '<a href="' +
     "#seed" +
-    sedmica +
+  sedmicaNorm +
     '"' +
     ' title="Сегодня : ' +
     massDays[ul_numDay] +
     '">' +
-    sedmica +
+  sedmicaNorm +
     "</a>";
 
   console.log(`\n\n\n\t\tСтраница Апракоса-Евангелия с учетом отступки и промежуточных седмиц:
@@ -529,7 +529,7 @@ function seeddayON() {
   } else {
     linkToCurrentSeed =
       '<a href="' +
-      ("#seed" + (sedmica - intermediateWeeks) + '"') +
+    ("#seed" + (sedmicaNorm - intermediateWeeks) + '"') +
       ' title="Сегодня : ' +
       massDays[ul_numDay] +
       '">' +
@@ -541,7 +541,7 @@ function seeddayON() {
   var a = "seedday-" + sedmica + "-" + ul_numDay;
 
   if (sedmica > 39 && intermediateWeeks != 0) {
-    var a = "seedday-" + (sedmica - intermediateWeeks) + "-" + ul_numDay;
+    var a = "seedday-" + (sedmicaNorm - intermediateWeeks) + "-" + ul_numDay;
   }
 
   try {
@@ -566,6 +566,10 @@ function seedON() {
   // Включает оформление (выделение) текущей седмицы добавляя класс `colorBlock`
   var a = "seed" + sedmica;
 
+  if (sedmica > 39 && intermediateWeeks != 0) {
+    a = "seed" + sedmicaNorm;
+  }
+
   if (sedmica < 40) {
     a = "seed" + sedmica;
   } else {
@@ -579,7 +583,7 @@ function seedON() {
     document.getElementById(a).className += " promWeek";
   }
 
-  if (promWeek != 0 || sedmica < 0) {
+  if (promWeek != 0 || sedmica > 0) {
     document.getElementsByClassName("colorBlock")[0].style.backgroundColor =
       "#d5d5d5";
   }
@@ -680,7 +684,7 @@ function seedPyatidesyatnica() {
     per4 = intermediateWeeks;
     // простая активация seedON()
     seedON();
-    seedIn = "seed" + (sedmica - intermediateWeeks);
+    seedIn = "seed" + (sedmicaNorm - intermediateWeeks);
   } else {
     per4 = stupka ? stupka : 0;
     seedIn = seedON();
@@ -859,8 +863,8 @@ function closeFP00() {
   document.querySelector("#fp00").classList.remove("fp00");
   document.querySelector("#first-preview").classList.remove("fp01");
   // Removed items
-  document.querySelector("#close").outerHTML = '<!-- Will embed element-->';
-  document.querySelector("#fp-content").outerHTML = '<!-- Will embed element-->';
+  // document.querySelector("#close").outerHTML = '<!-- Will embed element-->';
+  // document.querySelector("#fp-content").outerHTML = '<!-- Will embed element-->';
   doubleClick700 = "";
   reversePack = true;
   clearTimeout(timerOff);
