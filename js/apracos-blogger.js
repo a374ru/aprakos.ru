@@ -1,4 +1,4 @@
-// Thu Dec 29 2022 09:12:30 GMT+0300
+// воскресенье, 5 февраля 2023 г. 15: 15: 11(MSK)
 /*
 
     --- APRAKOS.BLOGSPOT.COM VERSION ---
@@ -11,7 +11,10 @@
 
 */
 
+
 var url = "https://" + location.host + "/currentday/APRAKOS/";
+
+// переменная на текущую страницу Апракоса
 var linkToCurrentSeed;
 var massDays = [
   "0",
@@ -863,8 +866,8 @@ function closeFP00() {
   document.querySelector("#fp00").classList.remove("fp00");
   document.querySelector("#first-preview").classList.remove("fp01");
   // Removed items
-  // document.querySelector("#close").outerHTML = '<!-- Will embed element-->';
-  // document.querySelector("#fp-content").outerHTML = '<!-- Will embed element-->';
+  document.querySelector("#close").outerHTML = '<!-- Will embed element-->';
+  document.querySelector("#fp-content").outerHTML = '<!-- Will embed element-->';
   doubleClick700 = "";
   reversePack = true;
   clearTimeout(timerOff);
