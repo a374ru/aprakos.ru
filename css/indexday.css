@@ -63,7 +63,7 @@ html {
 	font-family: "Fontics";
 	font-display: auto;
 	src: local("Fontics-Regular.otf"),
-		url("https://a374ru.github.io/aprakos.ru/font/Fontics-Regular.otf");
+		url("https://aprakos.a374.ru/font/Fontics-Regular.otf");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -116,7 +116,7 @@ li {
 }
 
 a:link {
-	color: var(--link-var, rgb(134, 72, 0));
+	color: var(--link-var, rgb(147, 130, 111));
 	text-decoration: none;
 }
 
@@ -171,7 +171,7 @@ a:visited {
 .gitiya {
 	margin-right: 12px;
 	/* margin: 13px 7px 23px 0px; */
-	font-family: var(--font-var);
+	/*! font-family: var(--font-var); */
 	font-size: 1.5em;
 	/* text-transform: uppercase; */
 }
