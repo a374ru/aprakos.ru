@@ -284,7 +284,7 @@ sup {
 	.fp01 {
 		position: relative;
 		top: 0;
-		width: 100%;
+		min-width: 100%;
 		border: solid #fcf6e6 1em;
 		animation: 0.3s forwards;
 		border-radius: 0px 0px 12px 12px;
@@ -324,7 +324,7 @@ sup {
 	.fp01 {
 		position: relative;
 		top: 0;
-		width: 100%;
+		min-width: 100%;
 		border: solid #fcf6e6;
 		/* 		border-width: 0em .5em .5em; */
 		animation: 0.3s forwards;
@@ -415,6 +415,9 @@ sup {
 	sup {
 		font-size: 22px;
 	}
+	.fp01{
+	max-width: 44%;
+}
 }
 
 @media only screen and (min-width: 1752px) {
@@ -443,6 +446,9 @@ sup {
 		/* date size */
 		/* margin-left: 15px */
 	}
+	.fp01{
+	max-width: 33%;
+}
 }
 
 /* Дополнительные стили */
@@ -487,10 +493,10 @@ a .sedmica{
 }
 
 a:visited .sedmica {
-	color: #6a3d07;
+	color: #502c00;
 }
 a:hover .sedmica {
-	color: #e34234;
+	color: #8f342c;
 	cursor: url("https://aprakos.a374.ru/izo/scrollTop.png"), n-resize;
 }
 
