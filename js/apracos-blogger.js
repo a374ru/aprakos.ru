@@ -102,6 +102,8 @@ var OLY = (function () {
     this.linkToHolydays = this.holydays_9();
     this.info();
     this.initElementsDOM();
+    this.firstViewModal();
+    this.eventKeys();
   }
   OLY.prototype.initOLY = function () {
     var yearNumber = this.theMomentTime.getFullYear();
@@ -324,10 +326,10 @@ var OLY = (function () {
       if (h9 === tmt) {
         link_to_hld9 =
           "/" +
-        this.NINEHOLIDAYS[item].year +
-        "/" +
-        this.NINEHOLIDAYS[item].monthRU +
-        "/" +
+          this.NINEHOLIDAYS[item].year +
+          "/" +
+          this.NINEHOLIDAYS[item].monthRU +
+          "/" +
           this.NINEHOLIDAYS[item].day +
           ".html";
         return link_to_hld9;
@@ -384,7 +386,7 @@ var OLY = (function () {
     var _this = this;
     var lastSegment = document.location.pathname.split('/').pop();
     var closeClick = '<span id="close" class="close" onclick="closeFP00()">+</span>';
-    var commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br>Клик по номеру текущей седмицы укажет в стволе седмицу для чтения с учетом отступки согласно Уставу.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
+    var commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
     var str = "\n        <section id=\"fp-content\" class=\"fp-content\">\n        <b>\u0427\u0438\u0442\u0430\u0435\u043C\u0430\u044F \u0441\u0435\u0434\u043C\u0438\u0446\u0430:</b>\n        <div>\u043F\u043E \u041F\u0430\u0441\u0445\u0435&nbsp; <span class=\"red bold\">" + (this.weeks.current[0] - this.weeks.stupkaK[0]) + ",</span></div>\n        <div>\u043F\u043E \u041F\u044F\u0442\u044C&shy;\u0434\u0435\u0441\u044F\u0442&shy;\u043D\u0438\u0446\u0435 <span class=\"red bold\">\n        " + (this.weeks.current[0] - 7 - this.weeks.stupkaK[0]) + ".</span>\n        <div>" + (lastSegment === "stvol.html" ? commentStvol : "") + "</div></div>\n        <div>" + (lastSegment === "blog-post.html" ? "\u041E\u0442\u0441\u0442\u0443\u043F\u043A\u0430 <span class=\"red bold\">" + this.weeks.stupkaK[0] + "</span> \u0441\u0435\u0434\u043C." : "") + "</div></div>\n        " + closeClick + "\n        </section>\n        ";
     document.getElementById("first-preview").innerHTML = str;
     document.querySelector("#fp00").classList.add("fp00");
@@ -408,8 +410,39 @@ var OLY = (function () {
     document.querySelector("#fp-content").outerHTML = '<!-- Will embed element-->';
     clearTimeout(timerOff);
   };
+  OLY.prototype.firstViewModal = function () {
+    var aaa = localStorage.ystm;
+    if (aaa == null) {
+      this.initModalView();
+    }
+    return {};
+  };
+  OLY.prototype.eventKeys = function () {
+    var reversePack = true;
+    var doubleClick700 = "";
+    document.addEventListener("keyup", function (event) {
+      if (event.code == "F2" || event.key == "Shift") {
+        doubleClick700 += event.code + "";
+        setTimeout(function () {
+          doubleClick700 = "";
+        }, 700);
+      }
+      if (doubleClick700 && reversePack) {
+        reversePack = !reversePack;
+        firstPreview();
+      }
+      else if (doubleClick700 && !reversePack) {
+        reversePack = !reversePack;
+        closeFP00();
+      }
+      if (event.code === "Escape") {
+        closeFP00();
+      }
+    });
+  };
   return OLY;
 }());
 var apr = new OLY();
+// Переопределение для функций сайта
 function firstPreview() { apr.initModalView(); }
 function closeFP00() { apr.closeModalView(); }

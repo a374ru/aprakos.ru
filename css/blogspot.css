@@ -195,15 +195,12 @@ a:visited {
 }
 
 .colorBlock {
-	/* margin-right: 12px; */
-	background-color: #c8ff94;
-	-webkit-animation-name: example;
-	/* Safari 4.0 - 8.0 */
-	animation-name: example;
-	animation-duration: 7s;
-	animation-iteration-count: 1;
-	/* width: auto; */
-	box-shadow: 0px 0px 7px 2px #7f585854;
+    background-color: #fffbf3;
+    -webkit-animation-name: example;
+    animation-name: example;
+    animation-duration: 7s;
+    animation-iteration-count: 1;
+    box-shadow: 0px 0px 77px 22px #ffffff;
 }
 
 .seeddayON {
