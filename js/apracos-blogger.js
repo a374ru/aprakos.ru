@@ -92,7 +92,6 @@ var OLY = (function () {
       },
     };
     this.datesOLY = {};
-    this.userLoc = localStorage.getItem("ystm");
     this.theMomentTime = this.controlDates(year);
     this.initOLY();
     this.initDatesOLY();
@@ -385,7 +384,7 @@ var OLY = (function () {
   OLY.prototype.initModalView = function () {
     var _this = this;
     var lastSegment = document.location.pathname.split('/').pop();
-    var closeClick = '<span id="close" class="close" onclick="closeFP00()">+</span>';
+    var closeClick = '<span id="close" class="close" onclick="apr.closeModalView()"></span>';
     var commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
     var str = "\n        <section id=\"fp-content\" class=\"fp-content\">\n        <b>\u0427\u0438\u0442\u0430\u0435\u043C\u0430\u044F \u0441\u0435\u0434\u043C\u0438\u0446\u0430:</b>\n        <div>\u043F\u043E \u041F\u0430\u0441\u0445\u0435&nbsp; <span class=\"red bold\">" + (this.weeks.current[0] - this.weeks.stupkaK[0]) + ",</span></div>\n        <div>\u043F\u043E \u041F\u044F\u0442\u044C&shy;\u0434\u0435\u0441\u044F\u0442&shy;\u043D\u0438\u0446\u0435 <span class=\"red bold\">\n        " + (this.weeks.current[0] - 7 - this.weeks.stupkaK[0]) + ".</span>\n        <div>" + (lastSegment === "stvol.html" ? commentStvol : "") + "</div></div>\n        <div>" + (lastSegment === "blog-post.html" ? "\u041E\u0442\u0441\u0442\u0443\u043F\u043A\u0430 <span class=\"red bold\">" + this.weeks.stupkaK[0] + "</span> \u0441\u0435\u0434\u043C." : "") + "</div></div>\n        " + closeClick + "\n        </section>\n        ";
     document.getElementById("first-preview").innerHTML = str;
@@ -418,10 +417,11 @@ var OLY = (function () {
     return {};
   };
   OLY.prototype.eventKeys = function () {
+    var _this = this;
     var reversePack = true;
     var doubleClick700 = "";
     document.addEventListener("keyup", function (event) {
-      if (event.code == "F2" || event.key == "Shift") {
+      if (event.code == "F2" || event.key == "F1") {
         doubleClick700 += event.code + "";
         setTimeout(function () {
           doubleClick700 = "";
@@ -429,20 +429,19 @@ var OLY = (function () {
       }
       if (doubleClick700 && reversePack) {
         reversePack = !reversePack;
-        firstPreview();
+        _this.initModalView();
       }
       else if (doubleClick700 && !reversePack) {
         reversePack = !reversePack;
-        closeFP00();
+        apr.closeModalView();
       }
       if (event.code === "Escape") {
-        closeFP00();
+        _this.closeModalView();
       }
     });
   };
   return OLY;
 }());
 var apr = new OLY();
-// Переопределение для функций сайта
 function firstPreview() { apr.initModalView(); }
 function closeFP00() { apr.closeModalView(); }
