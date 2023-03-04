@@ -216,6 +216,9 @@ padding: 12px 8px 3px 10px;
   /* border-right: 110px solid #ec3504; */
 }
 
+#a-visited-userdate {
+  color: #d8c2c2;
+}
 .userdate {
   float: left;
   font-weight: bold;
@@ -228,6 +231,7 @@ padding: 12px 8px 3px 10px;
   position: fixed;
   bottom: 3em;
 }
+
 .dug {
   color: #ffffff;
     z-index: 33;
