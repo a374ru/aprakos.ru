@@ -428,29 +428,32 @@ var OLY = (function () {
     var reversePack = true;
     var oneClickInfo = "";
     document.addEventListener("keyup", function (event) {
-      if (event.code == "F1" || event.key == "F2") {
+      if (event.key == "F2") {
         oneClickInfo += event.code + "";
-        if (oneClickInfo == "F2F2" && reversePack) {
-          reversePack = !reversePack;
-          _this.initModalView();
-        }
-        else if (oneClickInfo == "F2F2" && !reversePack) {
-          reversePack = !reversePack;
-          apr.closeModalView();
+        setTimeout(function () {
           oneClickInfo = "";
-        }
+        }, 700);
+      }
+      if (oneClickInfo == "F2F2" && reversePack) {
+        reversePack = !reversePack;
+        _this.initModalView();
+      }
+      else if (oneClickInfo == "F2F2" && !reversePack) {
+        reversePack = !reversePack;
+        oneClickInfo = "";
+        apr.closeModalView();
       }
       if (event.code == "Escape") {
         oneClickInfo += event.code + "";
-        if (oneClickInfo == "EscapeEscape") {
-          sessionStorage.removeItem('userDate');
-          oneClickInfo = "";
-        }
+      }
+      if (oneClickInfo == "EscapeEscape") {
+        sessionStorage.removeItem('userDate');
+        oneClickInfo = "";
       }
     });
   };
   return OLY;
 }());
-var apr = new OLY([]);
+var apr = new OLY();
 function firstPreview() { apr.initModalView(); }
 function closeFP00() { apr.closeModalView(); }
