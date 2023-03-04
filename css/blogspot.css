@@ -216,8 +216,11 @@ padding: 12px 8px 3px 10px;
   /* border-right: 110px solid #ec3504; */
 }
 
-#a-visited-userdate a:visited {
+a:visited#a-visited-userdate {
   color: #d8c2c2;
+}
+a:hover#a-visited-userdate {
+  color: #d06c6c;
 }
 .userdate {
   float: left;
