@@ -197,14 +197,21 @@ var OLY = (function () {
   OLY.prototype.controlDates = function (userYear) {
     var _a, _b;
     var currentDate = this.theMomentTime;
-    if (userYear != undefined && userYear[0] < 2034 && userYear[0] > 2016) {
+    var uD = sessionStorage.getItem('userDate');
+    if (sessionStorage.userDate != null) {
+      currentDate = new Date(String(uD));
+    }
+    else if (userYear != undefined && userYear[0] < 2034 && userYear[0] > 2016) {
       currentDate = new Date(userYear[0], (_a = userYear[1]) !== null && _a !== void 0 ? _a : currentDate.getMonth(), Number((_b = userYear[2]) !== null && _b !== void 0 ? _b : currentDate.getDate()));
+      sessionStorage.setItem('userDate', String(currentDate));
     }
     else {
       console.warn((userYear
         ? "Год введенный пользователем не подходит (2016-2033)"
         : "Год пользователем не предоставлен") + ".\n\u0411\u0443\u0434\u0435\u0442 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D \u0442\u0435\u043A\u0443\u0449\u0438\u0439 \u0433\u043E\u0434.\n\u0421\u041F\u0410\u0421\u0418\u0411\u041E \u0417\u0410 \u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415!");
-      currentDate = new Date(currentDate);
+    }
+    if (currentDate.getFullYear() != this.theMomentTime.getFullYear()) {
+      document.querySelector('body').innerHTML += "<div class='userdate'><a href=\"#\" onclick=\"sessionStorage.removeItem('userDate')\">" + currentDate.toLocaleDateString() + "</a></div>";
     }
     return currentDate;
   };
@@ -419,29 +426,31 @@ var OLY = (function () {
   OLY.prototype.eventKeys = function () {
     var _this = this;
     var reversePack = true;
-    var doubleClick700 = "";
+    var oneClickInfo = "";
     document.addEventListener("keyup", function (event) {
-      if (event.code == "F2" || event.key == "F1") {
-        doubleClick700 += event.code + "";
-        setTimeout(function () {
-          doubleClick700 = "";
-        }, 700);
+      if (event.code == "F1" || event.key == "F2") {
+        oneClickInfo += event.code + "";
+        if (oneClickInfo == "F2F2" && reversePack) {
+          reversePack = !reversePack;
+          _this.initModalView();
+        }
+        else if (oneClickInfo == "F2F2" && !reversePack) {
+          reversePack = !reversePack;
+          apr.closeModalView();
+          oneClickInfo = "";
+        }
       }
-      if (doubleClick700 && reversePack) {
-        reversePack = !reversePack;
-        _this.initModalView();
-      }
-      else if (doubleClick700 && !reversePack) {
-        reversePack = !reversePack;
-        apr.closeModalView();
-      }
-      if (event.code === "Escape") {
-        _this.closeModalView();
+      if (event.code == "Escape") {
+        oneClickInfo += event.code + "";
+        if (oneClickInfo == "EscapeEscape") {
+          sessionStorage.removeItem('userDate');
+          oneClickInfo = "";
+        }
       }
     });
   };
   return OLY;
 }());
-var apr = new OLY();
+var apr = new OLY([2033, 0, 7]);
 function firstPreview() { apr.initModalView(); }
 function closeFP00() { apr.closeModalView(); }
