@@ -451,6 +451,6 @@ var OLY = (function () {
   };
   return OLY;
 }());
-var apr = new OLY([2033, 0, 7]);
+var apr = new OLY([]);
 function firstPreview() { apr.initModalView(); }
 function closeFP00() { apr.closeModalView(); }
