@@ -198,9 +198,9 @@ var OLY = (function () {
   OLY.prototype.controlDates = function (userYear) {
     var _a, _b;
     var currentDate = this.theMomentTime;
-    var uD = sessionStorage.getItem('userDate');
-    if (sessionStorage.userDate != null) {
-      currentDate = new Date(String(uD));
+    var sStorageDate = sessionStorage.getItem('userDate');
+    if (sessionStorage.userDate != null && userYear == undefined) {
+      currentDate = new Date(String(sStorageDate));
     }
     else if (userYear != undefined && userYear[0] < 2034 && userYear[0] > 2016) {
       currentDate = new Date(userYear[0], (_a = userYear[1]) !== null && _a !== void 0 ? _a : currentDate.getMonth(), Number((_b = userYear[2]) !== null && _b !== void 0 ? _b : currentDate.getDate()));
