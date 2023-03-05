@@ -4,6 +4,7 @@ var OLY = (function () {
     this.year = year;
     this.theMomentTime = new Date();
     this.anchorElemID = "#11";
+    this.stateModalView = false;
     this.arrayDaysRu = [
       "ВОСРЕСЕНЬЕ",
       "ПОНЕДЕЛЬНИК",
@@ -388,6 +389,16 @@ var OLY = (function () {
         break;
     }
   };
+  OLY.prototype.reversePack = function () {
+    var _this = this;
+    var i = this.stateModalView;
+    var reverseP = function () {
+      i = !i;
+      _this.stateModalView = i;
+      return i;
+    };
+    return reverseP;
+  };
   OLY.prototype.initModalView = function () {
     var _this = this;
     var lastSegment = document.location.pathname.split('/').pop();
@@ -397,11 +408,12 @@ var OLY = (function () {
     document.getElementById("first-preview").innerHTML = str;
     document.querySelector("#fp00").classList.add("fp00");
     document.querySelector("#first-preview").classList.add("fp01");
+    var rpack = this.reversePack();
+    rpack();
     var timerOff = setTimeout(function () {
       _this.closeModalView(timerOff);
       alert("\n Долгое отсутствие увеличивает расстояние разлуки.");
     }, 3600000);
-    return "The case is ready";
   };
   OLY.prototype.closeModalView = function (timerOff) {
     var _a, _b;
@@ -414,6 +426,8 @@ var OLY = (function () {
     (_b = document.querySelector("#first-preview")) === null || _b === void 0 ? void 0 : _b.classList.remove("fp01");
     document.querySelector("#close").outerHTML = '<!-- Will embed element-->';
     document.querySelector("#fp-content").outerHTML = '<!-- Will embed element-->';
+    var rpack = this.reversePack();
+    rpack();
     clearTimeout(timerOff);
   };
   OLY.prototype.firstViewModal = function () {
@@ -425,7 +439,6 @@ var OLY = (function () {
   };
   OLY.prototype.eventKeys = function () {
     var _this = this;
-    var reversePack = true;
     var oneClickInfo = "";
     document.addEventListener("keyup", function (event) {
       if (event.key == "F2") {
@@ -434,12 +447,10 @@ var OLY = (function () {
           oneClickInfo = "";
         }, 700);
       }
-      if (oneClickInfo == "F2F2" && reversePack) {
-        reversePack = !reversePack;
+      if (oneClickInfo == "F2F2" && _this.stateModalView == false) {
         _this.initModalView();
       }
-      else if (oneClickInfo == "F2F2" && !reversePack) {
-        reversePack = !reversePack;
+      else if (oneClickInfo == "F2F2" && _this.stateModalView == true) {
         oneClickInfo = "";
         apr.closeModalView();
       }
@@ -455,5 +466,3 @@ var OLY = (function () {
   return OLY;
 }());
 var apr = new OLY();
-function firstPreview() { apr.initModalView(); }
-function closeFP00() { apr.closeModalView(); }
