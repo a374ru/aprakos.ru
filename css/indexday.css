@@ -135,6 +135,7 @@ a:visited {
 	margin: 22px 33px 33px;
 	font-size: var(--sizeDate-var);
 	text-indent: 0px;
+	text-align: center;
 	/* date size */
 	/* margin-left: 15px */
 }
