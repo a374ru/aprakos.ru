@@ -680,4 +680,3 @@ document.addEventListener("keyup", function (event) {
 var apr = new OLY();
 var NAMELIST;
 var PROBLEMS;
->>>>>>> 581fd06710e7c9db9078d3c3f05412290b74f5e4
