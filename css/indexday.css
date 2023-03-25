@@ -63,7 +63,7 @@ html {
 	font-family: "Fontics";
 	font-display: auto;
 	src: local("Fontics-Regular.otf"),
-		url("https://a374ru.github.io/aprakos.ru/font/Fontics-Regular.otf");
+		url("https://aprakos.a374.ru/font/Fontics-Regular.otf");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -71,12 +71,18 @@ html {
 
 
 body {
+	display: flex;
 	/* margin: 22px 33px 100px; */
-	padding-bottom: 77px;
+	/* 	padding-bottom: 77px; */
 	/* text-indent: 22px; */
 	/* color: rgb(134, 72, 0) */
 	background: rgb(255, 250, 245);
 	color: #4f2b00;
+	flex-direction: column;
+	align-content: center;
+	flex-wrap: wrap;
+	background: linear-gradient(180deg, rgb(255 255 255) 0%, rgb(252 252 241) 37%, rgb(255 244 244) 88%, rgb(255 223 225) 100%);
+	align-items: center;
 }
 
 .cs {
@@ -116,7 +122,7 @@ li {
 }
 
 a:link {
-	color: var(--link-var, rgb(134, 72, 0));
+	color: var(--link-var, rgb(147, 130, 111));
 	text-decoration: none;
 }
 
@@ -129,6 +135,7 @@ a:visited {
 	margin: 22px 33px 33px;
 	font-size: var(--sizeDate-var);
 	text-indent: 0px;
+	text-align: center;
 	/* date size */
 	/* margin-left: 15px */
 }
@@ -162,7 +169,7 @@ a:visited {
 }
 
 .abzac {
-	margin: 17px 3px 3px 33px;
+	margin: 17px 3px 3px 3px;
 	font-family: var(--fontIrmUCS-var);
 	font-size: 1.7em;
 	/* color: #7e4500; */
@@ -171,8 +178,8 @@ a:visited {
 .gitiya {
 	margin-right: 12px;
 	/* margin: 13px 7px 23px 0px; */
-	font-family: var(--font-var);
-	font-size: 1.5em;
+	/*! font-family: var(--font-var); */
+	font-size: 1.2rem;
 	/* text-transform: uppercase; */
 }
 
@@ -182,7 +189,7 @@ a:visited {
 	border-top: white;
 	border-left: white;
 	border-bottom: var(--kino-var);
-	margin-left: 22px;
+	/* margin-left: 22px; */
 	background: #e34234;
 	border-radius: 0.6em;
 	box-shadow: 0px 3px 7px #0000004d;
@@ -230,13 +237,11 @@ sup {
     	.date {
 		/* margin: 2px 3px 3px; */
 		font-size: var(--sizeDate-var);
-		text-indent: 0px;
+/* 		text-indent: 0px; */
 		/* date size */
 		/* margin-left: 15px */
 	}
-    #dolu{
-    position: absolute;
-    }
+
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
@@ -289,7 +294,7 @@ sup {
 
 @media only screen and (min-width: 1024px) and (max-device-width: 1752px) {
 	body {
-		margin: 52px 0px 53px 73px;
+		margin: 46px 0px 76px 0px;
 		text-indent: 0px;
 		/* font-size: 1.7em; */
 	}
