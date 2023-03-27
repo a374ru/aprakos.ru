@@ -1,6 +1,7 @@
 "use strict";
 var OLY = (function () {
   function OLY(year) {
+    var _a;
     this.year = year;
     this.theMomentTime = new Date();
     this.anchorElemID = "#11";
@@ -158,7 +159,7 @@ var OLY = (function () {
     this.initWeeks();
     this.linkToAprakos = "/" + this.yearMonthID() + ".html";
     this.anchorElemID = "" + this.weeks.elemID[0];
-    this.linkToHolydays = this.holydays_9();
+    this.linkToHolydays = (_a = this.holydays_9()) !== null && _a !== void 0 ? _a : this.linkToAprakos;
     this.info();
     this.initElementsDOM();
     this.firstViewModal();
@@ -211,7 +212,7 @@ var OLY = (function () {
   }
     ;
   OLY.prototype.controlDates = function (userYear) {
-    var _a, _b;
+    var _a, _b, _c;
     var currentDate = this.theMomentTime;
     var uD = sessionStorage.getItem('userDate');
     if (sessionStorage.userDate != null) {
