@@ -63,12 +63,17 @@ width: 33%;
 } */
 
 body {
+    display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-items: center;
     /* margin: 22px 33px 100px; */
     padding-bottom: 77px;
     /* text-indent: 22px; */
     /* color: rgb(134, 72, 0) */
     background: rgb(0, 0, 0);
     color: #4f2b00;
+    text-align: center;
 }
 
 .cs {
