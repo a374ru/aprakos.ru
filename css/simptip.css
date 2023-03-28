@@ -1,8 +1,8 @@
 /* SimpTip v1.0.4
 // A simple CSS tooltip made with Sass 
 // source: https://github.com/arashmanteghi/simptip/
-// ducoment: http://arashm.net/lab/simptip/
-// by @ArashManteghi - http://arashm.net */
+// ducoment: https://arashm.net/lab/simptip/
+// by @ArashManteghi - https://arashm.net */
 /********************************* Core ******************************/
 [data-tooltip] {
   position: relative;
