@@ -320,7 +320,7 @@ sup {
 		font-size: 22px;
 	}
 	.gitiya {
-		margin: 23px 7px 73px;
+		/* margin: 23px 7px 73px; */
 		font-family: var(--font-var);
 		font-size: 1.7em;
 	}
@@ -351,7 +351,7 @@ sup {
 		/* margin-left: 15px */
 	}
 	.gitiya {
-		margin: 23px 23px 73px;
+		/* margin: 23px 23px 73px; */
 		font-family: var(--font-var);
 		/* font-size: 1.3em */
 	}
