@@ -214,7 +214,7 @@ sup {
 	position: relative;
 	/* position: absolute; */
 	top: 4px;
-	right: 19px;
+
 	/* font-size: 18px; */
 	opacity: 0.15;
     text-align: center;
@@ -365,7 +365,10 @@ sup {
 		font-size: 1.2px;
 	}
 
-    #dolu {position: absolute;}
+			    #dolu {
+			    	position: absolute;
+			    	right: 19px;
+			    }
 }
 
 
