@@ -183,7 +183,7 @@ var OLY = (function () {
   OLY.prototype.initWeeks = function () {
     var day = (this.weeks["day"] = [this.theMomentTime.getDay() + 1, "День седмицы",]);
     var all = (this.weeks["all"] = [Math.ceil((this.newEasterMLS - this.oldEasterMLS) / 864e5 / 7), "Протяженность ПБГ",]);
-    var current = (this.weeks["current"] = [Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 7 + 0.1), "Текущая седмица",]);
+    var current = (this.weeks["current"] = [Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 7), "Текущая седмица",]);
     var mif = (this.weeks["mif"] = [all[0] - 10, "Седмица МиФ"]);
     var zakhey = (this.weeks["zakhey"] = [mif[0] - 1, "Седмица Закхея"]);
     var stupkaK = (this.weeks["stupkaK"] = [all[0] - 50, "Крещенская отступка",]);
