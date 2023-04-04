@@ -1,3 +1,8 @@
+
+<!--
+Резервная копия кода для страницы `stvol.html` на `aprakos.blogspot.com` под скрипт `aprakos-blogspot.js`
+-->
+
 <p class="name" id="name" style="cursor: pointer">
 	<a href="#name" class="apracos-title"
 		title="&#9768; АПРАКОС КНИГ ЕВАНГЕЛИЯ И АПОСТОЛ. НЕДЕЛЬНЫЕ (ВОСКРЕСНЫЕ) И КАЖДОДНЕВНЫЕ РЯДОВЫЕ ЧТЕНИЯ СЕДМИЦ НАЧИНАЯ ОТ ПАСХИ, СОГЛАСНО УСТАВУ ПРАВОСЛАВНОЙ ЦЕРКВИ.">Ѓпракосъ
