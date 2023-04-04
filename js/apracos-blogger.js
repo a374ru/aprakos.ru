@@ -491,3 +491,5 @@ var OLY = (function () {
   return OLY;
 }());
 var apr = new OLY([]);
+
+// TODO @a374ru - Добавить вычисления дат Великого поста и Сыропуста в скрипт 
