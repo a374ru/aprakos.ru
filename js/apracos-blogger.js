@@ -343,7 +343,7 @@ var OLY = (function () {
     var link_to_hld9 = undefined;
     var tmt = this.theMomentTime.getMonth() + "/" + this.theMomentTime.getDate();
     for (var item in this.NINEHOLIDAYS) {
-      var f = this.NINEHOLIDAYS[item].year + "." + this.NINEHOLIDAYS[item].monthRU + "." + this.NINEHOLIDAYS[item].day;
+      var f = this.NINEHOLIDAYS[item].year + "/" + this.NINEHOLIDAYS[item].monthRU + "/" + this.NINEHOLIDAYS[item].day;
       var date_9 = new Date(f);
       var h9 = date_9.getMonth() + "/" + date_9.getDate();
       if (h9 === tmt) {
