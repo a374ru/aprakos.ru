@@ -204,7 +204,7 @@ var OLY = (function () {
       "Протяженность ПБГ",
     ]);
     var current = (this.weeks["current"] = [
-      Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 7 + 0.1),
+      Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 7),
       "Текущая седмица",
     ]);
     var mif = (this.weeks["mif"] = [all[0] - 10, "Седмица МиФ"]);
@@ -523,7 +523,7 @@ var OLY = (function () {
       }
       else if (oneClickInfo == "F2F2" && _this.stateModalView == true) {
         oneClickInfo = "";
-        apr.closeModalView();
+        _this.closeModalView();
       }
       if (event.code == "Escape") {
         oneClickInfo += event.code + "";
