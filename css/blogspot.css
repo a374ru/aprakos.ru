@@ -333,7 +333,7 @@ sup {
 
      .date {
       margin: auto;
-      font-size: 1.2em
+      font-size: 7vw;
     
 }
 }
@@ -374,7 +374,7 @@ sup {
     }
 }
 
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+/* @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
   .abzac {
       /* font-family: Irmologion; */
       margin: auto;
@@ -389,7 +389,7 @@ sup {
     .memory-ol a:visited {
       color: #000000;
     }
-}
+} */
 
 @media only screen and (min-device-width: 736px) and (max-device-width: 1100px) and (orientation: landscape) {
   .fp01 {
