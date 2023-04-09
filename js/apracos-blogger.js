@@ -207,11 +207,22 @@ var OLY = (function () {
       Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 7),
       "Текущая седмица",
     ]);
+    if (current[0] == 0) {
+      this.weeks["current"][0] = 1;
+    }
     var mif = (this.weeks["mif"] = [all[0] - 10, "Седмица МиФ"]);
     var zakhey = (this.weeks["zakhey"] = [mif[0] - 1, "Седмица Закхея"]);
     var stupkaK = (this.weeks["stupkaK"] = [
       all[0] - 50,
       "Крещенская отступка",
+      function () {
+        if (current[0] > 40) {
+          return stupkaK[0];
+        }
+        else {
+          return 0;
+        }
+      }
     ]);
     var vozdvizgenie = (this.weeks["vozdvizgenie"] = [
       Math.ceil((this.datesOLY.vozdvizgenieKresta[0].getTime() - this.oldEasterMLS) /
@@ -415,8 +426,24 @@ var OLY = (function () {
     }
     return undefined;
   };
+  OLY.prototype.initModalView = function () {
+    var _this = this;
+    var lastSegment = document.location.pathname.split('/').pop();
+    var closeClick = '<span id="close" class="close" onclick="apr.closeModalView()"></span>';
+    var commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
+    var str = "\n        <section id=\"fp-content\" class=\"fp-content\">\n        <b>\u0427\u0438\u0442\u0430\u0435\u043C\u0430\u044F \u0441\u0435\u0434\u043C\u0438\u0446\u0430:</b>\n        <div id=\"modal-cweek\">\u043F\u043E \u041F\u0430\u0441\u0445\u0435&nbsp; <span class=\"red bold\">" + (this.weeks.current[0] - this.stupka()) + ",</span></div>\n        <div id=\"modal-cweek50\">\u043F\u043E \u041F\u044F\u0442\u044C&shy;\u0434\u0435\u0441\u044F\u0442&shy;\u043D\u0438\u0446\u0435 <span class=\"red bold\">" + (this.weeks.current[0] > 7 ? this.weeks.current[0] - 7 - this.stupka() : "нет") + ".</span>\n        <div>" + (lastSegment === "stvol.html" ? commentStvol : "") + "</div></div>\n        <div>" + (lastSegment === "blog-post.html" ? "\u041E\u0442\u0441\u0442\u0443\u043F\u043A\u0430 <span class=\"red bold\">" + this.weeks.stupkaK[0] + "</span> \u0441\u0435\u0434\u043C." : "") + "</div></div>\n        " + closeClick + "\n        </section>\n        ";
+    document.getElementById("first-preview").innerHTML = str;
+    document.querySelector("#fp00").classList.add("fp00");
+    document.querySelector("#first-preview").classList.add("fp01");
+    var rpack = this.reversePack();
+    rpack();
+    var timerOff = setTimeout(function () {
+      _this.closeModalView(timerOff);
+      alert("\n Долгое отсутствие увеличивает расстояние разлуки.");
+    }, 3600000);
+  };
   OLY.prototype.initElementsDOM = function () {
-    var _a, _b;
+    var _a, _b, _c;
     var stvol = document.location.pathname.split('/').pop();
     if (stvol != "stvol.html") {
       return;
@@ -427,13 +454,16 @@ var OLY = (function () {
       curweek50: "" + (this.weeks.current[0] - 7),
       glass: "Глаc: " + this.glas(+this.weeks.current[0]),
     };
+    if (elemsID["curweek"] == "0") {
+      elemsID["curweek50"] == "0" + 1;
+    }
     for (var eid in elemsID) {
       if (Object.prototype.hasOwnProperty.call(elemsID, eid)) {
         if (eid === "curweek" || eid === "curweek50") {
           document.getElementById(eid).innerHTML = "<a href=\"#week" + this.anchorElemID + "\">" + elemsID[eid] + "</a>";
         }
-        else if (eid == "title50" && Number(elemsID.week50) < 7) {
-          document.getElementById('id50').setAttribute("style", "display:none");
+        else if (Number(elemsID.curweek50) < 7) {
+          (_c = document.getElementById("id50")) === null || _c === void 0 ? void 0 : _c.remove();
         }
         else {
           document.getElementById(eid).innerHTML = elemsID[eid];
@@ -468,22 +498,6 @@ var OLY = (function () {
       return i;
     };
     return reverseP;
-  };
-  OLY.prototype.initModalView = function () {
-    var _this = this;
-    var lastSegment = document.location.pathname.split('/').pop();
-    var closeClick = '<span id="close" class="close" onclick="apr.closeModalView()"></span>';
-    var commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
-    var str = "\n        <section id=\"fp-content\" class=\"fp-content\">\n        <b>\u0427\u0438\u0442\u0430\u0435\u043C\u0430\u044F \u0441\u0435\u0434\u043C\u0438\u0446\u0430:</b>\n        <div>\u043F\u043E \u041F\u0430\u0441\u0445\u0435&nbsp; <span class=\"red bold\">" + (this.weeks.current[0] - this.weeks.stupkaK[0]) + ",</span></div>\n        <div>\u043F\u043E \u041F\u044F\u0442\u044C&shy;\u0434\u0435\u0441\u044F\u0442&shy;\u043D\u0438\u0446\u0435 <span class=\"red bold\">\n        " + (this.weeks.current[0] - 7 - this.weeks.stupkaK[0]) + ".</span>\n        <div>" + (lastSegment === "stvol.html" ? commentStvol : "") + "</div></div>\n        <div>" + (lastSegment === "blog-post.html" ? "\u041E\u0442\u0441\u0442\u0443\u043F\u043A\u0430 <span class=\"red bold\">" + this.weeks.stupkaK[0] + "</span> \u0441\u0435\u0434\u043C." : "") + "</div></div>\n        " + closeClick + "\n        </section>\n        ";
-    document.getElementById("first-preview").innerHTML = str;
-    document.querySelector("#fp00").classList.add("fp00");
-    document.querySelector("#first-preview").classList.add("fp01");
-    var rpack = this.reversePack();
-    rpack();
-    var timerOff = setTimeout(function () {
-      _this.closeModalView(timerOff);
-      alert("\n Долгое отсутствие увеличивает расстояние разлуки.");
-    }, 3600000);
   };
   OLY.prototype.closeModalView = function (timerOff) {
     var _a, _b;
@@ -536,7 +550,7 @@ var OLY = (function () {
   };
   OLY.prototype.deleteUserDateFromSessionStorage = function () {
     sessionStorage.removeItem('userDate');
-    location.replace(document.documentURI);
+    document.location.replace(document.documentURI);
   };
   return OLY;
 }());
