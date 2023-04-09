@@ -300,7 +300,7 @@ var OLY = (function () {
         console.log(element[1] + " : " + element[0]);
       }
     }
-    console.warn("\n\u0421\u0435\u0433\u043E\u0434\u043D\u044F: " + this.theMomentTime.toDateString() + "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0410\u043F\u0440\u0430\u043A\u043E\u0441: https://aprakos.blogspot.com/" + this.linkToAprakos + "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043F\u0440\u0430\u0437\u0434\u043D\u0438\u043A: https://aprakos.blogspot.com/" + ((_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : "") + "\n\t\t");
+    console.warn("\n\u0421\u0435\u0433\u043E\u0434\u043D\u044F: " + this.theMomentTime.toDateString() + "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0410\u043F\u0440\u0430\u043A\u043E\u0441: https://aprakos.blogspot.com" + this.linkToAprakos + "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043F\u0440\u0430\u0437\u0434\u043D\u0438\u043A: https://aprakos.blogspot.com" + ((_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : "") + "\n\t\t");
   };
   OLY.prototype.yearMonthID = function () {
     var otstupka = this.stupka();
@@ -423,14 +423,13 @@ var OLY = (function () {
     }
     (_a = document.getElementById('name')) === null || _a === void 0 ? void 0 : _a.children[0].setAttribute('href', (_b = this.linkToHolydays) !== null && _b !== void 0 ? _b : this.linkToAprakos);
     var elemsID = {
-      cweek: "" + this.weeks.current[0],
-      title50: "\u041F\u043E \u043F\u044F\u0442\u044C\u0434\u0435\u0441\u044F\u0442\u043D\u0438\u0446\u0435",
-      week50: "" + (this.weeks.current[0] - 7),
+      curweek: "" + this.weeks.current[0],
+      curweek50: "" + (this.weeks.current[0] - 7),
       glass: "Глаc: " + this.glas(+this.weeks.current[0]),
     };
     for (var eid in elemsID) {
       if (Object.prototype.hasOwnProperty.call(elemsID, eid)) {
-        if (eid === "cweek" || eid === "week50") {
+        if (eid === "curweek" || eid === "curweek50") {
           document.getElementById(eid).innerHTML = "<a href=\"#week" + this.anchorElemID + "\">" + elemsID[eid] + "</a>";
         }
         else if (eid == "title50" && Number(elemsID.week50) < 7) {
@@ -531,6 +530,7 @@ var OLY = (function () {
       if (oneClickInfo == "EscapeEscape") {
         sessionStorage.removeItem('userDate');
         oneClickInfo = "";
+        document.location.replace("");
       }
     });
   };
