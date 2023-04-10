@@ -22,6 +22,7 @@
 details {
 	background-color: #fff7ed;
 	padding: 1px;
+  cursor: pointer;
 }
 
 @font-face {
