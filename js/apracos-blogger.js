@@ -451,24 +451,24 @@ var OLY = (function () {
     (_a = document.getElementById('name')) === null || _a === void 0 ? void 0 : _a.children[0].setAttribute('href', (_b = this.linkToHolydays) !== null && _b !== void 0 ? _b : this.linkToAprakos);
     var elemsID = {
       curweek: "" + this.weeks.current[0],
-      curweek50: "" + (this.weeks.current[0] - 7),
+      curweek50: "" + (this.weeks.current[0] < 8 ? "*" : this.weeks.current[0] - 7),
       glass: "Глаc: " + this.glas(+this.weeks.current[0]),
     };
-    if (elemsID["curweek"] == "0") {
-      elemsID["curweek50"] == "0" + 1;
-    }
     for (var eid in elemsID) {
       if (Object.prototype.hasOwnProperty.call(elemsID, eid)) {
         if (eid === "curweek" || eid === "curweek50") {
           document.getElementById(eid).innerHTML = "<a href=\"#week" + this.anchorElemID + "\">" + elemsID[eid] + "</a>";
         }
-        else if (Number(elemsID.curweek50) < 7) {
-          (_c = document.getElementById("id50")) === null || _c === void 0 ? void 0 : _c.remove();
-        }
         else {
           document.getElementById(eid).innerHTML = elemsID[eid];
         }
+        if (eid == "glass") {
+          document.querySelector('#glass').innerHTML = elemsID[eid];
+        }
       }
+    }
+    if (Number(elemsID.curweek) < 8) {
+      (_c = document.getElementById("id50")) === null || _c === void 0 ? void 0 : _c.remove();
     }
     document.getElementById("week" + this.weeks.elemID[0]).className += " colorBlock";
     document.getElementById("weekday" + this.weeks.aprID[0]).className += " seeddayON";
