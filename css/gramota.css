@@ -109,7 +109,7 @@ table.Decline tr td.TopNoDelim {
 @font-face {
     font-family: 'Irmologion';
     font-display: auto;
-    src: local('Clunya-IrmIEUcs'), url('https://a374ru.github.io/aprakos.ru/font/Clunya-IrmIEUcs.otf');
+    src: local('Clunya-IrmIEUcs'), url('https://aprakos.a374.ru/font/Clunya-IrmIEUcs.otf');
     font-weight: normal;
     font-style: normal;
 }
@@ -362,7 +362,7 @@ sup {
         /* margin: 123px 20px 3px 13px; */
     }
     .date {
-        margin: 1sedmica22px 33px 33px;
+        margin: 1px 22px 33px 33px;
         font-size: 3rem;
         /* date size */
         /* margin-left: 15px */
