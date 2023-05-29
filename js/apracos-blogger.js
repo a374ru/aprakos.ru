@@ -322,7 +322,7 @@ var OLY = (function () {
       case aprID <= 25:
         partURL = "2020/04/" + aprID;
         break;
-      case aprID <= 72:
+      case aprID <= 71:
         partURL = "2020/05/" + aprID;
         break;
       case aprID <= 113:
@@ -355,7 +355,7 @@ var OLY = (function () {
       case aprID <= 472:
         partURL = "2021/03/" + aprID;
         break;
-      case aprID <= 507:
+      case aprID <= 506:
         partURL = "2021/04/" + aprID;
         break;
       case aprID <= 517:
