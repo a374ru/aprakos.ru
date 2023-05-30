@@ -355,7 +355,7 @@ var OLY = (function () {
       case aprID <= 472:
         partURL = "2021/03/" + aprID;
         break;
-      case aprID <= 507:
+      case aprID <= 506:
         partURL = "2021/04/" + aprID;
         break;
       case aprID <= 517:
