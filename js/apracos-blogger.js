@@ -1,4 +1,6 @@
 "use strict";
+// среда, 31 мая 2023 г. 09: 00: 06(MSK)
+
 var OLY = (function () {
   function OLY(year) {
     var _a;
@@ -554,4 +556,4 @@ var OLY = (function () {
   };
   return OLY;
 }());
-var apr = new OLY();
+var apr = new OLY(); 
