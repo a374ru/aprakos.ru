@@ -1,4 +1,5 @@
 "use strict";
+// среда, 31 мая 2023 г. 12: 47: 38(MSK)
 var OLY = (function () {
   function OLY(year) {
     var _a;
@@ -203,8 +204,9 @@ var OLY = (function () {
       Math.ceil((this.newEasterMLS - this.oldEasterMLS) / 864e5 / 7),
       "Протяженность ПБГ",
     ]);
+    var addMLS = sessionStorage.getItem('userDate') ? 0.001 : 0;
     var current = (this.weeks["current"] = [
-      Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 7),
+      Math.ceil((this.theMomentTime.getTime() + addMLS - this.oldEasterMLS) / 864e5 / 7),
       "Текущая седмица",
     ]);
     if (current[0] == 0) {
