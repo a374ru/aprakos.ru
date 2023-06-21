@@ -508,10 +508,10 @@ a .sedmica {
 	color: #e34234;
 }
 
-a:visited .sedmica {
+a:visited.sedmica {
 	color: #6a3d07;
 }
-a:hover .sedmica {
+a:hover.sedmica {
 	color: #e34234;
 	cursor: url("https://aprakos.a374.ru/izo/scrollTop.png"), n-resize;
 }
