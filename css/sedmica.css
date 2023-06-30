@@ -63,7 +63,7 @@ html {scroll-behavior: smooth}
 }
 
 .promWeek {
-    background-image: url('https://a374.ru/assets/img/otstupka.png');
+    background-image: url('https://aprakos.a374.ru/assets/img/otstupka.png');
     background-position-x: right;
     background-position-y: top;
     background-repeat: no-repeat;
@@ -73,7 +73,7 @@ html {scroll-behavior: smooth}
     font-family: 'Irmologion';
     font-display: auto;
     /* src: local('Clunya-IrmIEUcs'), url('https://a374ru.github.io/aprakos.ru/font/Clunya-IrmIEUcs.otf'); */
-    src: local('Clunya-IrmIEUcs'), url('https://aprakos.a374.ru/font/Clunya-IrmIEUcs.otf');
+    src: local('Clunya-IrmIEUcs'), format('opentype'), url('https://aprakos.a374.ru/font/Clunya-IrmIEUcs.otf');
     font-weight: normal;
     font-style: normal;
 }
