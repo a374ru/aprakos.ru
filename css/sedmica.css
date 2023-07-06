@@ -10,6 +10,8 @@
 /* =================== */
 
 /* smooth scroll */
+
+
 html {scroll-behavior: smooth}
 
 :root {
@@ -63,7 +65,7 @@ html {scroll-behavior: smooth}
 }
 
 .promWeek {
-    background-image: url('https://a374.ru/assets/img/otstupka.png');
+    background-image: url('https://aprakos.a374.ru/assets/img/otstupka.png');
     background-position-x: right;
     background-position-y: top;
     background-repeat: no-repeat;
