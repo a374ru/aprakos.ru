@@ -17,7 +17,6 @@
 			if (title != "") {
 				var width = el.find('div').width(); // получение ширины
 				var height = el.find('div').height(); // получение высоты
-				var left = none;
 				el.hover(
 					function () {
 
