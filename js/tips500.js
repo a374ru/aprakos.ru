@@ -8,7 +8,7 @@
 
 			if ($(window).width() <= '500') {
 				// здесь код вычисления границ и замены стиля элемента для мобильного вида
-				el.attr('title', '').append('<div class="ttt_div" style="left:none">' + title + '</div>');
+				el.attr('title', '').append('<div class="ttt_div" style="left: 10px">' + title + '</div>');
 
 			} else {
 				el.attr('title', '').append('<div>' + title + '</div>');
