@@ -250,8 +250,14 @@ sup {
 	}
 
 	.hr-1 {
-		width: 320px;
+		width: 77vw;
+        margin-bottom: 7vh;
 	}
+
+	.minia{
+        margin-bottom: .5em;
+        margin-top: 7vw;
+    }
 
 	.date {
 		/* margin: 2px 3px 3px; */
