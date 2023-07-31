@@ -426,9 +426,9 @@ class TimeBoxOrthodox {
             ccc = this.formatsEaster.currentWeekStupka;
             this.formatsLinks.linkToAprakosPage =
                 ccc + "/" + this.formatsEaster.dayNum + ".html";
-            this.formatsLinks.linkToElementID2 = `<a href="#seed${ccc}"  title="Сегодня : ${this.formatsEaster.dayName
+            this.formatsLinks.linkToElementID2 = `<a href="#seedday-${ccc - 1}-7"  title="Сегодня : ${this.formatsEaster.dayName
                 }">${this.formatsEaster.promWeeks + ccc}</a>`;
-            this.formatsLinks.linkToElementID4 = `<a href="#seed${ccc}"  title="Сегодня : ${this.formatsEaster.dayName
+            this.formatsLinks.linkToElementID4 = `<a href="#seedday-${ccc - 1}-7"  title="Сегодня : ${this.formatsEaster.dayName
                 }">${this.formatsEaster.promWeeks + ccc - 7}</a>`;
         } else if (
             this.formatsEaster.currentWeek > 21 &&
@@ -438,13 +438,13 @@ class TimeBoxOrthodox {
             ccc = this.formatsEaster.currentWeek - this.formatsEaster.vozStupka;
             this.formatsLinks.linkToAprakosPage =
                 ccc + "/" + this.formatsEaster.dayNum + ".html";
-            this.formatsLinks.linkToElementID2 = `<a href="#seed${ccc}"  title="Сегодня : ${this.formatsEaster.dayName}">${this.formatsEaster.currentWeek}</a>`;
-            this.formatsLinks.linkToElementID4 = `<a href="#seed${ccc}"  title="Сегодня : ${this.formatsEaster.dayName
+            this.formatsLinks.linkToElementID2 = `<a href="#seedday-${ccc - 1}-7"  title="Сегодня : ${this.formatsEaster.dayName}">${this.formatsEaster.currentWeek}</a>`;
+            this.formatsLinks.linkToElementID4 = `<a href="#seedday-${ccc - 1}-7"  title="Сегодня : ${this.formatsEaster.dayName
                 }">${this.formatsEaster.currentWeek - 7}</a>`;
         } else {
             let ccc = this.formatsEaster.currentWeek;
-            this.formatsLinks.linkToElementID2 = `<a href="#seed${ccc}"  title="Сегодня : ${this.formatsEaster.dayName}">${ccc}</a>`;
-            this.formatsLinks.linkToElementID4 = `<a href="#seed${ccc}"  title="Сегодня : ${this.formatsEaster.dayName
+            this.formatsLinks.linkToElementID2 = `<a href="#seedday-${ccc - 1}-7"  title="Сегодня : ${this.formatsEaster.dayName}">${ccc}</a>`;
+            this.formatsLinks.linkToElementID4 = `<a href="#seedday-${ccc - 1}-7"  title="Сегодня : ${this.formatsEaster.dayName
                 }">${ccc - 7}</a>`;
         }
     }

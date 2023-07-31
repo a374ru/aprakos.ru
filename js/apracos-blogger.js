@@ -459,7 +459,7 @@ var OLY = (function () {
     for (var eid in elemsID) {
       if (Object.prototype.hasOwnProperty.call(elemsID, eid)) {
         if (eid === "curweek" || eid === "curweek50") {
-          document.getElementById(eid).innerHTML = "<a href=\"#weekday" + this.anchorElemID + "\">" + elemsID[eid] + "7" + "</a>";
+          document.getElementById(eid).innerHTML = "<a href=\"#weekday" + this.anchorElemID + "-7" + "\">" + elemsID[eid] + "</a>";
         }
         else {
           document.getElementById(eid).innerHTML = elemsID[eid];
