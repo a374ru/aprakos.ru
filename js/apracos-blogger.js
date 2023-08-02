@@ -1,5 +1,5 @@
 "use strict";
-// среда, 31 мая 2023 г. 12: 47: 38(MSK)
+// понедельник, 31 июля 2023 г. 05:56:18 (MSK)
 var OLY = (function () {
   function OLY(year) {
     var _a;
@@ -459,7 +459,7 @@ var OLY = (function () {
     for (var eid in elemsID) {
       if (Object.prototype.hasOwnProperty.call(elemsID, eid)) {
         if (eid === "curweek" || eid === "curweek50") {
-          document.getElementById(eid).innerHTML = "<a href=\"#week" + this.anchorElemID + "\">" + elemsID[eid] + "</a>";
+          document.getElementById(eid).innerHTML = "<a href=\"#weekday" + (this.anchorElemID - 1) + "7" + "\">" + elemsID[eid] + "</a>";
         }
         else {
           document.getElementById(eid).innerHTML = elemsID[eid];
