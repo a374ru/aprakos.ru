@@ -548,7 +548,7 @@ class TimeBoxOrthodox {
     linkToID() {
         var anc = document.location.href.split('#')[1];
         if (anc != undefined) {
-        document.getElementById(anc).setAttribute('style', 'color: #000; background-color: #f4b5ff36; padding: 0px 0.4em 0px; border-radius: 7px;');
+            document.getElementById(anc).setAttribute('style', 'color: #a55858; background-color: #f4b5ff36; padding: 0px 0.4em 0px; border-radius: 7px;');
 
             return 'Элемент id в составе URL: #' + anc;
         }
