@@ -208,9 +208,9 @@ class TimeBoxOrthodox {
         try {
             this.insertElements();
         } catch (e) {
-            console.log("Блока нет !!!");
+            console.log(e);
         } finally {
-            console.log("Продолжаем … полет по коду !!!");
+            // console.log("Продолжаем … полет по коду !!!");
         }
     }
     glasSedmici() {
@@ -384,11 +384,11 @@ class TimeBoxOrthodox {
             CONST_MLS_DAY /
             7 -
             6;
-        console.log(
-            `Седмица на Воздвижение - ${Math.floor(
-                kolichestvoSedmicPoPyatidesyatnice
-            )}`
-        );
+        // console.log(
+        //     `Седмица на Воздвижение - ${Math.floor(
+        //         kolichestvoSedmicPoPyatidesyatnice
+        //     )}`
+        // );
         stupka = Math.floor(kolichestvoSedmicPoPyatidesyatnice) - 17;
         if (stupka > 0 && this.formatsEaster.mondayAfterVozdviggenie) {
             console.log(`Отступка составляет - ${stupka} седмицы.`);
@@ -546,8 +546,12 @@ class TimeBoxOrthodox {
      * Код ссылки по якорю
      */
     linkToID() {
-        var anc = document.location.href.split('#')[1];
-        if (anc != undefined) {
+
+
+        let anc = document.location.hash.slice(1);
+        let pageName = document.location.pathname.split('/').lastIndexOf("stvol.html");
+
+        if (anc != undefined && pageName == -1) {
             document.getElementById(anc).setAttribute('style', 'color: #a55858; background-color: #f4b5ff36; padding: 0px 0.4em 0px; border-radius: 7px;');
 
             return 'Элемент id в составе URL: #' + anc;
