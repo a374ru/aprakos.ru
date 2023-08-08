@@ -81,7 +81,7 @@ html {scroll-behavior: smooth}
 }
 
 body {
-    background: #ffd7aa38;
+    background: #fffafa;
     margin: 7px 3vw 7px;
     text-indent: 22px;
     font-size: 1em;
@@ -110,7 +110,7 @@ h1 {
 }
 
 .sedmica {
-    color: #000000;
+    color: #333333;
     font-size: calc(var(--mainfontsize-var) * 0.85);
 }
 
@@ -230,7 +230,7 @@ a:visited {
     padding: 12px;
     font-family: Irmologion;
     font-size: var(--mainfontsize-var);
-    color: #502c00;
+    color: #683900;
 }
 
 .snoska {
