@@ -541,6 +541,13 @@ class TimeBoxOrthodox {
         document.getElementById(vvv).className += slb;
         return description;
     }
+    linkToID() {
+        var anc = document.location.href.split('#')[1];
+        console.log(anc);
+        document.getElementById(anc).setAttribute('style', 'color: #000; background-color: #f4b5ff36; padding: 0px 0.4em 0px; border-radius: 7px;');
+    }
+
 }
 let apr = new TimeBoxOrthodox();
+apr.linkToID();
 //
