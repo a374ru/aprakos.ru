@@ -4,6 +4,8 @@ const CONST_MLS_DAY = 864E5;
 const CONST_MLS_MiF = CONST_MLS_DAY * 7 * 10;
 const CONST_LOG_WARNING = "Будте вниматильней, проверте правильность вводимой даты.";
 const ER_606 = "НЕ ОПРЕДЕЛЕН КЛЮЧ ГОДА";
+let normColor = "";
+let titleColor = "#888888";
 class TimeBoxOrthodox {
     constructor(userYear) {
         this.formatsEaster = {
@@ -319,6 +321,54 @@ class TimeBoxOrthodox {
         }
         return null;
     }
+
+
+
+    replaceTitle(param = "") {
+
+        [normColor, titleColor] = [titleColor, normColor];
+        const elem = document.getElementById(param);
+        let norm = elem.getInnerHTML();
+        let dataTitle = elem.getAttribute('data-title');
+        elem.innerHTML = dataTitle;
+        console.log(norm + " – " + dataTitle);
+        elem.setAttribute('data-title', norm);
+        elem.style.color = normColor;
+
+
+
+        // setTimeout(() => {
+
+        //     elem.innerHTML = norm;
+        //     elem.setAttribute('data-title', dataTitle);
+        //     elem.style.color = "";
+
+
+
+        // }, 7000);
+    }
 }
 let apr = new TimeBoxOrthodox();
-apr.linkToID();
+// apr.linkToID();
+let replaceTitle = apr.replaceTitle;
+
+// const test = document.getElementById(replaceTitle);
+// const norm = "test.getInnerHTML()";
+// test.addEventListener(
+//     "mouseover",
+//     (event) => {
+//         // highlight the mouseover target
+//         let dt = test.getAttribute('data-title');
+//         test.innerHTML = dt;
+//         event.target.style.color = "#e34234";
+//         // alert("=====")
+//         // reset the color after a short delay
+//         setTimeout(() => {
+//             event.target.style.color = "";
+//             test.innerHTML = norm;
+
+
+//         }, 3000);
+//     },
+//     false,
+// );
