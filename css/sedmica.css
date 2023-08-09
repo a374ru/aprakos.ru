@@ -142,6 +142,18 @@ a:visited {
     color: #000000;
 }
 
+.ttt{
+
+cursor: help;
+transition: .3s;
+text-decoration: dashed #c5c5c5;
+
+}
+
+.ttt:hover{
+color:rgb(189, 189, 255);
+}
+
 .dug a {
     color: #fffdfa;
 }
