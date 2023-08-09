@@ -322,7 +322,7 @@ class TimeBoxOrthodox {
     }
     replaceTitle(param = "") {
         [this.normColor, this.titleColor] = [this.titleColor, this.normColor];
-        const elem = document.querySelector(param);
+        const elem = document.getElementById(param);
         let norm = elem.getInnerHTML();
         let dataTitle = elem.getAttribute('data-title');
         elem.innerHTML = dataTitle;
