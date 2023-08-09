@@ -1,11 +1,8 @@
 "use strict";
-//вторник,  8 августа 2023 г. 15:29:35 (MSK)
 const CONST_MLS_DAY = 864E5;
 const CONST_MLS_MiF = CONST_MLS_DAY * 7 * 10;
 const CONST_LOG_WARNING = "Будте вниматильней, проверте правильность вводимой даты.";
 const ER_606 = "НЕ ОПРЕДЕЛЕН КЛЮЧ ГОДА";
-let normColor = "";
-let titleColor = "#888888";
 class TimeBoxOrthodox {
     constructor(userYear) {
         this.formatsEaster = {
@@ -68,6 +65,8 @@ class TimeBoxOrthodox {
             1999: [4, 11], 2000: [4, 30], 2001: [4, 15], 2002: [5, 5], 2003: [4, 27], 2004: [4, 11], 2005: [5, 1], 2006: [4, 23], 2007: [4, 8], 2008: [4, 27], 2009: [4, 19], 2010: [4, 4], 2011: [4, 24], 2012: [4, 15], 2013: [5, 5], 2014: [4, 20], 2015: [4, 12], 2016: [5, 1], 2017: [4, 16], 2018: [4, 8], 2019: [4, 28], 2020: [4, 19], 2021: [5, 2], 2022: [4, 24], 2023: [4, 16], 2024: [5, 5], 2025: [4, 20], 2026: [4, 12], 2027: [5, 2], 2028: [4, 16], 2029: [4, 8], 2030: [4, 28], 2031: [4, 13], 2032: [5, 2], 2033: [4, 24], 2034: [4, 9], 2035: [4, 29], 2036: [4, 20], 2037: [4, 5], 2038: [4, 25], 2039: [4, 17], 2040: [5, 6], 2041: [4, 21], 2042: [4, 13], 2043: [5, 3], 2044: [4, 24], 2045: [4, 9], 2046: [4, 29], 2047: [4, 21], 2048: [4, 5], 2049: [4, 25], 2050: [4, 17], 2051: [5, 7], 2052: [5, 21], 2053: [4, 13], 2054: [5, 3], 2055: [5, 18], 2056: [4, 9], 2057: [4, 29], 2058: [4, 14], 2059: [5, 4], 2060: [4, 25], 2061: [4, 10], 2062: [4, 30], 2063: [4, 22], 2064: [4, 13], 2065: [4, 26], 2066: [4, 18], 2067: [4, 10], 2068: [4, 29], 2069: [4, 14], 2070: [5, 4], 2071: [4, 19], 2072: [4, 10], 2073: [4, 30], 2074: [4, 22], 2075: [4, 7], 2076: [4, 26], 2077: [4, 18], 2078: [5, 8], 2079: [4, 23], 2080: [4, 14], 2081: [5, 4], 2082: [4, 19], 2083: [4, 11], 2084: [4, 30], 2085: [4, 15], 2086: [4, 7], 2087: [4, 27], 2088: [4, 18], 2089: [5, 1], 2090: [4, 23], 2091: [4, 8], 2092: [4, 27], 2093: [4, 19], 2094: [4, 11], 2095: [4, 24], 2096: [4, 15], 2097: [5, 5], 2098: [4, 27], 2099: [4, 12], 2100: [5, 2]
         };
         this.keySystemYear = 0;
+        this.normColor = "";
+        this.titleColor = "#888888";
         this.theMoment = new Date();
         this.theMoment.setHours(0, 0, 0, 0);
         try {
@@ -321,54 +320,16 @@ class TimeBoxOrthodox {
         }
         return null;
     }
-
-
-
     replaceTitle(param = "") {
-
-        [normColor, titleColor] = [titleColor, normColor];
-        const elem = document.getElementById(param);
+        [this.normColor, this.titleColor] = [this.titleColor, this.normColor];
+        const elem = document.querySelector(param);
         let norm = elem.getInnerHTML();
         let dataTitle = elem.getAttribute('data-title');
         elem.innerHTML = dataTitle;
         console.log(norm + " – " + dataTitle);
         elem.setAttribute('data-title', norm);
-        elem.style.color = normColor;
-
-
-
-        // setTimeout(() => {
-
-        //     elem.innerHTML = norm;
-        //     elem.setAttribute('data-title', dataTitle);
-        //     elem.style.color = "";
-
-
-
-        // }, 7000);
+        elem.style.color = this.normColor;
     }
 }
 let apr = new TimeBoxOrthodox();
-// apr.linkToID();
-let replaceTitle = apr.replaceTitle;
-
-// const test = document.getElementById(replaceTitle);
-// const norm = "test.getInnerHTML()";
-// test.addEventListener(
-//     "mouseover",
-//     (event) => {
-//         // highlight the mouseover target
-//         let dt = test.getAttribute('data-title');
-//         test.innerHTML = dt;
-//         event.target.style.color = "#e34234";
-//         // alert("=====")
-//         // reset the color after a short delay
-//         setTimeout(() => {
-//             event.target.style.color = "";
-//             test.innerHTML = norm;
-
-
-//         }, 3000);
-//     },
-//     false,
-// );
+apr.linkToID();
