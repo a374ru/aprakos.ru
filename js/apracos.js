@@ -321,13 +321,16 @@ class TimeBoxOrthodox {
         return null;
     }
     replaceTitle(param = "") {
+
+
+
         [this.normColor, this.titleColor] = [this.titleColor, this.normColor];
         const elem = document.getElementById(param);
         let norm = elem.getInnerHTML();
-        let dataTitle = elem.getAttribute('data-title');
-        elem.innerHTML = dataTitle;
-        console.log(norm + " – " + dataTitle);
-        elem.setAttribute('data-title', norm);
+        let dataToolTip = elem.getAttribute('data-tooltip');
+        elem.innerHTML = dataToolTip;
+        // console.log(norm + " – " + dataToolTip);
+        elem.setAttribute('data-tooltip', norm);
         elem.style.color = this.normColor;
     }
 }
