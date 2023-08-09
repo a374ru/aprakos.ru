@@ -30,6 +30,18 @@ html {scroll-behavior: smooth}
 
 /* =================== */
 
+.ttt:hover::after {
+  content: attr(data-title);
+    /* Положение подсказки */
+    padding: 1%;
+    background: #ff4d4d0f;
+    /* font-family: monospace; */
+    color: rgb(255, 77, 77);
+}
+
+.ttt:hover{
+color:#7f585867;
+}
 
 /* =================== */
 
@@ -150,9 +162,9 @@ text-decoration: dashed #c5c5c5;
 
 }
 
-.ttt:hover{
+/* .ttt:hover{
 color:rgb(189, 189, 255);
-}
+} */
 
 .dug a {
     color: #fffdfa;
