@@ -66,7 +66,7 @@ class TimeBoxOrthodox {
         };
         this.keySystemYear = 0;
         this.normColor = "";
-        this.titleColor = "#888888";
+        this.titleColor = "#777";
         this.theMoment = new Date();
         this.theMoment.setHours(0, 0, 0, 0);
         try {
@@ -91,6 +91,7 @@ class TimeBoxOrthodox {
         this.calculateLinksAll();
         this.voznesnieGospodne();
         this.pyatDesyatnica();
+        this.replaceTitle();
         try {
             this.insertElements();
         }
@@ -320,18 +321,25 @@ class TimeBoxOrthodox {
         }
         return null;
     }
-    replaceTitle(param = "") {
-
-
+    replaceTitle() {
 
         [this.normColor, this.titleColor] = [this.titleColor, this.normColor];
-        const elem = document.getElementById(param);
-        let norm = elem.getInnerHTML();
-        let dataToolTip = elem.getAttribute('data-tooltip');
-        elem.innerHTML = dataToolTip;
-        // console.log(norm + " – " + dataToolTip);
-        elem.setAttribute('data-tooltip', norm);
-        elem.style.color = this.normColor;
+        const elems = document.querySelectorAll(".tooltip");
+        elems.forEach(el => {
+
+            el.addEventListener('click', function () {
+                console.log("=-=-=-=-=-=-");
+                let norm = el.getInnerHTML();
+                let dataToolTip = el.getAttribute('data-tooltip');
+                el.innerHTML = dataToolTip;
+                console.log(norm + " – " + dataToolTip);
+                el.setAttribute('data-tooltip', norm);
+                el.style.color = this.normColor;
+            })
+
+
+
+        });
     }
 }
 let apr = new TimeBoxOrthodox();

@@ -30,7 +30,7 @@ html {scroll-behavior: smooth}
 
 /* =================== */
 
-.ttt:hover::after {
+.tooltip:hover::after {
   content: attr(data-tooltip);
     /* Положение подсказки */
     padding: 1%;
@@ -39,8 +39,8 @@ html {scroll-behavior: smooth}
     color: rgb(255, 77, 77);
 }
 
-.ttt:hover{
-color:#a86a00;
+.tooltip:hover{
+color:#909090;
 }
 
 /* =================== */
