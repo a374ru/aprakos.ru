@@ -31,16 +31,21 @@ html {scroll-behavior: smooth}
 /* =================== */
 
 .tooltip:hover::after {
-  content: attr(data-tooltip);
+  content: attr(title);
     /* Положение подсказки */
     padding: 1%;
     background: #ff4d4d0f;
-    /* font-family: monospace; */
+    font-family: monospace;
     color: rgb(255, 77, 77);
+    word-spacing: -0.7ch;
+}
+
+.tooltip{
+color:#903f00
 }
 
 .tooltip:hover{
-color:#909090;
+color:#39adff;
 }
 
 /* =================== */

@@ -91,7 +91,7 @@ class TimeBoxOrthodox {
         this.calculateLinksAll();
         this.voznesnieGospodne();
         this.pyatDesyatnica();
-        this.replaceTitle();
+        // this.replaceTitle();
         try {
             this.insertElements();
         }
