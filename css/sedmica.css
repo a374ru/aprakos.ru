@@ -11,6 +11,12 @@
 
 /* smooth scroll */
 
+.dev-ystm{
+cursor: pointer;
+    color: #ff7300;
+    /* text-decoration: underline wavy 2px #ffe4e4; */
+    transition: .3s;
+}
 
 html {scroll-behavior: smooth}
 
@@ -20,7 +26,7 @@ html {scroll-behavior: smooth}
     --date-var: #ffd8d4;
     --seedday-var: #6fbf5f;
     --bg-colorBlock-var: #fdffd0;
-    --link-cross-relation-var: #693;
+    /* --link-cross-relation-var: #693; */
     --mainfontsize-var: 150%;
     --font-size-name-1751: 1.7rem;
     --font-size-abzac-1751: 1.7rem;
@@ -28,25 +34,36 @@ html {scroll-behavior: smooth}
     --font-size-abzac-1753: 2.2rem;
 }
 
+a{
+color:var(--kino-var);
+text-decoration: none;
+}
+a:hover {
+    color: #fb6767;
+}
+
 
 .tooltip{
+cursor: pointer;
 color:#856041;
 /* text-decoration: underline wavy 2px #ffe4e4; */
+transition: .3s;
 }
 /* =================== */
 
 .tooltip:hover::after {
   content: attr(data-tooltip);
     /* Положение подсказки */
+    
     display: block;
     padding: 1%;
     background: #ff4d4d0f;
     color: #ff4d4d;
     text-align:center;
     text-decoration: none;
-    font-family: Fontics;
+    margin-bottom: 2%;
+    font-family: Fontics, Georgia, 'Times New Roman', Times, serif;
     /* -=-=-=-=-=-=-=-=-=-=- */
-    /* Для  шрифтов кроме Fontics включить стиль ниже */
     /* word-spacing: -0.3ch; */
 }
 
@@ -104,6 +121,15 @@ color:#39adff;
     font-style: normal;
 }
 
+@font-face {
+	font-family: "Fontics";
+	font-display: auto;
+	src: local("Fontics-Regular.otf"),
+		url("https://aprakos.a374.ru/font/Fontics-Regular.otf");
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
     background: #fffafa;
     margin: 7px 3vw 7px;
@@ -111,12 +137,8 @@ body {
     font-size: 1em;
 }
 
- a.cross-relation, a:visited.cross-relation{
-    color: var(--link-cross-relation-var);
-}
-a:hover.cross-relation {
-    color: var(--kino-var);
-}
+
+
 
 h1 {
     margin: 110px 0px;
@@ -138,15 +160,42 @@ h1 {
     font-size: calc(var(--mainfontsize-var) * 0.85);
 }
 
-a:link {
-    color: var(--kino-var, rgb(134, 72, 0));
-    text-decoration: none;
+
+ul,ol{
+font-size: 1.3em;
+    font-size: 1.7em;
+    line-height: inherit;
+    margin: 9px 51px 33px;
+
+    }
+
+ol,ul,li a:link{
+    color: #aa5b00;
 }
 
-a:visited {
+li a:hover{
+color: var(--kino-var) !important;
+
+}
+
+li a:visited{
+
+    color: #454545;
+}
+
+li::marker{
+color:#ffbdbd;
+}
+
+/* a:link {
+    color: var(--kino-var);
+    text-decoration: none;
+} */
+
+/* a:visited {
     color: var(--kino-var, rgb(134, 72, 0));
     text-decoration: none;
-}
+} */
 
 .yearBG {
         font-weight: 600;

@@ -92,6 +92,7 @@ class TimeBoxOrthodox {
         this.voznesnieGospodne();
         this.pyatDesyatnica();
         this.linkToID();
+        this.devTools();
         try {
             this.insertElements();
         }
@@ -341,6 +342,16 @@ class TimeBoxOrthodox {
                 element.style.color = this.normColor;
             });
         });
+    }
+    devTools() {
+        const protocolHTTP = document.location.protocol;
+        if (protocolHTTP == "http:") {
+            const tt = document.querySelectorAll('.tooltip');
+            tt.forEach(element => {
+                element.setAttribute('style', 'color:orange');
+                console.log("-=-=-=-=--=");
+            });
+        }
     }
 }
 let apr = new TimeBoxOrthodox();
