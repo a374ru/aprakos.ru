@@ -349,7 +349,8 @@ class TimeBoxOrthodox {
             const a = document.styleSheets[0];
             const b = [...a.cssRules];
             let c = b.find((obj) => obj.selectorText === '.tooltip');
-            c.style.setProperty('color', 'blue');
+            c.style.setProperty('color', 'orangered');
+            c.style.setProperty('background-color', '#faa3');
         }
         ;
     }

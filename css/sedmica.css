@@ -60,7 +60,7 @@ transition: .3s;
     background: #ff4d4d0f;
     color: #ff4d4d;
     text-align:center;
-    text-decoration: none;
+    /* text-decoration: rgba(210, 180, 140, 0) underline wavy 2px; */
     margin-bottom: 2%;
     font-family: Fontics, Georgia, 'Times New Roman', Times, serif;
     /* -=-=-=-=-=-=-=-=-=-=- */
