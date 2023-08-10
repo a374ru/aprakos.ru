@@ -16,6 +16,7 @@ html {scroll-behavior: smooth}
 
 :root {
     --kino-var: #e34234;
+    --main-content-color: #683900;
     --date-var: #ffd8d4;
     --seedday-var: #6fbf5f;
     --bg-colorBlock-var: #fdffd0;
@@ -28,6 +29,10 @@ html {scroll-behavior: smooth}
 }
 
 
+.tooltip{
+color:#856041;
+/* text-decoration: underline wavy 2px #ffe4e4; */
+}
 /* =================== */
 
 .tooltip:hover::after {
@@ -36,17 +41,15 @@ html {scroll-behavior: smooth}
     display: block;
     padding: 1%;
     background: #ff4d4d0f;
-    color: rgb(255, 77, 77);
+    color: #ff4d4d;
     text-align:center;
+    text-decoration: none;
     font-family: Fontics;
     /* -=-=-=-=-=-=-=-=-=-=- */
     /* Для  шрифтов кроме Fontics включить стиль ниже */
     /* word-spacing: -0.3ch; */
 }
 
-.tooltip{
-color:#e34234;
-}
 
 .tooltip:hover{
 color:#39adff;
@@ -263,7 +266,7 @@ color:rgb(189, 189, 255);
     padding: 12px;
     font-family: Irmologion;
     font-size: var(--mainfontsize-var);
-    color: #683900;
+    color: var(--main-content-color);
 }
 
 .snoska {
