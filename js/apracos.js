@@ -346,12 +346,12 @@ class TimeBoxOrthodox {
     devTools() {
         const protocolHTTP = document.location.protocol;
         if (protocolHTTP == "http:") {
-            const tt = document.querySelectorAll('.tooltip');
-            tt.forEach(element => {
-                element.setAttribute('style', 'color:orange');
-                console.log("-=-=-=-=--=");
-            });
+            const a = document.styleSheets[0];
+            const b = [...a.cssRules];
+            let c = b.find((obj) => obj.selectorText === '.tooltip');
+            c.style.setProperty('color', 'blue');
         }
+        ;
     }
 }
 let apr = new TimeBoxOrthodox();
