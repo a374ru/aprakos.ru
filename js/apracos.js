@@ -66,7 +66,7 @@ class TimeBoxOrthodox {
         };
         this.keySystemYear = 0;
         this.normColor = "";
-        this.titleColor = "#777";
+        this.titleColor = "#888888";
         this.theMoment = new Date();
         this.theMoment.setHours(0, 0, 0, 0);
         try {
@@ -91,7 +91,7 @@ class TimeBoxOrthodox {
         this.calculateLinksAll();
         this.voznesnieGospodne();
         this.pyatDesyatnica();
-        // this.replaceTitle();
+        this.linkToID();
         try {
             this.insertElements();
         }
@@ -315,32 +315,32 @@ class TimeBoxOrthodox {
     linkToID() {
         let anc = document.location.hash.slice(1);
         let pageName = document.location.pathname.split('/').lastIndexOf("stvol.html");
-        if (anc != undefined && pageName == -1) {
-            document.getElementById(anc).setAttribute('style', 'color: #a55858; background-color: #f4b5ff36; padding: 0px 0.4em 0px; border-radius: 7px;');
+        if (anc != "" && pageName == -1) {
+            try {
+                document.getElementById(anc).setAttribute('style', 'color: #a55858; background-color: #f4b5ff36; padding: 0px 0.4em 0px; border-radius: 7px;');
+            }
+            catch (error) {
+                console.log(error);
+                anc = " …не найден.";
+            }
             return 'Элемент id в составе URL: #' + anc;
         }
         return null;
     }
-    replaceTitle() {
-
+    replaceDataTooltip() {
         [this.normColor, this.titleColor] = [this.titleColor, this.normColor];
         const elems = document.querySelectorAll(".tooltip");
-        elems.forEach(el => {
-
-            el.addEventListener('click', function () {
+        elems.forEach((element) => {
+            element.addEventListener('click', () => {
                 console.log("=-=-=-=-=-=-");
-                let norm = el.getInnerHTML();
-                let dataToolTip = el.getAttribute('data-tooltip');
-                el.innerHTML = dataToolTip;
+                let norm = element.getInnerHTML();
+                let dataToolTip = element.getAttribute('data-tooltip');
+                element.innerHTML = dataToolTip;
                 console.log(norm + " – " + dataToolTip);
-                el.setAttribute('data-tooltip', norm);
-                el.style.color = this.normColor;
-            })
-
-
-
+                element.setAttribute('data-tooltip', norm);
+                element.style.color = this.normColor;
+            });
         });
     }
 }
 let apr = new TimeBoxOrthodox();
-apr.linkToID();
