@@ -345,7 +345,11 @@ class TimeBoxOrthodox {
     }
     devTools() {
         const protocolHTTP = document.location.protocol;
-        if (protocolHTTP == "http:") {
+        // const segmentURL = document.location.pathname
+        // let aprakos = segmentURL.search("APRAKOS/index.html")
+        let styleCSS = document.styleSheets.length == 0;
+
+        if (protocolHTTP == "http:" && !styleCSS) {
             const a = document.styleSheets[0];
             const b = [...a.cssRules];
             let c = b.find((obj) => obj.selectorText === '.tooltip');
