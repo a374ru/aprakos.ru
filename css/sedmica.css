@@ -42,6 +42,21 @@ a:hover {
     color: #e3423488;
 }
 
+.about{
+font-size: var(--mainfontsize-var);
+margin-left: 4vw;
+padding: 2%;
+
+}
+
+.about a{
+color:#333333;
+}
+.about a:hover{
+color:#e34234;
+}
+
+
 
 .tooltip{
 cursor: pointer;
