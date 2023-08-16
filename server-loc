@@ -1,0 +1,5 @@
+#!/bin/sh
+
+
+python -m SimpleHTTPServer 3000
+# lsof -ti tcp:3000 | xargs kill
