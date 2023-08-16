@@ -59,6 +59,12 @@ sup {
     color: #e34234;
 }
 
+#dolu{
+    text-indent: 0;
+    text-align: center;
+    opacity: .1;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
     body {
         margin: 12px 13px 13px;
