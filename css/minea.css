@@ -26,7 +26,7 @@
     font-display: auto;
     /* src: url('../font/IrmUcs.ttf'); */
     /* src: url('../font/Clunya-IrmIEUcs.otf'); */
-     src: local('Clunya-IrmIEUcs'), url('../font/Clunya-IrmIEUcs.otf');
+     src: local('Clunya-IrmIEUcs'), url('https://fonts.a374.ru/Clunya-IrmIEUcs.otf');
     font-weight: normal;
     font-style: normal;
 }
@@ -35,7 +35,7 @@
 	font-family: "Fontics";
 	font-display: auto;
 	src: local("Fontics-Regular.otf"),
-		url("https://aprakos.a374.ru/font/Fontics-Regular.otf");
+		url("https://fonts.a374.ru/Fontics-Regular.otf");
 	font-weight: normal;
 	font-style: normal;
 }
