@@ -225,6 +225,7 @@ color:#ffbdbd;
     margin: 22px 33px 33px;
     font-size: var(--mainfontsize-var);
     line-height: var(--mainfontsize-var);
+    font-style: italic;
     /* date size */
     /* margin-left: 15px */
     color: #000000;
