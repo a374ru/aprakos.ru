@@ -552,3 +552,7 @@ a:hover.sedmica {
 }
 
 .firebrick {color: #B22222; }
+
+li,p,h1,h2,h3,span{
+scroll-margin-top: 3dvw;
+}
