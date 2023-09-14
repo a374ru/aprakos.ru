@@ -50,7 +50,7 @@ img {
 @font-face {
     font-family: 'Fontics';
     font-display: auto;
-    src: local('Fontics-Regular'), url('https://a374ru.github.io/aprakos.ru/font/Fontics-Regular.otf');
+    src: local('Fontics-Regular'), url('https://fonts.a374.ru/Fontics-Regular.otf');
     font-weight: normal;
     font-style: normal;
 }
