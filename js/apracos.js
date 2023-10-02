@@ -105,6 +105,7 @@ class TimeBoxOrthodox {
         this.voznesnieGospodne();
         this.pyatDesyatnica();
         this.linkToID();
+        this.devTools();
         try {
             this.insertElements();
         }
@@ -347,6 +348,25 @@ class TimeBoxOrthodox {
                 element.style.color = this.normColor;
             });
         });
+    }
+    devTools() {
+        const protocolHTTP = document.location.protocol;
+        const styleCSS = document.styleSheets.length != 0;
+        if (protocolHTTP == "http:" && styleCSS) {
+            try {
+                const a = document.styleSheets[0];
+                const b = [...a.cssRules];
+                let c = b.find((obj) => obj.selectorText === '.tooltip');
+                c.style.setProperty('color', 'orangered');
+                c.style.setProperty('background-color', '#faa3');
+                c = b.find((obj) => obj.selectorText === '.tooltip');
+                c.style.setProperty('color', 'orangered');
+                c.style.setProperty('background-color', '#faa3');
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
     }
 }
 let apr = new TimeBoxOrthodox();
