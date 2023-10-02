@@ -4,6 +4,19 @@ const CONST_MLS_MiF = CONST_MLS_DAY * 7 * 10;
 const CONST_LOG_WARNING = "Будте вниматильней, проверте правильность вводимой даты.";
 const ER_606 = "НЕ ОПРЕДЕЛЕН КЛЮЧ ГОДА";
 class TimeBoxOrthodox {
+    glasSedmici() {
+        let gls = this.formatsEaster.currentWeek % 8 - 1;
+        if (gls > 0) {
+            this.formatsEaster.glas = gls;
+        }
+        else if (gls < 0) {
+            this.formatsEaster.glas = 7;
+        }
+        else {
+            this.formatsEaster.glas = 8;
+        }
+        return `Для текущей ${this.formatsEaster.currentWeek} седмицы установлен глас – ${this.formatsEaster.glas}`;
+    }
     constructor(userYear) {
         this.formatsEaster = {
             dayName: undefined,
@@ -92,7 +105,6 @@ class TimeBoxOrthodox {
         this.voznesnieGospodne();
         this.pyatDesyatnica();
         this.linkToID();
-        this.devTools();
         try {
             this.insertElements();
         }
@@ -102,19 +114,6 @@ class TimeBoxOrthodox {
         finally {
             console.log('Продолжаем … полет по коду !!!');
         }
-    }
-    glasSedmici() {
-        let gls = this.formatsEaster.currentWeek % 8 - 1;
-        if (gls > 0) {
-            this.formatsEaster.glas = gls;
-        }
-        else if (gls < 0) {
-            this.formatsEaster.glas = 7;
-        }
-        else {
-            this.formatsEaster.glas = 8;
-        }
-        return `Для текущей ${this.formatsEaster.currentWeek} седмицы установлен глас – ${this.formatsEaster.glas}`;
     }
     validate(userdate) {
         let valYear = 0;
@@ -227,6 +226,7 @@ class TimeBoxOrthodox {
                         Преступка составляет -  ${stupka} седмицы.`;
         }
         else {
+            this.formatsEaster.vozStupka = stupka;
             voz = `Воздвижение приходится на седмицу - ${kolichestvoSedmicPoPyatidesyatnice}. Отступок нет.`;
         }
         return voz;
@@ -347,25 +347,6 @@ class TimeBoxOrthodox {
                 element.style.color = this.normColor;
             });
         });
-    }
-    devTools() {
-        const protocolHTTP = document.location.protocol;
-        const styleCSS = document.styleSheets.length != 0;
-        if (protocolHTTP == "http:" && styleCSS) {
-            try {
-                const a = document.styleSheets[0];
-                const b = [...a.cssRules];
-                let c = b.find((obj) => obj.selectorText === '.tooltip');
-                c.style.setProperty('color', 'orangered');
-                c.style.setProperty('background-color', '#faa3');
-                c = b.find((obj) => obj.selectorText === '.tooltip');
-                c.style.setProperty('color', 'orangered');
-                c.style.setProperty('background-color', '#faa3');
-            }
-            catch (error) {
-                console.log(error);
-            }
-        }
     }
 }
 let apr = new TimeBoxOrthodox();
