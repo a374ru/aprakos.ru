@@ -291,7 +291,7 @@ var OLY = (function () {
         ? "Формат введенный пользователем не подходит… попробуйте ([2099,00,7])"
         : "Год пользователем не предоставлен…", ".\n\u0411\u0443\u0434\u0435\u0442 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D \u0442\u0435\u043A\u0443\u0449\u0438\u0439 \u0433\u043E\u0434.\n\u0421\u041F\u0410\u0421\u0418\u0411\u041E \u0417\u0410 \u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415!"));
     }
-    if (currentDate.getFullYear() != this.theMomentTime.getFullYear()) {
+    if (currentDate.getFullYear() && this.theMomentTime.getFullYear()) {
       (_c = document.querySelector('#userdate')) === null || _c === void 0 ? void 0 : _c.remove();
       document.querySelector('body').innerHTML +=
         "<div id=\"userdate\" class='userdate'><a id='a-visited-userdate' href=\"#\" onclick=\"apr.deleteUserDateFromSessionStorage()\">".concat(currentDate.toLocaleDateString(), "</a></div>");
