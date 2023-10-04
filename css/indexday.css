@@ -17,6 +17,10 @@ html {
 	min-height: 100%;
 }
 
+.abzac{
+scroll-margin-top: 3em;
+}
+
 /* section {} */
 :root {
 	--kino-var: #e34234;
