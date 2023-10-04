@@ -551,7 +551,7 @@ var OLY = (function () {
   };
   OLY.prototype.deleteUserDateFromSessionStorage = function () {
     sessionStorage.removeItem('userDate');
-    document.location.replace(document.documentURI);
+    document.location.replace(document.location.origin);
   };
   return OLY;
 }());
