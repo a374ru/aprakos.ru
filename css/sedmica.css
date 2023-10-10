@@ -11,6 +11,8 @@
 
 /* smooth scroll */
 
+#apracos-dolu{margin-bottom: 1.5em;}
+
 .dev-ystm{
 cursor: pointer;
     color: #ff7300;
@@ -146,7 +148,7 @@ color:#39adff;
 }
 
 body {
-    background: #fffafa;
+    background-color: #fff;
     margin: 7px 3vw 7px;
     text-indent: 22px;
     font-size: 1em;
