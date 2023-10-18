@@ -149,7 +149,7 @@ color:#39adff;
 
 body {
     background-color: #ffeffe;
-    margin: 7px 3vw 7px;
+background-image: linear-gradient(to top, #ffeffe, #fef2ff, #fdf5ff, #fdf8ff, #fdfbff, #fdfbff, #fefcfe, #fefcfe, #fefafc, #fef8fa, #fff6f7, #fff4f4);    margin: 7px 3vw 7px;
     text-indent: 22px;
     font-size: 1em;
 }
