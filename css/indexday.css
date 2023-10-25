@@ -115,7 +115,7 @@ body {
 .pesni {
 	font-family: var(--font-var);
 	font-size: var(--sizeDate-var);
-	margin-left: 12px;
+	margin-left: 33px;
 }
 
 li {
@@ -194,10 +194,10 @@ a:visited {
 .gitiya {
 	max-width: 60%;
 	margin-right: 12px;
-	/* margin: 13px 7px 23px 0px; */
+	margin: 13px 27px 23px 0px;
 	font-size: 1.2rem;
 	/* text-transform: uppercase; */
-	/* text-align: center; */
+	text-align: center;
 	min-width: 222px;
 }
 
