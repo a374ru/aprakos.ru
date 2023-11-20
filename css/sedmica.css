@@ -11,6 +11,7 @@
 
 /* smooth scroll */
 
+
 #apracos-dolu{margin-bottom: 1.5em;}
 
 .dev-ystm{
@@ -20,7 +21,12 @@ cursor: pointer;
     transition: .3s;
 }
 
-html {scroll-behavior: smooth}
+html {
+
+        scroll-behavior: smooth;
+        scroll-padding-top: 77px;
+
+}
 
 :root {
     --kino-var: #e34234;
@@ -457,9 +463,6 @@ sup {
         text-indent: 0px;
         /* font-size: var(--font-size-name-1753) */
 
-/* 
-test commit
-*/
 
     }
 
