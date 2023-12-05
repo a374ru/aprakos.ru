@@ -11,6 +11,7 @@
 
 /* smooth scroll */
 
+
 #apracos-dolu{margin-bottom: 1.5em;}
 
 .dev-ystm{
@@ -20,7 +21,12 @@ cursor: pointer;
     transition: .3s;
 }
 
-html {scroll-behavior: smooth}
+html {
+
+        scroll-behavior: smooth;
+        scroll-padding-top: 77px;
+
+}
 
 :root {
     --kino-var: #e34234;
@@ -151,7 +157,7 @@ body {
     /* background-color: #ffeffe;
 background-image: linear-gradient(to top, #ffeffe, #fef2ff, #fdf5ff, #fdf8ff, #fdfbff, #fdfbff, #fefcfe, #fefcfe, #fefafc, #fef8fa, #fff6f7, #fff4f4);    margin: 7px 3vw 7px; */
  background: rgb(255, 255, 255);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgb(247, 255, 238) 37%, rgba(253, 255, 244, 1) 98%, rgba(255, 106, 115, 1) 100%);
+            background:linear-gradient(180deg, #e6e2e2 0%, #fff 2rem, #fff4ff 99%, #ff6a73) 
 
     text-indent: 22px;
     font-size: 1em;
@@ -457,9 +463,6 @@ sup {
         text-indent: 0px;
         /* font-size: var(--font-size-name-1753) */
 
-/* 
-test commit
-*/
 
     }
 
