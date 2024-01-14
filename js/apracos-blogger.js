@@ -395,11 +395,14 @@ var OLY = (function () {
     };
     OLY.prototype.stupkaN = function () {
         var stpka = 0;
-        if (this.weeks.current[0] <= this.weeks.mif[0]) {
-            stpka = this.weeks.stupkaK[0];
+        if (this.weeks.current[0] >= this.weeks.mif[0]) {
+            return stpka;
         }
-        else if (this.weeks.current[0] < this.weeks.mif[0]) {
+        if (this.weeks.current[0] < 40) {
             stpka = this.weeks.stupkaV[0];
+        }
+        if (this.weeks.current[0] >= 40 && (this.weeks.current[0] < this.weeks.mif[0])) {
+            stpka = this.weeks.stupkaK[0];
         }
         return stpka;
     };
