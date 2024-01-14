@@ -67,7 +67,8 @@ color:#e34234;
 
 
 .tooltip{
-cursor: pointer;
+
+cursor: context-menu;
 color:#856041;
 /* text-decoration: underline wavy 2px #ffe4e4; */
 transition: .3s;
@@ -77,7 +78,7 @@ transition: .3s;
 .tooltip:hover::after {
   content: attr(data-tooltip);
     /* Положение подсказки */
-    
+    cursor: context-menu;
     display: block;
     padding: 1%;
     background: #ff4d4d0f;
