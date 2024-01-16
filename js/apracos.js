@@ -1,3 +1,4 @@
+
 "use strict";
 const CONST_MLS_DAY = 864E5;
 const CONST_MLS_MiF = CONST_MLS_DAY * 7 * 10;
@@ -471,7 +472,7 @@ class TimeBoxOrthodox {
     var slb, vvv = "seed";
     let seedday = "none";
     if (
-      this.formatsEaster.currentWeek > 40 && this.formatsEaster.ostatok > 70
+      this.formatsEaster.currentWeek >= 40 && this.formatsEaster.ostatok > 70
     ) {
       vvv = vvv + this.formatsEaster.currentWeekStupka;
       slb = " colorBlock promWeek";
