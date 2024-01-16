@@ -509,7 +509,7 @@ class TimeBoxOrthodox {
       seedday = "seedday-" +
         (this.formatsEaster.currentWeek - this.formatsEaster.vozStupka) + "-" +
         this.formatsEaster.dayNum;
-    } else if (this.formatsEaster.currentWeek <= 40) {
+    } else if (this.formatsEaster.currentWeek < 40) {
       vvv = vvv + this.formatsEaster.currentWeek;
       slb = " colorBlock";
       seedday = "seedday-" + this.formatsEaster.currentWeek + "-" +
