@@ -566,4 +566,5 @@ var OLY = (function () {
     };
     return OLY;
 }());
-ar apr = new OLY();
+
+apr = new OLY();
