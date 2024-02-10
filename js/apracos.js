@@ -176,7 +176,7 @@ class TimeBoxOrthodox {
         this.formatsEaster.dayName = this.arayDays[this.theMoment.getDay()];
         this.formatsEaster.allWeeks = parseInt((this.formatsEaster.nextEasterMLS - this.formatsEaster.lastEasterMLS)
             / CONST_MLS_DAY / 7 + "", 10);
-        this.formatsEaster.promWeeks = this.formatsEaster.allWeeks - 51;
+        this.formatsEaster.promWeeks = this.formatsEaster.allWeeks - 50;
         let sss = this.formatsEaster.currentWeek = parseInt((this.formatsEaster.momentMLS - this.formatsEaster.lastEasterMLS)
             / CONST_MLS_DAY / 7 + "", 10) + 1;
         this.formatsEaster.beginningLentMLS = parseInt((this.formatsEaster.nextEasterMLS - CONST_MLS_DAY * 48) + "", 10);
