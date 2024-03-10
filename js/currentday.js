@@ -19,7 +19,7 @@ d = new Date();
 td = d.getDate();
 
 // Составление числа с учетом разрядности и разницы между календарями в 13 дней.
-if (td < 10) { td = "0" + td }
+if (td < 9) { td = "0" + td }
 tm = d.getMonth();
 ty = d.getYear();
 
@@ -27,20 +27,29 @@ ty = d.getYear();
 tmpVar = ((ty % 4) == 0) ? mnl : mnn;
 
 if (tm == 0 && td <= 13) { mm = 11; pravkaNaVisokos = tmpVar[mm] - (13 - td); }
+
 else if (tmpVar == mnl && tm == 2 && td <= 13)
 {
         mm = tm - 1;
         pravkaNaVisokos = tmpVar[mm] - (13 - td);
-        td = "0" + (1 + Number(td));
-        console.log("--- Ныне високосный сдвиг ---");
 
+  if(td<9){
+
+        td = "0" + (1 + Number(td));
+  }
+  else{
+
+    td = 1 + Number(td);
+
+  }
+        console.log("--- Ныне високосный сдвиг ---");
 }
 
 else if (tm > 0 && td <= 13) { mm = tm - 1; pravkaNaVisokos = tmpVar[mm] - (13 - td); }
 
 else { mm = tm; pravkaNaVisokos = (td - 13); }
 
-if (pravkaNaVisokos < 10) { uld = '0' + pravkaNaVisokos; } else { uld = pravkaNaVisokos; }
+if (pravkaNaVisokos < 9) { uld = '0' + pravkaNaVisokos; } else { uld = pravkaNaVisokos; }
 
 
 // Захват сегментов URL
