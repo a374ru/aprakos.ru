@@ -19,7 +19,7 @@ d = new Date();
 td = d.getDate();
 
 // Составление числа с учетом разрядности и разницы между календарями в 13 дней.
-if (td < 9) { td = "0" + td }
+if (td <= 9) { td = "0" + td }
 tm = d.getMonth();
 ty = d.getYear();
 
@@ -49,7 +49,10 @@ else if (tm > 0 && td <= 13) { mm = tm - 1; pravkaNaVisokos = tmpVar[mm] - (13 -
 
 else { mm = tm; pravkaNaVisokos = (td - 13); }
 
-if (pravkaNaVisokos < 9) { uld = '0' + pravkaNaVisokos; } else { uld = pravkaNaVisokos; }
+if (pravkaNaVisokos < 9) { uld = '0' + pravkaNaVisokos; } 
+
+else { uld = pravkaNaVisokos; }
+
 
 
 // Захват сегментов URL
