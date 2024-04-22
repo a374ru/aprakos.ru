@@ -16,6 +16,7 @@ var ulday = new Array("а7", "в7", "г7", "д7", "є7", "ѕ7", "з7", "и7", "f
 
 
 d = new Date();
+		d = new Date();
 td = d.getDate();
 
 // Составление числа с учетом разрядности и разницы между календарями в 13 дней.
@@ -49,7 +50,7 @@ else if (tm > 0 && td <= 13) { mm = tm - 1; pravkaNaVisokos = tmpVar[mm] - (13 -
 
 else { mm = tm; pravkaNaVisokos = (td - 13); }
 
-if (pravkaNaVisokos < 9) { uld = '0' + pravkaNaVisokos; } 
+if (pravkaNaVisokos < 10) { uld = '0' + pravkaNaVisokos; } 
 
 else { uld = pravkaNaVisokos; }
 
