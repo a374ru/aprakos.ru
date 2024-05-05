@@ -140,7 +140,7 @@ class TimeBoxOrthodox {
         this.formatsEaster.easterMLS = ddf.getTime();
         let easter = new Date(this.formatsEaster.easterMLS);
         this.keySystemYear = (this.formatsEaster.momentMLS - this.formatsEaster.easterMLS) / CONST_MLS_DAY;
-        if (this.keySystemYear > 0) {
+        if (this.keySystemYear >= 0) {
             var next = this.formatsEaster.momentYear + 1 + "/" + this.paskhalia[this.formatsEaster.momentYear + 1][0] + "/" + this.paskhalia[this.formatsEaster.momentYear + 1][1];
             this.formatsEaster.nextEasterMLS = new Date(next).getTime();
             this.formatsEaster.nextEaster = next;
