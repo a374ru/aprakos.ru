@@ -182,7 +182,7 @@ if (part == String(uld) + td) {
   currentDate =
 
      `
-        <div class="name" style="margin-top: 0;">${XB}</div>
+        <div class="name" style="margin-top: 0; color: #ff1400;">${XB}</div>
         <span style\="color: #000\; font-family: Irmologion\; font-size: 1.2em"><span class\="red">Ю#<\/span>ліа1нскій
 
      `
