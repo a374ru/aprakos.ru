@@ -122,7 +122,7 @@ var XB = "";
 if(`${d.getMonth()+1},${d.getDate()}` == `${paskhalia[d.getFullYear()]}`){
 
 
-        XB = "ХРИСТОС ВОСКРЕССЕ!";
+        XB = "ХРИСТОСЪ ВОСКРЕССЕ!";
         console.log(XB);
 
 }
