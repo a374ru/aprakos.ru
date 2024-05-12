@@ -1,3 +1,5 @@
+// скрипт предназначен исключительно для домена https://easter.a374.ru/
+
 try{
     if (window.innerWidth < 525) {
         b = document.body.setAttribute('style', 'background: radial-gradient(circle, rgb(242, 244, 255) 30%, rgb(255, 240, 243) 70%)');
@@ -74,6 +76,6 @@ try{
 
 catch(err){
     
-    console.log("The code in `csyear.js` ignores this page.", err.message);
+    console.log("Проверте наличие класса <.copyright-year>.", err.message);
     
 }
