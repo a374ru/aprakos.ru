@@ -311,21 +311,6 @@ sup {
 }
 
 /* Корректировка всплывающей подсказки для экранов ниже 800 пикселей */
-@media only screen and (min-device-width: 240px) and (max-device-width: 799px){
- .ttt_div {
-    display: none;
-    padding: 1rem 0.7rem;
-    line-height: 1.2em;
-    color: #484848;
-    text-align: left;
-    border: 0px solid #fdfdfd;
-    background: #fdfdfd;
-    box-shadow: 0.01043701171875px 0.013031005859375px 75px 50px
-      color(display-p3 1 0.988 0.92 / 0.84);
-    margin: auto;
-    min-width: fit-content;
-  }
-}
 
 @media only screen and (min-device-width: 240px) and (max-device-width: 444px) and (orientation: portrait) {
   .fp01 {
