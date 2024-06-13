@@ -387,7 +387,7 @@ sup {
     color: #000000;
   }
 
-  .ttt > div {
+  .ttt_div {
     display: none;
     padding: 1rem 0.7rem;
     line-height: 1.2em;
