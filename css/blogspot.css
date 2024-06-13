@@ -312,7 +312,7 @@ sup {
 
 /* Корректировка всплывающей подсказки для экранов ниже 800 пикселей */
 @media only screen and (min-device-width: 240px) and (max-device-width: 799px){
- .ttt_div {
+ .ttt>div {
     display: none;
     padding: 1rem 0.7rem;
     line-height: 1.2em;

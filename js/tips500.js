@@ -6,7 +6,7 @@
 			var title = el.attr('title');
 
      
-			if ($(window).width() <= '500') {
+			if ($(window).width() <= '800') {
 				// здесь код вычисления границ и замены стиля элемента для мобильного вида
 				el.attr('title', '').append('<div class="ttt_div" style="left: -100px; right: -100px; position: initial; min-width: fit-content;">' + title + '</div>');
 
