@@ -310,22 +310,6 @@ sup {
   color: #692727;
 }
 
-/* Корректировка всплывающей подсказки для экранов ниже 800 пикселей */
-@media only screen and (min-device-width: 240px) and (max-device-width: 799px){
- .ttt>div {
-    display: none;
-    padding: 1rem 0.7rem;
-    line-height: 1.2em;
-    color: #484848;
-    text-align: left;
-    border: 0px solid #fdfdfd;
-    background: #fdfdfd;
-    box-shadow: 0.1px 0.1px 75px 50px;
-	font-size: 1em;
-    margin: auto;
-    /* min-width: fit-content; */
-  }
-}
 
 @media only screen and (min-device-width: 240px) and (max-device-width: 444px) and (orientation: portrait) {
   .fp01 {
