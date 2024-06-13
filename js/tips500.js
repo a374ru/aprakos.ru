@@ -8,7 +8,7 @@
 
 			if ($(window).width() <= '500') {
 				// здесь код вычисления границ и замены стиля элемента для мобильного вида
-				el.attr('title', '').append('<div class="ttt_div" style="left: -100px; right: -100px; position: initial; min-width: fit-content; font-size: 1em; box-shadow: 0.1px 0.1px 75px 50px;">' + title + '</div>');
+				el.attr('title', '').append('<div class="ttt_div" style="left: -100px; right: -100px; position: initial; min-width: fit-content; font-size: 1em; box-shadow: 0 0 35px -6px color(display-p3 0.27 0.123 0 / 0.8)">' + title + '</div>');
 
 			} else {
 				el.attr('title', '').append('<div>' + title + '</div>');
