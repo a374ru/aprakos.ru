@@ -157,7 +157,7 @@ if (tm == 0 && td <= 13) {
   pravkaNaVisokos = td - 13;
 }
 
-if (pravkaNaVisokos < 9) uld = "0" + pravkaNaVisokos;
+if (pravkaNaVisokos <= 9) uld = "0" + pravkaNaVisokos;
 else uld = pravkaNaVisokos;
 
 // Захват сегментов URL
