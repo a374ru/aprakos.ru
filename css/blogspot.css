@@ -20,6 +20,10 @@
   --comment-color: #ccc;
 }
 
+.center {
+  text-align: center;
+}
+
 details {
   background-color: #fff7ed;
   padding: 1px;
@@ -310,7 +314,6 @@ sup {
   color: #692727;
 }
 
-
 @media only screen and (min-device-width: 240px) and (max-device-width: 444px) and (orientation: portrait) {
   .fp01 {
     position: relative;
@@ -387,8 +390,6 @@ sup {
   .memory-ol a:visited {
     color: #000000;
   }
-
- 
 }
 
 @media only screen and (min-device-width: 736px) and (max-device-width: 1100px) and (orientation: landscape) {
