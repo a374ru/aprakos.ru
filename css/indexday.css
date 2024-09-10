@@ -38,6 +38,10 @@ scroll-margin-top: 3em;
 
 /* =================== */
 
+.fs4{
+font-size: medium;
+}
+
 .evangeliecs {
 	font-family: var(--fontEvng-var);
 }
