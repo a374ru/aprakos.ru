@@ -1,5 +1,7 @@
 #!/bin/sh
 
 
-python -m SimpleHTTPServer 3000
+lsof -ti tcp:3000 | xargs kill && python3 -m http.server 3000 & open "http://localhost:3000/web/aprakos.ru/currentday/"
+
+
 # lsof -ti tcp:3000 | xargs kill
