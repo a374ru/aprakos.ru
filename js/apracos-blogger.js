@@ -180,6 +180,7 @@ var OLY = (function () {
         this.initOLY();
         this.initDatesOLY();
         this.initWeeks();
+        this.correctorStupka();
         this.linkToAprakos = "/" + this.yearMonthID() + ".html";
         this.anchorElemID = "" + this.weeks.elemID[0];
         this.linkToHolydays = (_a = this.holydays_9()) !== null && _a !== void 0 ? _a : this.linkToAprakos;
@@ -240,8 +241,9 @@ var OLY = (function () {
         ];
         var stupkaK = (this.weeks["stupkaK"] = [
             all[0] - 50 - (stupkaV[0]),
-            "Крещенская отступка"
+            "Крещенская ступка"
         ]);
+        this.correctorStupka();
         return this.weeks;
     };
     OLY.prototype.mondayAfterVozdvizgenie = function () {
@@ -448,7 +450,7 @@ var OLY = (function () {
         var lastSegment = document.location.pathname.split('/').pop();
         var closeClick = '<span id="close" class="close" onclick="apr.closeModalView()"></span>';
         var commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
-        var str = "\n        <section id=\"fp-content\" class=\"fp-content\">\n        <b>\u0427\u0438\u0442\u0430\u0435\u043C\u0430\u044F \u0441\u0435\u0434\u043C\u0438\u0446\u0430:</b>\n        <div id=\"modal-cweek\">\u043F\u043E \u041F\u0430\u0441\u0445\u0435&nbsp; <span class=\"red bold\">".concat(this.anchorElemID, ",</span></div>\n        <div id=\"modal-cweek50\">\u043F\u043E \u041F\u044F\u0442\u044C&shy;\u0434\u0435\u0441\u044F\u0442&shy;\u043D\u0438\u0446\u0435 <span class=\"red bold\">").concat(this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет", ".</span>\n        <div>").concat(lastSegment === "stvol.html" ? commentStvol : "", "</div></div>\n        <div>").concat(lastSegment === "blog-post.html" ? "\u041A\u0440\u0435\u0449. ".concat(this.correctorStupka(), "\u0441\u0442\u0443\u043F\u043A\u0430 <span class=\"red bold\">").concat(this.weeks.stupkaK[0], "</span> \u0441\u0435\u0434\u043C.") : "", "</div></div>\n        ").concat(closeClick, "\n        </section>\n        ");
+        var str = "\n        <section id=\"fp-content\" class=\"fp-content\">\n        <b>\u0427\u0438\u0442\u0430\u0435\u043C\u0430\u044F \u0441\u0435\u0434\u043C\u0438\u0446\u0430:</b>\n        <div id=\"modal-cweek\">\u043F\u043E \u041F\u0430\u0441\u0445\u0435&nbsp; <span class=\"red bold\">".concat(this.anchorElemID, ",</span></div>\n        <div id=\"modal-cweek50\">\u043F\u043E \u041F\u044F\u0442\u044C&shy;\u0434\u0435\u0441\u044F\u0442&shy;\u043D\u0438\u0446\u0435 <span class=\"red bold\">").concat(this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет", ".</span>\n        <div>").concat(lastSegment === "stvol.html" ? commentStvol : "", "</div></div>\n        <div>").concat(lastSegment === "blog-post.html" ? "".concat(this.weeks.stupkaK[1], " <span class=\"red bold\">").concat(Math.abs(this.weeks.stupkaK[0]), "</span> \u0441\u0435\u0434\u043C.") : "", "</div></div>\n        ").concat(closeClick, "\n        </section>\n        ");
         document.getElementById("first-preview").innerHTML = str;
         document.querySelector("#fp00").classList.add("fp00");
         document.querySelector("#first-preview").classList.add("fp01");
@@ -460,7 +462,8 @@ var OLY = (function () {
         }, 3600000);
     };
     OLY.prototype.correctorStupka = function () {
-        return this.weeks.stupkaK[0] > 0 ? "от" : "пре";
+        this.weeks.stupkaV[1] = String(this.weeks.stupkaV[0] <= 0 ? "Воздвиженская отступка" : "Воздвиженская преступка");
+        this.weeks.stupkaK[1] = this.weeks.stupkaK[0] < 0 ? "Крещенская отступка" : "Крещенская преступка";
     };
     OLY.prototype.initElementsDOM = function () {
         var _a, _b, _c;
