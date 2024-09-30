@@ -233,15 +233,15 @@ var OLY = (function () {
             Math.ceil((this.datesOLY.vozdvizgenieKresta[0].getTime() - this.oldEasterMLS) /
                 864e5 /
                 7),
-            "Седмица Воздвижения",
+            "Седмица Воздвижения по Пятьдесятнице",
         ]);
         var stupkaV = this.weeks["stupkaV"] = [
             Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0],
             "Воздвиженская ступка",
         ];
         var stupkaK = (this.weeks["stupkaK"] = [
-            all[0] - 50 - (stupkaV[0]),
-            "Крещенская ступка"
+            Math.abs(all[0] - 50 - (stupkaV[0])),
+            "Крещенская отступка"
         ]);
         this.correctorStupka();
         return this.weeks;
@@ -286,7 +286,7 @@ var OLY = (function () {
         ];
         this.datesOLY["week24"] = [
             new Date(this.oldEasterMLS + 864e5 * 168),
-            "17 седмица по Пятьдесятнице",
+            "17/24 седмица по Пасхе",
         ];
         return this.datesOLY;
     };
@@ -463,7 +463,6 @@ var OLY = (function () {
     };
     OLY.prototype.correctorStupka = function () {
         this.weeks.stupkaV[1] = String(this.weeks.stupkaV[0] <= 0 ? "Воздвиженская отступка" : "Воздвиженская преступка");
-        this.weeks.stupkaK[1] = this.weeks.stupkaK[0] < 0 ? "Крещенская отступка" : "Крещенская преступка";
     };
     OLY.prototype.initElementsDOM = function () {
         var _a, _b, _c;
