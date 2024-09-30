@@ -239,7 +239,7 @@ var OLY = (function () {
             "Воздвиженская ступка",
         ];
         var stupkaK = (this.weeks["stupkaK"] = [
-            all[0] - 50 - (-stupkaV[0]),
+            all[0] - 50 - (stupkaV[0]),
             "Крещенская отступка"
         ]);
         return this.weeks;
@@ -431,12 +431,12 @@ var OLY = (function () {
             if (h9 === tmt) {
                 link_to_hld9 =
                     "/" +
-                    this.NINEHOLIDAYS[item].year +
-                    "/" +
-                    this.NINEHOLIDAYS[item].monthRU +
-                    "/" +
-                    this.NINEHOLIDAYS[item].day +
-                    ".html";
+                        this.NINEHOLIDAYS[item].year +
+                        "/" +
+                        this.NINEHOLIDAYS[item].monthRU +
+                        "/" +
+                        this.NINEHOLIDAYS[item].day +
+                        ".html";
                 return link_to_hld9;
                 break;
             }
