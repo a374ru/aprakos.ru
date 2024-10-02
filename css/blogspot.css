@@ -222,11 +222,11 @@ a:visited {
   border-style: dotted;
 }
 
-.apstlDay + a {
+.apstlDay > a:first-child {
   border-top: 5px solid red;
-  padding: 0 16px;
+  padding: 3px 16px;
   border-radius: 50;
-  background-color: greenyellow;
+  background-color: white;
 }
 
 .seeddayON {
