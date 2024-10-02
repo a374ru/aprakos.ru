@@ -229,6 +229,13 @@ a:visited {
   background-color: white;
 }
 
+.evnglDay > a:last-child {
+  border-top: 5px solid rgb(0, 102, 255);
+  padding: 3px 16px;
+  border-radius: 50;
+  background-color: white;
+}
+
 .seeddayON {
   color: green;
   background-color: #e4ffe0;
