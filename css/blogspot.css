@@ -239,9 +239,10 @@ a:visited {
   background-color: #e4ffe0;
   display: ruby-base;
   margin-right: 0px;
-  padding: 12px 3px 3px 0px;
+  padding: 12px 3px 3px 12px;
   border-radius: 7px 7px 7px 7px;
   border-bottom: 4px solid var(--seedday-var);
+  line-height: 4rem;
 }
 
 a:visited#a-visited-userdate {
