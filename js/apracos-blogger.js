@@ -331,8 +331,8 @@ var OLY = (function () {
     };
     OLY.prototype.yearMonthID = function () {
         var otstupka = this.stupka();
-        var evangelieElemID = this.weeks.current[0] + this.stupka();
-        var apostolElemID = this.weeks.current[0];
+        var evangelieElemID = this.weeks.current[0] - this.stupka();
+        var apostolElemID = this.weeks.current[0] > 40 ? this.weeks.current[0] - this.stupka() : this.weeks.current[0];
         var aprID = Number("" + evangelieElemID + this.weeks.day[0]);
         var partURL;
         switch (true) {
@@ -403,15 +403,15 @@ var OLY = (function () {
         return stupka;
     };
     OLY.prototype.stupkaN = function () {
-        var stpka = 0;
+        var stpka = this.weeks.stupkaK[0] - this.weeks.stupkaV[0];
         if (this.weeks.current[0] >= this.weeks.mif[0]) {
             return stpka;
         }
         if (this.weeks.current[0] < 40) {
-            stpka = this.weeks.stupkaV[0];
+            stpka = -this.weeks.stupkaV[0];
         }
         if (this.weeks.current[0] >= 40 && (this.weeks.current[0] < this.weeks.mif[0])) {
-            stpka = this.weeks.stupkaK[0];
+            return stpka;
         }
         return stpka;
     };
@@ -435,12 +435,12 @@ var OLY = (function () {
             if (h9 === tmt) {
                 link_to_hld9 =
                     "/" +
-                    this.NINEHOLIDAYS[item].year +
-                    "/" +
-                    this.NINEHOLIDAYS[item].monthRU +
-                    "/" +
-                    this.NINEHOLIDAYS[item].day +
-                    ".html";
+                        this.NINEHOLIDAYS[item].year +
+                        "/" +
+                        this.NINEHOLIDAYS[item].monthRU +
+                        "/" +
+                        this.NINEHOLIDAYS[item].day +
+                        ".html";
                 return link_to_hld9;
                 break;
             }
@@ -452,7 +452,7 @@ var OLY = (function () {
         var lastSegment = document.location.pathname.split('/').pop();
         var closeClick = '<span id="close" class="close" onclick="apr.closeModalView()"></span>';
         var commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
-        var str = "\n        <section id=\"fp-content\" class=\"fp-content\">\n        <b>\u0421\u0435\u0434\u043C\u0438\u0446\u0430 \u0415\u0432\u0430\u043D\u0433\u0435\u043B\u0438\u044F:</b>\n        <div id=\"modal-cweek\">\u043F\u043E \u041F\u0430\u0441\u0445\u0435&nbsp; <span class=\"red bold\">".concat(this.anchorElemID, ",</span></div>\n        <div id=\"modal-cweek50\">\u043F\u043E \u041F\u044F\u0442\u044C&shy;\u0434\u0435\u0441\u044F\u0442&shy;\u043D\u0438\u0446\u0435 <span class=\"red bold\">").concat(this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет", ".</span>\n        <div>").concat(lastSegment === "stvol.html" ? commentStvol : "", "</div></div>\n        <div>").concat(lastSegment === "blog-post.html" ? "".concat(this.weeks.stupkaK[1], " <span class=\"red bold\">").concat(Math.abs(this.weeks.stupkaK[0]), "</span> \u0441\u0435\u0434\u043C.") : "", "</div></div>\n        ").concat(closeClick, "\n        </section>\n        ");
+        var str = "\n        <section id=\"fp-content\" class=\"fp-content\">\n        <b>\u0421\u0435\u0434\u043C\u0438\u0446\u0430 \u0415\u0432\u0430\u043D\u0433\u0435\u043B\u0438\u044F: </b>\n        <div id=\"modal-cweek\">\u043F\u043E \u041F\u0430\u0441\u0445\u0435&nbsp; <span class=\"red bold\">".concat(this.anchorElemID, ",</span></div>\n        <div id=\"modal-cweek50\">\u043F\u043E \u041F\u044F\u0442\u044C&shy;\u0434\u0435\u0441\u044F\u0442&shy;\u043D\u0438\u0446\u0435 <span class=\"red bold\">").concat(this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет", ".</span>\n        <div>").concat(lastSegment === "stvol.html" ? commentStvol : "", "</div></div>\n        <div>").concat(lastSegment === "blog-post.html" ? "".concat(this.weeks.stupkaK[1], " <span class=\"red bold\">").concat(Math.abs(this.weeks.stupkaK[0]), "</span> \u0441\u0435\u0434\u043C.") : "", "</div></div>\n        ").concat(closeClick, "\n        </section>\n        ");
         document.getElementById("first-preview").innerHTML = str;
         document.querySelector("#fp00").classList.add("fp00");
         document.querySelector("#first-preview").classList.add("fp01");
@@ -504,7 +504,7 @@ var OLY = (function () {
         else {
             document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += " evngl-day";
             document.getElementById("weekday" + this.weeks.aprID[0]).className += " seedday-week-on";
-            document.getElementById("week" + this.weeks.current[0]).className += " color-block";
+            document.getElementById("week" + this.weeks.apstlElemID[0]).className += " color-block";
         }
     };
     OLY.prototype.glas = function (sedmica) {
