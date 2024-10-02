@@ -5,8 +5,9 @@
  */
 
 /* "-=-=-=-=-=-=-=-=-=- */
-/* "понедельник, 11 апреля 2023 г. 06:49:07 (MSK) */
+/* среда,  2 октября 2024 г. 19:45:33 (MSK)
 /* "-=-=-=-=-=-=-=-=-=-" */
+
 /* =================== */
 /* project variables */
 /* =================== */
@@ -224,13 +225,13 @@ a:visited {
 
 .apstl-day > a:first-child {
   padding: 1px 12px;
-  border-top: 9px solid #06f;
+  border-top: 9px solid #847e5f;
   background-color: white;
 }
 
 .evngl-day > a:last-child {
   padding: 1px 12px;
-  border-top: 9px solid red;
+  border-top: 9px solid #e34234;
   background-color: white;
 }
 
