@@ -497,14 +497,14 @@ var OLY = (function () {
         if (Number(elemsID.curweek) < 8) {
             (_c = document.getElementById("id50")) === null || _c === void 0 ? void 0 : _c.remove();
         }
-        document.getElementById("weekday" + this.weeks.apstlElemID[0] + this.weeks.day[0]).className += " apstlDay";
+        document.getElementById("weekday" + this.weeks.apstlElemID[0] + this.weeks.day[0]).className += " apstl-day";
         if (this.weeks.evnglElemID[0] != this.weeks.apstlElemID[0]) {
-            document.getElementById("week" + this.weeks.evnglElemID[0]).className += " evnglDay";
+            document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += "evngl-day";
         }
         else {
-            document.getElementById("weekday" + this.weeks.aprID[0]).className += " seeddayON";
+            document.getElementById("weekday" + this.weeks.aprID[0]).className += " seed-week-on";
         }
-        document.getElementById("week" + this.weeks.evnglElemID[0]).className += " colorBlock";
+        document.getElementById("week" + this.weeks.evnglElemID[0]).className += " color-block";
     };
     OLY.prototype.glas = function (sedmica) {
         var x = sedmica;

@@ -210,7 +210,7 @@ a:visited {
   color: #999999;
 }
 
-.colorBlock {
+.color-block {
   background-color: #fffef8;
   /* -webkit-animation-name: example; */
   animation-name: example;
@@ -222,21 +222,19 @@ a:visited {
   border-style: dotted;
 }
 
-.apstlDay > a:first-child {
+.apstl-day > a:first-child {
   border-top: 5px solid red;
   padding: 3px 16px;
-  border-radius: 50;
   background-color: white;
 }
 
-.evnglDay > a:last-child {
+.evngl-day > a:last-child {
   border-top: 5px solid rgb(0, 102, 255);
   padding: 3px 16px;
-  border-radius: 50;
   background-color: white;
 }
 
-.seeddayON {
+.seedday-week-on {
   color: green;
   background-color: #e4ffe0;
   display: inline-block;
