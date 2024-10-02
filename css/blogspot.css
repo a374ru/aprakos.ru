@@ -225,13 +225,11 @@ a:visited {
 .apstl-day > a:first-child {
   padding: 1px 12px;
   border-top: 9px solid #06f;
-  line-height: 2.3em;
   background-color: white;
 }
 
 .evngl-day > a:last-child {
   padding: 1px 12px;
-  line-height: 2.3em;
   border-top: 9px solid red;
   background-color: white;
 }
@@ -239,7 +237,7 @@ a:visited {
 .seedday-week-on {
   color: green;
   background-color: #e4ffe0;
-  display: inline-block;
+  display: ruby;
   margin-right: 0px;
   padding: 12px 8px 3px 10px;
   border-radius: 7px 7px 7px 7px;
