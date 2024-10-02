@@ -222,14 +222,22 @@ a:visited {
   border-style: dotted;
 }
 
+.apstlDay + a {
+  border-top: 5px solid red;
+  padding: 0 16px;
+  border-radius: 50;
+  background-color: greenyellow;
+}
+
 .seeddayON {
-  color: #000000;
-  /* background-color: var(--seedday-var); */
+  color: green;
+  background-color: #e4ffe0;
+  display: inline-block;
   margin-right: 0px;
   padding: 12px 8px 3px 10px;
   border-radius: 7px 7px 7px 7px;
   border-bottom: 4px solid var(--seedday-var);
-  line-height: 2.5em;
+  line-height: 1.3em;
   /* border-right: 40px solid transparent; */
   /* border-right: 110px solid #ec3504; */
 }

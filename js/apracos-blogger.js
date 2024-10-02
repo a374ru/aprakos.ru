@@ -182,7 +182,7 @@ var OLY = (function () {
         this.initWeeks();
         this.correctorStupka();
         this.linkToAprakos = "/" + this.yearMonthID() + ".html";
-        this.anchorElemID = "" + this.weeks.elemID[0];
+        this.anchorElemID = "" + this.weeks.evnglElemID[0];
         this.linkToHolydays = (_a = this.holydays_9()) !== null && _a !== void 0 ? _a : this.linkToAprakos;
         this.info();
         this.initElementsDOM();
@@ -204,7 +204,7 @@ var OLY = (function () {
             "Прошедшая Пасха: " +
             this.oldEaster.toString().slice(0, 15) +
             "\n" +
-            "Ожидаемая Пасха: " +
+            "ОЖИДАЕМАЯ ПАСХА: " +
             this.newEaster.toString().slice(0, 16));
         this.oldEasterMLS = this.oldEaster.getTime();
         this.newEasterMLS = this.newEaster.getTime();
@@ -331,8 +331,9 @@ var OLY = (function () {
     };
     OLY.prototype.yearMonthID = function () {
         var otstupka = this.stupka();
-        var elemID = this.weeks.current[0] + this.stupka();
-        var aprID = Number("" + elemID + this.weeks.day[0]);
+        var evangelieElemID = this.weeks.current[0] + this.stupka();
+        var apostolElemID = this.weeks.current[0];
+        var aprID = Number("" + evangelieElemID + this.weeks.day[0]);
         var partURL;
         switch (true) {
             case aprID <= 25:
@@ -382,7 +383,8 @@ var OLY = (function () {
                 break;
         }
         this.weeks["aprID"] = [aprID, "Апракос-ID"];
-        this.weeks["elemID"] = [elemID, "Элемент-ID"];
+        this.weeks["apstlElemID"] = [apostolElemID, "Элемент-ID Апостольского зачала"];
+        this.weeks["evnglElemID"] = [evangelieElemID, "Элемент-ID Евангельского зачала"];
         return partURL;
     };
     OLY.prototype.stupka = function () {
@@ -474,11 +476,14 @@ var OLY = (function () {
         var elemsID = {
             curweek: "".concat(this.weeks.current[0]),
             curweek50: "".concat(this.weeks.current[0] < 8 ? "*" : this.weeks.current[0] - 7),
-            glass: "Глаc: " + this.glas(+this.weeks.current[0]),
+            glass: "Глаc: " + this.glas(+this.weeks.current[0])
         };
         for (var eid in elemsID) {
             if (Object.prototype.hasOwnProperty.call(elemsID, eid)) {
-                if (eid === "curweek" || eid === "curweek50") {
+                if (eid === "curweek") {
+                    document.getElementById(eid).innerHTML = "<a href=\"#week".concat(this.anchorElemID, "\">").concat(elemsID[eid], "</a>");
+                }
+                if (eid === "curweek50") {
                     document.getElementById(eid).innerHTML = "<a href=\"#week".concat(this.anchorElemID, "\">").concat(elemsID[eid], "</a>");
                 }
                 else {
@@ -492,7 +497,7 @@ var OLY = (function () {
         if (Number(elemsID.curweek) < 8) {
             (_c = document.getElementById("id50")) === null || _c === void 0 ? void 0 : _c.remove();
         }
-        document.getElementById("week" + this.weeks.elemID[0]).className += " colorBlock";
+        document.getElementById("week" + this.weeks.evnglElemID[0]).className += " colorBlock";
         document.getElementById("weekday" + this.weeks.aprID[0]).className += " seeddayON";
     };
     OLY.prototype.glas = function (sedmica) {
