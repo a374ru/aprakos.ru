@@ -499,12 +499,12 @@ var OLY = (function () {
         }
         document.getElementById("weekday" + this.weeks.apstlElemID[0] + this.weeks.day[0]).className += " apstl-day";
         if (this.weeks.evnglElemID[0] != this.weeks.apstlElemID[0]) {
-            document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += "evngl-day";
+            document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += " evngl-day";
         }
         else {
             document.getElementById("weekday" + this.weeks.aprID[0]).className += " seed-week-on";
+            document.getElementById("week" + this.weeks.evnglElemID[0]).className += " color-block";
         }
-        document.getElementById("week" + this.weeks.evnglElemID[0]).className += " color-block";
     };
     OLY.prototype.glas = function (sedmica) {
         var x = sedmica;
