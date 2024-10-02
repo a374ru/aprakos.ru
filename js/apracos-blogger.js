@@ -383,8 +383,8 @@ var OLY = (function () {
                 break;
         }
         this.weeks["aprID"] = [aprID, "Апракос-ID"];
-        this.weeks["apstlElemID"] = [apostolElemID, "Элемент-ID Апостольского зачала"];
         this.weeks["evnglElemID"] = [evangelieElemID, "Элемент-ID Евангельского зачала"];
+        this.weeks["apstlElemID"] = [apostolElemID, "Элемент-ID Апостольского зачала"];
         return partURL;
     };
     OLY.prototype.stupka = function () {
@@ -435,12 +435,12 @@ var OLY = (function () {
             if (h9 === tmt) {
                 link_to_hld9 =
                     "/" +
-                        this.NINEHOLIDAYS[item].year +
-                        "/" +
-                        this.NINEHOLIDAYS[item].monthRU +
-                        "/" +
-                        this.NINEHOLIDAYS[item].day +
-                        ".html";
+                    this.NINEHOLIDAYS[item].year +
+                    "/" +
+                    this.NINEHOLIDAYS[item].monthRU +
+                    "/" +
+                    this.NINEHOLIDAYS[item].day +
+                    ".html";
                 return link_to_hld9;
                 break;
             }
@@ -481,9 +481,9 @@ var OLY = (function () {
         for (var eid in elemsID) {
             if (Object.prototype.hasOwnProperty.call(elemsID, eid)) {
                 if (eid === "curweek") {
-                    document.getElementById(eid).innerHTML = "<a href=\"#week".concat(this.anchorElemID, "\">").concat(elemsID[eid], "</a>");
+                    document.getElementById(eid).innerHTML = "<a href=\"#week".concat(this.weeks.apstlElemID[0], "\">").concat(elemsID[eid], "</a>");
                 }
-                if (eid === "curweek50") {
+                else if (eid === "curweek50") {
                     document.getElementById(eid).innerHTML = "<a href=\"#week".concat(this.anchorElemID, "\">").concat(elemsID[eid], "</a>");
                 }
                 else {
@@ -497,6 +497,7 @@ var OLY = (function () {
         if (Number(elemsID.curweek) < 8) {
             (_c = document.getElementById("id50")) === null || _c === void 0 ? void 0 : _c.remove();
         }
+        document.getElementById("weekday" + this.weeks.apstlElemID[0] + this.weeks.day[0]).className += " apstlDay";
         document.getElementById("week" + this.weeks.evnglElemID[0]).className += " colorBlock";
         document.getElementById("weekday" + this.weeks.aprID[0]).className += " seeddayON";
     };
