@@ -230,7 +230,6 @@ a:visited {
   box-shadow: 0px 0px 77px 22px #c7a7ff;
   border-color: #fffef8;
   border-style: solid;
-  line-height: 170%;
 }
 
 .color-block-evngl-stupka {
@@ -241,7 +240,6 @@ a:visited {
   box-shadow: 0px 0px 77px 22px #ffa7a7;
   border-color: #fffef8;
   border-style: solid;
-  line-height: 170%;
 }
 
 .apstl-day > a:first-child {
@@ -319,6 +317,7 @@ a:visited {
     font-family: Irmologion;
     font-size: 1.7em;
     color: #502c00;
+  line-height: 170%;
   }
 
   .snoska {
