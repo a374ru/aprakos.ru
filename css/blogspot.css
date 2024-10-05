@@ -223,18 +223,44 @@ a:visited {
   border-style: dotted;
 }
 
+.color-block-apstl-stupka {
+  background-color: #fff;
+  -webkit-animation-name: example;
+  animation-name: example;
+  border-width: 1em;
+  animation-duration: 7s;
+  animation-iteration-count: 1;
+  box-shadow: 0px 0px 77px 22px #c7a7ff;
+  border-color: #fffef8;
+  border-style: solid;
+}
+
+.color-block-evngl-stupka {
+  background-color: #ffffff;
+  -webkit-animation-name: example;
+  animation-name: example;
+  border-width: 1em;
+  animation-duration: 7s;
+  animation-iteration-count: 1;
+  box-shadow: 0px 0px 77px 22px #ffa7a7;
+  border-color: #fffef8;
+  border-style: solid;
+}
+
 .apstl-day > a:first-child {
-  padding: 1px 12px;
-  border-top: 9px solid #847e5f;
+  padding: 3px 22px;
+  border-top: 4px solid #766c9c;
   background-color: white;
-  box-shadow: 0px 8px 7px 0px #7e7e7e;
+  box-shadow: 0px 0px 7px 0px #8591b3 inset;
+  border-radius: 1rem;
 }
 
 .evngl-day > a:last-child {
-  padding: 1px 12px;
-  border-top: 9px solid #e34234;
+  padding: 3px 22px;
+  border-top: 4px solid #b25962;
   background-color: white;
-  box-shadow: 0px 8px 7px 0px #7e7e7e;
+  box-shadow: 0px 0px 7px 0px #8591b3 inset;
+  border-radius: 1rem;
 }
 
 .seedday-week-on {
