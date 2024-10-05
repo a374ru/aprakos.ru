@@ -34,7 +34,8 @@ details {
 @font-face {
   font-family: "Irmologion";
   font-display: auto;
-  src: local("Clunya-IrmIEUcs"), url("https://fonts.a374.ru/Clunya-IrmIEUcs.otf");
+  src: local("Clunya-IrmIEUcs"),
+    url("https://fonts.a374.ru/Clunya-IrmIEUcs.otf");
   font-weight: normal;
   font-style: normal;
 }
@@ -257,348 +258,349 @@ a:visited {
   background-color: white;
   box-shadow: 0px 0px 7px 0px #8591b3 inset;
   border-radius: 1rem;
-.seedday-week-on {
-  color: green;
-  background-color: #e4ffe0;
-  display: ruby-base;
-  margin-right: 0px;
-  padding: 12px 3px 7px 12px;
-  border-radius: 7px 7px 7px 7px;
-  border-bottom: 4px solid var(--seedday-var);
-  line-height: 4rem;
 }
 
-a:visited#a-visited-userdate {
-  color: #d8c2c2;
-}
-a:hover#a-visited-userdate {
-  color: #d06c6c;
-}
-.userdate {
-  float: left;
-  font-weight: bold;
-  color: #3333;
-  z-index: 1000;
-  font-size: 2vw;
-  right: -1.5em;
-  rotate: 90deg;
-  font-family: monaco;
-  position: fixed;
-  bottom: 3em;
-}
-
-.dug {
-  color: #ffffff;
-  z-index: 33;
-  filter: blur(0px);
-  background-color: var(--seedday-var);
-  padding: 4px 16px 2px 12px;
-  border-radius: 41px 1px 35px 32px;
-  font-weight: bold;
-}
-
-.link-ancor a {
-  color: #021458;
-}
-
-.name {
-  margin: 52px 33px 33px;
-  font-family: Irmologion;
-  font-size: 2.5em;
-  text-indent: 0px;
-  color: var(--kino-var, red);
-  text-transform: uppercase;
-}
-
-.abzac {
-  margin: 22px 1px 33px;
-  padding: 12px;
-  font-family: Irmologion;
-  font-size: 1.7em;
-  color: #502c00;
- 
-}
-
-.snoska {
-  color: dimgrey;
-  text-indent: 0px;
-}
-
-hr {
-  border-width: 3px;
-  border-top-color: #000000;
-  border-bottom-color: #600000;
-  opacity: 0.1;
-}
-
-.hr-1 {
-  margin-left: 17px;
-  width: 250px;
-  border-top-color: var(--kino-var);
-}
-
-sup {
-  font-size: 11px;
-  font-weight: bold;
-  color: var(--kino-var);
-}
-
-.click-pointer {
-  cursor: pointer;
-  font-style: oblique;
-  color: #692727;
-}
-
-@media only screen and (min-device-width: 240px) and (max-device-width: 444px) and (orientation: portrait) {
-  .fp01 {
-    position: relative;
-    top: 0;
-    min-width: 88%;
-    border: solid #fcf6e6 1em;
-    animation: 0.3s forwards;
-    border-radius: 0px 0px 12px 12px;
+  .seedday-week-on {
+    color: green;
+    background-color: #e4ffe0;
+    display: ruby-base;
+    margin-right: 0px;
+    padding: 12px 3px 7px 12px;
+    border-radius: 7px 7px 7px 7px;
+    border-bottom: 4px solid var(--seedday-var);
+    line-height: 4rem;
   }
 
-  #fp-content {
-    padding: 0.3rem;
+  a:visited#a-visited-userdate {
+    color: #d8c2c2;
+  }
+  a:hover#a-visited-userdate {
+    color: #d06c6c;
+  }
+  .userdate {
+    float: left;
+    font-weight: bold;
+    color: #3333;
+    z-index: 1000;
+    font-size: 2vw;
+    right: -1.5em;
+    rotate: 90deg;
+    font-family: monaco;
+    position: fixed;
+    bottom: 3em;
   }
 
-  #close {
-    display: none;
+  .dug {
+    color: #ffffff;
+    z-index: 33;
+    filter: blur(0px);
+    background-color: var(--seedday-var);
+    padding: 4px 16px 2px 12px;
+    border-radius: 41px 1px 35px 32px;
+    font-weight: bold;
   }
 
-  .abzac {
-    margin: 3px 3px 23px 3px;
-    /* font-family: Irmologion; */
-    /* font-size: 1.3em */
+  .link-ancor a {
+    color: #021458;
   }
 
   .name {
+    margin: 52px 33px 33px;
+    font-family: Irmologion;
+    font-size: 2.5em;
+    text-indent: 0px;
+    color: var(--kino-var, red);
+    text-transform: uppercase;
+  }
+
+  .abzac {
+    margin: 22px 1px 33px;
+    padding: 12px;
     font-family: Irmologion;
     font-size: 1.7em;
+    color: #502c00;
+  }
+
+  .snoska {
+    color: dimgrey;
+    text-indent: 0px;
+  }
+
+  hr {
+    border-width: 3px;
+    border-top-color: #000000;
+    border-bottom-color: #600000;
+    opacity: 0.1;
   }
 
   .hr-1 {
-    /* margin-left: 10px; */
-    width: 240px;
+    margin-left: 17px;
+    width: 250px;
     border-top-color: var(--kino-var);
   }
 
-  .date {
-    margin: auto;
-    line-height: 180%;
-    font-size: 6vw;
-  }
-}
-
-@media only screen and (min-device-width: 425px) and (max-device-width: 767px) and (orientation: landscape) {
-  .fp01 {
-    position: relative;
-    top: 0;
-    min-width: 90%;
-    border: solid #fcf6e6;
-    /* 		border-width: 0em .5em .5em; */
-    animation: 0.3s forwards;
-    border-radius: 0px 0px 12px 12px;
+  sup {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--kino-var);
   }
 
-  #fp-content {
-    padding: 1rem;
-    font-size: 1rem;
+  .click-pointer {
+    cursor: pointer;
+    font-style: oblique;
+    color: #692727;
   }
 
-  .close {
+  @media only screen and (min-device-width: 240px) and (max-device-width: 444px) and (orientation: portrait) {
+    .fp01 {
+      position: relative;
+      top: 0;
+      min-width: 88%;
+      border: solid #fcf6e6 1em;
+      animation: 0.3s forwards;
+      border-radius: 0px 0px 12px 12px;
+    }
+
+    #fp-content {
+      padding: 0.3rem;
+    }
+
+    #close {
+      display: none;
+    }
+
+    .abzac {
+      margin: 3px 3px 23px 3px;
+      /* font-family: Irmologion; */
+      /* font-size: 1.3em */
+    }
+
+    .name {
+      font-family: Irmologion;
+      font-size: 1.7em;
+    }
+
+    .hr-1 {
+      /* margin-left: 10px; */
+      width: 240px;
+      border-top-color: var(--kino-var);
+    }
+
+    .date {
+      margin: auto;
+      line-height: 180%;
+      font-size: 6vw;
+    }
+  }
+
+  @media only screen and (min-device-width: 425px) and (max-device-width: 767px) and (orientation: landscape) {
+    .fp01 {
+      position: relative;
+      top: 0;
+      min-width: 90%;
+      border: solid #fcf6e6;
+      /* 		border-width: 0em .5em .5em; */
+      animation: 0.3s forwards;
+      border-radius: 0px 0px 12px 12px;
+    }
+
+    #fp-content {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    .close {
+      display: none;
+    }
+
+    .abzac {
+      /* font-family: Irmologion; */
+      margin: auto;
+      font-size: 1.7em;
+    }
+
+    .name {
+      font-family: Irmologion;
+      font-size: 2em;
+    }
+
+    .memory-ol a:visited {
+      color: #000000;
+    }
+  }
+
+  @media only screen and (min-device-width: 736px) and (max-device-width: 1100px) and (orientation: landscape) {
+    .fp01 {
+      top: 1%;
+      padding: 1em;
+      width: 80%;
+      animation: ystm 300ms linear 500ms 1 normal both;
+      font-size: 2rem;
+      /* 		min-height: 100%; */
+    }
+
+    .close {
+      display: none;
+    }
+  }
+
+  @media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .abzac {
+      font-family: Irmologion;
+      font-size: 1.7em;
+    }
+
+    .name {
+      margin: 12px 13px 13px;
+      font-family: Irmologion;
+      font-size: 2.5em;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) and (max-device-width: 1752px) {
+    .abzac {
+      /* font-family: Irmologion; */
+      font-size: 1.7rem;
+    }
+
+    .name {
+      font-family: Irmologion;
+      font-size: 3em;
+    }
+
+    .hr-1 {
+      width: 300px;
+    }
+
+    sup {
+      font-size: 22px;
+    }
+  }
+
+  @media only screen and (min-width: 1752px) {
+    .name {
+      font-family: Irmologion;
+      font-size: 3em;
+    }
+
+    .hr-1 {
+      width: 77%;
+    }
+
+    sup {
+      font-size: 1.2rem;
+    }
+
+    .abzac {
+      font-family: Irmologion;
+      /* margin: 77px 20px 55px 13px; */
+      font-size: 1.8rem;
+    }
+    .fp01 {
+      max-width: 33%;
+    }
+
+    .date {
+      margin: 42px 33px 33px;
+      font-size: 1.5rem;
+      /* date size */
+      /* margin-left: 15px */
+    }
+  }
+
+  /* Дополнительные стили */
+  /* Плавный скролл страницы*/
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /*маскировка бага в лайтбоксе*/
+  .CSS_LAYOUT_COMPONENT {
+    color: #fff0;
+  }
+
+  .post-body img {
+    border-radius: 4px;
+  }
+
+  .dug a:visited {
+    color: #ffffff;
+  }
+
+  .dug a:hover {
+    color: #dadada;
+  }
+
+  blockquote {
+    text-align: left;
+    text-shadow: 0px 0px 14px #ffffff;
+  }
+
+  #comments {
+    border-top: 3px dashed #f1dbce;
+    padding: 3px;
+  }
+
+  .blogger {
     display: none;
   }
 
-  .abzac {
-    /* font-family: Irmologion; */
-    margin: auto;
-    font-size: 1.7em;
+  a .sedmica {
+    color: #e34234;
   }
 
-  .name {
-    font-family: Irmologion;
-    font-size: 2em;
+  a:visited.sedmica {
+    color: #6a3d07;
+  }
+  a:hover.sedmica {
+    color: #e34234;
+    cursor: url("https://img.a374.ru/otstupka.png"), n-resize;
   }
 
-  .memory-ol a:visited {
-    color: #000000;
-  }
-}
-
-@media only screen and (min-device-width: 736px) and (max-device-width: 1100px) and (orientation: landscape) {
-  .fp01 {
-    top: 1%;
-    padding: 1em;
-    width: 80%;
-    animation: ystm 300ms linear 500ms 1 normal both;
-    font-size: 2rem;
-    /* 		min-height: 100%; */
-  }
-
-  .close {
+  /* Скрытие кнопки `Показать все` на странице результатов поиска */
+  .post-filter-message div:last-child {
     display: none;
   }
-}
 
-@media only screen and (min-device-width: 737px) and (max-device-width: 1024px) and (orientation: portrait) {
-  .abzac {
-    font-family: Irmologion;
-    font-size: 1.7em;
+  /* Всплывающая подсказка */
+  /* .ttt { */
+  /*   display: inline-block; */
+  /*   position: relative; */
+  /*   text-indent: 0px; */
+  /* } */
+  .ttt:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 0%;
+    top: auto;
+    /* Положение подсказки */
+    z-index: 3;
+    text-indent: 0px;
+    width: auto;
+    background: #202020;
+    font-family: Arial, sans-serif;
+    color: blanchedalmond;
+    font-size: 55%;
+    /* padding: 5px 10px; */
+    /* border-radius: 3px; */
+    /* box-shadow: 7px 7px #e3433480; */
   }
 
-  .name {
-    margin: 12px 13px 13px;
-    font-family: Irmologion;
-    font-size: 2.5em;
-  }
-}
-
-@media only screen and (min-width: 1024px) and (max-device-width: 1752px) {
-  .abzac {
-    /* font-family: Irmologion; */
-    font-size: 1.7rem;
+  .selected-verses {
+    padding: 0px 7px;
+    background: #fff4f4;
+    border-radius: 7px;
   }
 
-  .name {
-    font-family: Irmologion;
-    font-size: 3em;
+  .firebrick {
+    color: #b22222;
   }
 
-  .hr-1 {
-    width: 300px;
+  li,
+  p,
+  h1,
+  h2,
+  h3,
+  span {
+    scroll-margin-top: 3dvw;
   }
-
-  sup {
-    font-size: 22px;
-  }
-}
-
-@media only screen and (min-width: 1752px) {
-  .name {
-    font-family: Irmologion;
-    font-size: 3em;
-  }
-
-  .hr-1 {
-    width: 77%;
-  }
-
-  sup {
-    font-size: 1.2rem;
-  }
-
-  .abzac {
-    font-family: Irmologion;
-    /* margin: 77px 20px 55px 13px; */
-    font-size: 1.8rem;
-  }
-  .fp01 {
-    max-width: 33%;
-  }
-
-  .date {
-    margin: 42px 33px 33px;
-    font-size: 1.5rem;
-    /* date size */
-    /* margin-left: 15px */
-  }
-}
-
-/* Дополнительные стили */
-/* Плавный скролл страницы*/
-html {
-  scroll-behavior: smooth;
-}
-
-/*маскировка бага в лайтбоксе*/
-.CSS_LAYOUT_COMPONENT {
-  color: #fff0;
-}
-
-.post-body img {
-  border-radius: 4px;
-}
-
-.dug a:visited {
-  color: #ffffff;
-}
-
-.dug a:hover {
-  color: #dadada;
-}
-
-blockquote {
-  text-align: left;
-  text-shadow: 0px 0px 14px #ffffff;
-}
-
-#comments {
-  border-top: 3px dashed #f1dbce;
-  padding: 3px;
-}
-
-.blogger {
-  display: none;
-}
-
-a .sedmica {
-  color: #e34234;
-}
-
-a:visited.sedmica {
-  color: #6a3d07;
-}
-a:hover.sedmica {
-  color: #e34234;
-  cursor: url("https://img.a374.ru/otstupka.png"), n-resize;
-}
-
-/* Скрытие кнопки `Показать все` на странице результатов поиска */
-.post-filter-message div:last-child {
-  display: none;
-}
-
-/* Всплывающая подсказка */
-/* .ttt { */
-/*   display: inline-block; */
-/*   position: relative; */
-/*   text-indent: 0px; */
-/* } */
-.ttt:hover::after {
-  content: attr(data-title);
-  position: absolute;
-  left: 0%;
-  top: auto;
-  /* Положение подсказки */
-  z-index: 3;
-  text-indent: 0px;
-  width: auto;
-  background: #202020;
-  font-family: Arial, sans-serif;
-  color: blanchedalmond;
-  font-size: 55%;
-  /* padding: 5px 10px; */
-  /* border-radius: 3px; */
-  /* box-shadow: 7px 7px #e3433480; */
-}
-
-.selected-verses {
-  padding: 0px 7px;
-  background: #fff4f4;
-  border-radius: 7px;
-}
-
-.firebrick {
-  color: #b22222;
-}
-
-li,
-p,
-h1,
-h2,
-h3,
-span {
-  scroll-margin-top: 3dvw;
-}
