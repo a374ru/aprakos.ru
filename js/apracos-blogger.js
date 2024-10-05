@@ -498,13 +498,14 @@ var OLY = (function () {
             (_c = document.getElementById("id50")) === null || _c === void 0 ? void 0 : _c.remove();
         }
         document.getElementById("weekday" + this.weeks.apstlElemID[0] + this.weeks.day[0]).className += " apstl-day";
+        document.getElementById("week" + this.weeks.apstlElemID[0]).className += " color-block-apstl-stupka";
         if (this.weeks.evnglElemID[0] != this.weeks.apstlElemID[0]) {
             document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += " evngl-day";
+            document.getElementById("week" + this.weeks.evnglElemID[0]).className += " color-block-evngl-stupka";
         }
         else {
             document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += " evngl-day";
             document.getElementById("weekday" + this.weeks.aprID[0]).className += " seedday-week-on";
-            document.getElementById("week" + this.weeks.apstlElemID[0]).className += " color-block";
         }
         if (this.weeks.evnglElemID[0] == 50) {
             document.querySelector("#week50").setAttribute("style", "border: solid 4rem #fedede; background-color: #fedede;");
