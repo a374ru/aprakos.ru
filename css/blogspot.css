@@ -225,28 +225,24 @@ a:visited {
 
 .color-block-apstl-stupka {
   background-color: #fff;
-  -webkit-animation-name: example;
-  animation-name: example;
   border-width: 1em;
   animation-duration: 7s;
   animation-iteration-count: 1;
   box-shadow: 0px 0px 77px 22px #c7a7ff;
   border-color: #fffef8;
   border-style: solid;
- line-height: 170%;
+  line-height: 170%;
 }
 
 .color-block-evngl-stupka {
   background-color: #ffffff;
-  -webkit-animation-name: example;
-  animation-name: example;
   border-width: 1em;
   animation-duration: 7s;
   animation-iteration-count: 1;
   box-shadow: 0px 0px 77px 22px #ffa7a7;
   border-color: #fffef8;
   border-style: solid;
-   line-height: 170%;
+  line-height: 170%;
 }
 
 .apstl-day > a:first-child {
