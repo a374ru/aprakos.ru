@@ -227,12 +227,14 @@ a:visited {
   padding: 1px 12px;
   border-top: 9px solid #847e5f;
   background-color: white;
+  box-shadow: 0px 8px 7px 0px #7e7e7e;
 }
 
 .evngl-day > a:last-child {
   padding: 1px 12px;
   border-top: 9px solid #e34234;
   background-color: white;
+  box-shadow: 0px 8px 7px 0px #7e7e7e;
 }
 
 .seedday-week-on {

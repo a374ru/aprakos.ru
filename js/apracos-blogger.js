@@ -506,6 +506,9 @@ var OLY = (function () {
             document.getElementById("weekday" + this.weeks.aprID[0]).className += " seedday-week-on";
             document.getElementById("week" + this.weeks.apstlElemID[0]).className += " color-block";
         }
+        if (this.weeks.evnglElemID[0] == 50) {
+            document.querySelector("#week50").setAttribute("style", "border: solid 4rem #fedede; background-color: #fedede;");
+        }
     };
     OLY.prototype.glas = function (sedmica) {
         var x = sedmica;
