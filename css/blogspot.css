@@ -34,8 +34,7 @@ details {
 @font-face {
   font-family: "Irmologion";
   font-display: auto;
-  src: local("Clunya-IrmIEUcs"),
-    url("https://fonts.a374.ru/Clunya-IrmIEUcs.otf");
+  src: local("Clunya-IrmIEUcs"), url("https://fonts.a374.ru/Clunya-IrmIEUcs.otf");
   font-weight: normal;
   font-style: normal;
 }
@@ -214,7 +213,6 @@ a:visited {
 .color-block {
   background-color: #fffef8;
   /* -webkit-animation-name: example; */
-  animation-name: example;
   border-width: 1em;
   animation-duration: 7s;
   animation-iteration-count: 1;
