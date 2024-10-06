@@ -246,21 +246,22 @@ a:visited {
 
 .apstl-day > a:first-child {
   padding: 3px 22px;
-   border-left: 4px solid #766c9c;
-  border-right: 4px solid #766c9c;
-  background-color: white;
-  box-shadow: 0px 0px 3px 0px #0000008a inset;
+  border-left: 4px solid #9b8aff;
+  border-right: 4px solid #9b8aff;
+  background-color: #f8f4ff;
+  box-shadow: 0px 0px 3px 0px #00000021 inset;
   border-radius: 1rem;
 }
 
 .evngl-day > a:last-child {
   padding: 3px 22px;
-  border-left: 4px solid #b25962;
-  border-right: 4px solid #b25962;
+  border-left: 4px solid #ffaab3;
+  border-right: 4px solid #ffaab3;
   background-color: #fff3f3;
-  box-shadow: 0px 0px 3px 0px #0000008a inset;
+  box-shadow: 0px 0px 3px 0px #00000021 inset;
   border-radius: 1rem;
 }
+
 
   .seedday-week-on {
     color: green;
