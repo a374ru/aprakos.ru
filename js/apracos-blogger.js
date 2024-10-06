@@ -503,7 +503,7 @@ var OLY = (function () {
         if (this.weeks.evnglElemID[0] != this.weeks.apstlElemID[0]) {
             document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += " evngl-day";
             document.getElementById("week" + this.weeks.evnglElemID[0]).className += " color-block-evngl-stupka";
-            document.getElementById("weekday" + this.weeks.evngllElemID[0] + this.weeks.day[0]).style.lineHeight = "3rem";
+            document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).style.lineHeight = "3rem";
         }
         else {
             document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += " evngl-day";
