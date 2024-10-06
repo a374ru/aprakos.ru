@@ -247,6 +247,8 @@ a:visited {
 .apstl-day > a:first-child {
   padding: 3px 22px;
   border-top: 4px solid #766c9c;
+   border-left: 4px solid #766c9c;
+  border-right: 4px solid #766c9c;
   background-color: white;
   box-shadow: 0px 0px 3px 0px #0000008a inset;
   border-radius: 1rem;
@@ -254,9 +256,10 @@ a:visited {
 
 .evngl-day > a:last-child {
   padding: 3px 22px;
-  border-top: 4px solid #b25962;
-  background-color: white;
-  box-shadow: 0px 0px 3px 0px #80000008a inset;
+  border-left: 4px solid #b25962;
+  border-right: 4px solid #b25962;
+  background-color: #fff3f3;
+  box-shadow: 0px 0px 3px 0px #0000008a inset;
   border-radius: 1rem;
 }
 
