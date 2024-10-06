@@ -248,7 +248,7 @@ a:visited {
   padding: 3px 22px;
   border-top: 4px solid #766c9c;
   background-color: white;
-  box-shadow: 0px 0px 7px 0px #8591b3 inset;
+  box-shadow: 0px 0px 3px 0px #0000008a inset;
   border-radius: 1rem;
 }
 
@@ -256,7 +256,7 @@ a:visited {
   padding: 3px 22px;
   border-top: 4px solid #b25962;
   background-color: white;
-  box-shadow: 0px 0px 7px 0px #8591b3 inset;
+  box-shadow: 0px 0px 3px 0px #80000008a inset;
   border-radius: 1rem;
 }
 
