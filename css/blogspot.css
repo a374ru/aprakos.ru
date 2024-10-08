@@ -227,7 +227,7 @@ a:visited {
   border-width: 1em;
   animation-duration: 7s;
   animation-iteration-count: 1;
-  box-shadow: 0px 0px 77px 22px #c7a7ff;
+  box-shadow: 0px 0px 77px 22px #c7a7ffa1;
   border-color: #fffef8;
   border-style: solid;
   line-height: 3rem;
@@ -238,7 +238,7 @@ a:visited {
   border-width: 1em;
   animation-duration: 7s;
   animation-iteration-count: 1;
-  box-shadow: 0px 0px 77px 22px #ffa7a7;
+  box-shadow: 0px 0px 77px 22px #ffa7a7c9;
   border-color: #fffef8;
   border-style: solid;
   line-height: 3rem;
