@@ -17,6 +17,8 @@ var OLY = (function () {
         ];
         this.weeks = {};
         this.easterDates = {
+            1998: [3, 19],
+            1999: [3, 11],
             2000: [3, 30],
             2001: [3, 15],
             2002: [4, 5],
@@ -118,6 +120,7 @@ var OLY = (function () {
             2098: [3, 27],
             2099: [3, 12],
             2100: [4, 2],
+            2101: [3, 24]
         };
         this.NINEHOLIDAYS = {
             rojdestvoBogorodici: {
@@ -190,25 +193,27 @@ var OLY = (function () {
         this.eventKeys();
     }
     OLY.prototype.initOLY = function () {
-        var yearNumber = this.theMomentTime.getFullYear();
-        if (this.theMomentTime >=
-            new Date(this.theMomentTime.getFullYear(), this.easterDates[yearNumber][0], this.easterDates[yearNumber][1])) {
-            this.oldEaster = new Date(this.theMomentTime.getFullYear(), this.easterDates[yearNumber][0], this.easterDates[yearNumber][1]);
-            this.newEaster = new Date(this.theMomentTime.getFullYear() + 1, this.easterDates[yearNumber + 1][0], this.easterDates[yearNumber + 1][1]);
+        {
+            var yearNumber = this.theMomentTime.getFullYear();
+            if (this.theMomentTime >=
+                new Date(Date.UTC(this.theMomentTime.getFullYear(), this.easterDates[yearNumber][0], this.easterDates[yearNumber][1]))) {
+                this.oldEaster = new Date(Date.UTC(this.theMomentTime.getFullYear(), this.easterDates[yearNumber][0], this.easterDates[yearNumber][1]));
+                this.newEaster = new Date(Date.UTC(this.theMomentTime.getFullYear() + 1, this.easterDates[yearNumber + 1][0], this.easterDates[yearNumber + 1][1]));
+            }
+            else {
+                this.oldEaster = new Date(Date.UTC(this.theMomentTime.getFullYear() - 1, this.easterDates[yearNumber - 1][0], this.easterDates[yearNumber - 1][1]));
+                this.newEaster = new Date(Date.UTC(this.theMomentTime.getFullYear(), this.easterDates[yearNumber][0], this.easterDates[yearNumber][1]));
+            }
+            console.log("\n" +
+                "Прошедшая Пасха: " +
+                this.oldEaster.toLocaleDateString() +
+                "\n" +
+                "ОЖИДАЕМАЯ ПАСХА: " +
+                this.newEaster.toLocaleDateString());
+            this.oldEasterMLS = this.oldEaster.getTime();
+            this.newEasterMLS = this.newEaster.getTime();
+            return true;
         }
-        else {
-            this.oldEaster = new Date(this.theMomentTime.getFullYear() - 1, this.easterDates[yearNumber - 1][0], this.easterDates[yearNumber - 1][1]);
-            this.newEaster = new Date(this.theMomentTime.getFullYear(), this.easterDates[yearNumber][0], this.easterDates[yearNumber][1]);
-        }
-        console.log("\n" +
-            "Прошедшая Пасха: " +
-            this.oldEaster.toString().slice(0, 15) +
-            "\n" +
-            "ОЖИДАЕМАЯ ПАСХА: " +
-            this.newEaster.toString().slice(0, 16));
-        this.oldEasterMLS = this.oldEaster.getTime();
-        this.newEasterMLS = this.newEaster.getTime();
-        return true;
     };
     OLY.prototype.initWeeks = function () {
         var day = (this.weeks["day"] = [
@@ -297,16 +302,17 @@ var OLY = (function () {
         if (sessionStorage.userDate != null && userYear == undefined) {
             currentDate = new Date(String(sStorageDate));
         }
-        else if (userYear != undefined && userYear[0] < 2100 && userYear[0] > 2001) {
+        else if (userYear != undefined && userYear[0] < 2100 && userYear[0] >= 1999) {
             currentDate = new Date(userYear[0], (_a = userYear[1]) !== null && _a !== void 0 ? _a : currentDate.getMonth(), Number((_b = userYear[2]) !== null && _b !== void 0 ? _b : currentDate.getDate()));
             sessionStorage.setItem('userDate', String(currentDate));
+            location.reload();
         }
         else {
             console.warn("".concat(userYear
                 ? "Формат введенный пользователем не подходит… попробуйте ([2099,00,7])"
                 : "Год пользователем не предоставлен…", ".\n\u0411\u0443\u0434\u0435\u0442 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D \u0442\u0435\u043A\u0443\u0449\u0438\u0439 \u0433\u043E\u0434.\n\u0421\u041F\u0410\u0421\u0418\u0411\u041E \u0417\u0410 \u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415!"));
         }
-        if (currentDate.getDate() != this.theMomentTime.getDate()) {
+        if (currentDate != this.theMomentTime) {
             (_c = document.querySelector('#userdate')) === null || _c === void 0 ? void 0 : _c.remove();
             document.querySelector('body').innerHTML +=
                 "<div id=\"userdate\" class='userdate'><a id='a-visited-userdate' href=\"#\" onclick=\"apr.deleteUserDateFromSessionStorage()\">".concat(currentDate.toLocaleDateString(), "</a></div>");
@@ -327,7 +333,7 @@ var OLY = (function () {
                 console.log(element[1] + " | " + element[0]);
             }
         }
-        console.warn("\n\u0421\u0435\u0433\u043E\u0434\u043D\u044F: ".concat(this.theMomentTime.toDateString(), "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0410\u043F\u0440\u0430\u043A\u043E\u0441: https://aprakos.blogspot.com").concat(this.linkToAprakos, "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043F\u0440\u0430\u0437\u0434\u043D\u0438\u043A: https://aprakos.blogspot.com").concat((_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : "", "\n\u0421\u043F\u0440\u0430\u0432\u043A\u0430 \u0437\u0434\u0435\u0441\u044C: https://aprakos.blogspot.com/p/blog-page_4.html\n\t\t"));
+        console.warn("\n\u0421\u0435\u0433\u043E\u0434\u043D\u044F: ".concat(this.theMomentTime.toDateString(), "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0410\u043F\u0440\u0430\u043A\u043E\u0441: https://aprakos.blogspot.com").concat(this.linkToAprakos, "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043F\u0440\u0430\u0437\u0434\u043D\u0438\u043A: https://aprakos.blogspot.com").concat((_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : "", "\n\u0421\u043F\u0440\u0430\u0432\u043A\u0430 \u0437\u0434\u0435\u0441\u044C: https://aprakos.blogspot.com/p/blog-page_4.html\n        "));
     };
     OLY.prototype.yearMonthID = function () {
         var otstupka = this.stupka();
@@ -508,6 +514,8 @@ var OLY = (function () {
         else {
             document.getElementById("weekday" + this.weeks.evnglElemID[0] + this.weeks.day[0]).className += " evngl-day";
             document.getElementById("weekday" + this.weeks.aprID[0]).className += " seedday-week-on";
+            document.getElementById("week" + this.weeks.apstlElemID[0]).classList.remove("color-block-apstl-stupka");
+            document.getElementById("week" + this.weeks.apstlElemID[0]).className += " color-block";
         }
         if (this.weeks.evnglElemID[0] == 50) {
             document.querySelector("#week50").setAttribute("style", "border: solid 4rem #fedede; background-color: #fedede;");
