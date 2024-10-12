@@ -183,7 +183,6 @@ var OLY = (function () {
         this.initOLY();
         this.initDatesOLY();
         this.initWeeks();
-        this.correctorStupka();
         this.linkToAprakos = "/" + this.yearMonthID() + ".html";
         this.anchorElemID = "" + this.weeks.evnglElemID[0];
         this.linkToHolydays = (_a = this.holydays_9()) !== null && _a !== void 0 ? _a : this.linkToAprakos;
@@ -224,9 +223,8 @@ var OLY = (function () {
             Math.ceil((this.newEasterMLS - this.oldEasterMLS) / 864e5 / 7),
             "Протяженность ПБГ",
         ]);
-        var addMLS = sessionStorage.getItem('userDate') ? 0.001 : 0;
         var current = (this.weeks["current"] = [
-            Math.ceil((this.theMomentTime.getTime() + addMLS - this.oldEasterMLS) / 864e5 / 7),
+            Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 6.9),
             "Текущая седмица",
         ]);
         if (current[0] == 0) {
@@ -238,7 +236,7 @@ var OLY = (function () {
             Math.ceil((this.datesOLY.vozdvizgenieKresta[0].getTime() - this.oldEasterMLS) /
                 864e5 /
                 7),
-            "Седмица Воздвижения по Пятьдесятнице",
+            "Седмица Воздвижения по Пасхе",
         ]);
         var stupkaV = this.weeks["stupkaV"] = [
             Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0],
@@ -300,16 +298,16 @@ var OLY = (function () {
         var currentDate = this.theMomentTime;
         var sStorageDate = sessionStorage.getItem('userDate');
         if (sessionStorage.userDate != null && userYear == undefined) {
-            currentDate = new Date(String(sStorageDate));
+            currentDate = new Date(Number(sessionStorage.getItem('userDate')));
         }
         else if (userYear != undefined && userYear[0] < 2100 && userYear[0] >= 1999) {
-            currentDate = new Date(userYear[0], (_a = userYear[1]) !== null && _a !== void 0 ? _a : currentDate.getMonth(), Number((_b = userYear[2]) !== null && _b !== void 0 ? _b : currentDate.getDate()));
-            sessionStorage.setItem('userDate', String(currentDate));
+            currentDate = new Date(Date.UTC(userYear[0], (_a = userYear[1]) !== null && _a !== void 0 ? _a : currentDate.getMonth(), Number((_b = userYear[2]) !== null && _b !== void 0 ? _b : currentDate.getDate())));
+            sessionStorage.setItem('userDate', String(currentDate.getTime()));
             location.reload();
         }
         else {
             console.warn("".concat(userYear
-                ? "Формат введенный пользователем не подходит… попробуйте ([2099,00,7])"
+                ? "Формат введенный пользователем не подходит… попробуйте ([2099,0,7])"
                 : "Год пользователем не предоставлен…", ".\n\u0411\u0443\u0434\u0435\u0442 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D \u0442\u0435\u043A\u0443\u0449\u0438\u0439 \u0433\u043E\u0434.\n\u0421\u041F\u0410\u0421\u0418\u0411\u041E \u0417\u0410 \u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415!"));
         }
         if (currentDate != this.theMomentTime) {
@@ -336,9 +334,8 @@ var OLY = (function () {
         console.warn("\n\u0421\u0435\u0433\u043E\u0434\u043D\u044F: ".concat(this.theMomentTime.toDateString(), "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0410\u043F\u0440\u0430\u043A\u043E\u0441: https://aprakos.blogspot.com").concat(this.linkToAprakos, "\n\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043F\u0440\u0430\u0437\u0434\u043D\u0438\u043A: https://aprakos.blogspot.com").concat((_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : "", "\n\u0421\u043F\u0440\u0430\u0432\u043A\u0430 \u0437\u0434\u0435\u0441\u044C: https://aprakos.blogspot.com/p/blog-page_4.html\n        "));
     };
     OLY.prototype.yearMonthID = function () {
-        var otstupka = this.stupka();
-        var evangelieElemID = this.weeks.current[0] - this.stupka();
-        var apostolElemID = this.weeks.current[0] > 40 ? this.weeks.current[0] - this.stupka() : this.weeks.current[0];
+        var apostolElemID = this.weeks.current[0];
+        var evangelieElemID = this.weeks.current[0] + this.stupka();
         var aprID = Number("" + evangelieElemID + this.weeks.day[0]);
         var partURL;
         switch (true) {
@@ -409,19 +406,25 @@ var OLY = (function () {
         return stupka;
     };
     OLY.prototype.stupkaN = function () {
-        var stpka = this.weeks.stupkaK[0] - this.weeks.stupkaV[0];
         if (this.weeks.current[0] >= this.weeks.mif[0]) {
-            return stpka;
+            return 0;
         }
-        if (this.weeks.current[0] < 40) {
-            stpka = -this.weeks.stupkaV[0];
+        if (this.weeks.current[0] < this.weeks.mif[0]) {
+            var stepStupka = this.weeks.current[0] + this.weeks.stupkaV[0];
+            var per = -this.weeks.stupkaK[0] + this.weeks.stupkaV[0];
+            if (stepStupka > 39 && stepStupka < 46) {
+                return per;
+            }
+            return this.weeks.stupkaV[0];
         }
-        if (this.weeks.current[0] >= 40 && (this.weeks.current[0] < this.weeks.mif[0])) {
-            return stpka;
+        if (this.weeks.current[0] >= this.weeks.mif[0] - this.weeks.stupkaV[0] && (this.weeks.current[0] < this.weeks.mif[0])) {
+            return this.weeks.stupkaK[0] - this.weeks.stupkaV[0];
+            ;
         }
-        return stpka;
+        return 0;
     };
     OLY.prototype.stupkaVozdvizjenia = function (week) {
+        this.weeks.evnglElemID = this.weeks.apstlElemID;
         return 0;
     };
     OLY.prototype.stupkaK = function () {
@@ -490,7 +493,7 @@ var OLY = (function () {
                     document.getElementById(atrubuteID).innerHTML = "<a href=\"#week".concat(this.weeks.apstlElemID[0], "\">").concat(elemsID[atrubuteID], "</a>");
                 }
                 else if (atrubuteID === "curweek50") {
-                    document.getElementById(atrubuteID).innerHTML = "<a href=\"#week".concat(this.anchorElemID, "\">").concat(elemsID[atrubuteID], "</a>");
+                    document.getElementById(atrubuteID).innerHTML = "<a href=\"#week".concat(this.weeks.evnglElemID[0], "\">").concat(elemsID[atrubuteID], "</a>");
                 }
                 else {
                     document.getElementById(atrubuteID).innerHTML = elemsID[atrubuteID];
@@ -603,4 +606,3 @@ var OLY = (function () {
     return OLY;
 }());
 var apr = new OLY();
-//# sourceMappingURL=apr-blogspot.js.map
