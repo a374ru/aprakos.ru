@@ -224,7 +224,7 @@ var OLY = (function () {
             "Протяженность ПБГ",
         ]);
         var current = (this.weeks["current"] = [
-            Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 6.9),
+            Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 6.999),
             "Текущая седмица",
         ]);
         if (current[0] == 0 || current[0] > 55) {
@@ -239,7 +239,7 @@ var OLY = (function () {
             "Седмица Воздвижения по Пасхе",
         ]);
         var stupkaV = this.weeks["stupkaV"] = [
-            Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0] - 1,
+            Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0],
             "Воздвиженская ступка",
         ];
         var stupkaK = (this.weeks["stupkaK"] = [
