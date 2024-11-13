@@ -12,6 +12,10 @@
 /* project variables */
 /* =================== */
 
+.post-outer-container{
+background: linear-gradient(#ffffff, 44%, #fff2e1);
+}
+
 :root {
   --kino-var: #e34234;
   --date-var: #ffd8d4;
