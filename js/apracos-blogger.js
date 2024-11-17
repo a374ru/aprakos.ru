@@ -3,8 +3,8 @@ var OLY = (function () {
     function OLY(year) {
         var _a;
         this.year = year;
-        this.theMomentTime0 = new Date();
-        this.theMomentTime = new Date(this.theMomentTime0.getUTCFullYear(), this.theMomentTime0.getUTCMonth(), this.theMomentTime0.getUTCDate());
+        this.theMoment = new Date();
+        this.theMomentTime = new Date(this.theMoment.getUTCFullYear(), this.theMoment.getUTCMonth(), this.theMoment.getUTCDate());
         this.anchorElemID = "#11";
         this.stateModalView = false;
         this.arrayDaysRu = [
@@ -225,7 +225,7 @@ var OLY = (function () {
             "Протяженность ПБГ",
         ]);
         var current = (this.weeks["current"] = [
-            Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 6.9),
+            Math.ceil((this.theMoment.getTime() - this.oldEasterMLS) / 864e5 / 6.999999999999),
             "Текущая седмица",
             "Здесь происходит вычисление текущей седмицы которая зависит от системных вычислений по миллисекундам и делителя седмиц. Делетель `6.999999999` при вычислениях дает совершенно иной результат – более точный. Если делитель равен семи, то в определённый момент вычисления возвращается неверный результат."
         ]);
