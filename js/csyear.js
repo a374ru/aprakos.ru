@@ -26,7 +26,7 @@ try{
         moment = new Date();
         numberMontf = moment.getMonth();
         curentYear = moment.getFullYear();
-        spanElement = `<br><a target='_blank' href='https://aprakos.a374.ru/currentday/APRAKOS/PASKHA/XB.html' class='badge-link'>Грядущая Пасха</a>`
+        spanElement = `<br><a target='_blank' href='https://aprakos.blogspot.com/p/zz-c-apr.html' class='badge-link'>Грядущая Пасха</a>`
         
         //=-=-=-=-=-=-=-=-=-=-=-=-=-
         li.forEach((node) => {
