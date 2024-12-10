@@ -4,7 +4,8 @@ var OLY = (function () {
         var _a;
         this.year = year;
         this.theMoment = new Date();
-        this.theMomentTime = new Date(this.theMoment.getUTCFullYear(), this.theMoment.getUTCMonth(), this.theMoment.getUTCDate());
+        this.offsetZone = this.theMoment.getTimezoneOffset() * 60000;
+        this.theMomentTime = new Date();
         this.anchorElemID = "#11";
         this.stateModalView = false;
         this.arrayDaysRu = [
@@ -191,6 +192,7 @@ var OLY = (function () {
         this.initElementsDOM();
         this.firstViewModal();
         this.eventKeys();
+        this.reloadAprakosPage();
     }
     OLY.prototype.initOLY = function () {
         {
@@ -225,9 +227,8 @@ var OLY = (function () {
             "Протяженность ПБГ",
         ]);
         var current = (this.weeks["current"] = [
-            Math.ceil((this.theMomentTime.getTime() - this.oldEasterMLS) / 864e5 / 6.999999999999),
+            Math.ceil((this.theMomentTime.getTime() - this.offsetZone - this.oldEasterMLS) / 864e5 / 7),
             "Текущая седмица",
-            "Здесь происходит вычисление текущей седмицы которая зависит от системных вычислений по миллисекундам и делителя седмиц. Делитель `6.999999999` при вычислениях дает совершенно иной результат – более точный. Если делитель равен семи, то в определённый момент вычисления возвращается неверный результат."
         ]);
         if (current[0] == 0 || current[0] > 55) {
             this.weeks["current"][0] = 1;
@@ -237,7 +238,7 @@ var OLY = (function () {
         var vozdvizgenie = (this.weeks["vozdvizgenie"] = [
             Math.ceil((this.datesOLY.vozdvizgenieKresta[0].getTime() - this.oldEasterMLS) /
                 864e5 /
-                6.999999999),
+                7),
             "Седмица Воздвижения по Пасхе",
         ]);
         var stupkaV = this.weeks["stupkaV"] = [
@@ -600,6 +601,14 @@ var OLY = (function () {
     OLY.prototype.deleteUserDateFromSessionStorage = function () {
         sessionStorage.removeItem('userDate');
         document.location.replace(document.location.origin);
+    };
+    OLY.prototype.reloadAprakosPage = function () {
+        var cd = new Date();
+        var nextDay = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate() + 1);
+        var interval = nextDay.getTime() - cd.getTime();
+        setTimeout(function () {
+            document.location.reload();
+        }, interval);
     };
     return OLY;
 }());
