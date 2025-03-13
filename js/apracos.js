@@ -317,8 +317,10 @@ class TimeBoxOrthodox {
     linkToID() {
         let anchor = document.location.hash.slice(1);
         const segmentsURL = document.location.pathname.split('/');
-        const previosURL = localStorage.getItem("ystm");
-        localStorage.setItem("ystm", document.location.pathname);
+        const previosURL = localStorage.getItem("about-page");
+        if(!ancor){
+        localStorage.setItem("about-page", document.location.pathname);
+        }
         if (anchor != "" && segmentsURL.lastIndexOf("stvol.html") == -1) {
             try {
                 document.getElementById(anchor).setAttribute('style', 'cursor: pointer; color: #a55858; background-color: #f4b5ff22; padding: 0px 0.4em 0px; border-radius: 7px;');
