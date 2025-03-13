@@ -318,7 +318,7 @@ class TimeBoxOrthodox {
         let anchor = document.location.hash.slice(1);
         const segmentsURL = document.location.pathname.split('/');
         const previosURL = localStorage.getItem("about-page");
-        if(!ancor){
+        if(!anchor){
         localStorage.setItem("about-page", document.location.pathname);
         }
         if (anchor != "" && segmentsURL.lastIndexOf("stvol.html") == -1) {
