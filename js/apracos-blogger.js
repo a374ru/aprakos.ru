@@ -415,7 +415,7 @@ var OLY = (function () {
         if (this.weeks.current[0] < this.weeks.mif[0]) {
             var stepStupka = this.weeks.current[0] + this.weeks.stupkaV[0];
             var per = -this.weeks.stupkaK[0] + this.weeks.stupkaV[0];
-            if (stepStupka > 40 && stepStupka < 46) {
+            if (stepStupka > 40 && stepStupka < 47) {
                 return per;
             }
             return this.weeks.stupkaV[0];
