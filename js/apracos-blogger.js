@@ -737,6 +737,7 @@ class selectedDay {
         }
         else {
             let dateFromForm = document.querySelector('input[type="date"]');
+            dateFromForm.value = "0000-00-00";
             document.getElementById('form-date').classList.add(this.v);
             document.getElementById('button-date').classList.add(this.h);
             document.getElementById('apr-year').innerText = ' СЕГО ДНЯ.';
