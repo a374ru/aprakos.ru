@@ -426,11 +426,11 @@ class OLY {
         this.weeks['aprID'] = [aprID, 'Апракос-ID'];
         this.weeks['apstlElemID'] = [
             apostolElemID,
-            'Элемент-ID Апостольского зачала',
+            'Апостола-ID',
         ];
         this.weeks['evnglElemID'] = [
             evangelieElemID,
-            'Элемент-ID Евангельского зачала',
+            'Евангелие-ID ',
         ];
         return partURL;
     }
