@@ -217,15 +217,21 @@ class OLY {
             return true;
         }
     }
+    ruday() {
+        const days = ['Воскресенье', 'Понедельник', 'Вторник', ' Среда', 'Четверг', 'Пятница', 'Суббота'];
+        const d = days[this.theMomentTime.getDay()];
+        return d;
+    }
     initWeeks() {
         const day = (this.weeks['day'] = [
             this.theMomentTime.getDay() + 1,
             'День седмицы',
+            " … " + this.ruday(),
         ]);
         const all = (this.weeks['all'] = [
             Math.ceil((this.newEasterMLS - this.oldEasterMLS) / 864e5 / 7),
             'Протяженность ПБГ',
-            'седмиц'
+            'седмиц',
         ]);
         const current = (this.weeks['current'] = [
             Math.ceil((this.theMomentTime.getTime() - this.offsetZone - this.oldEasterMLS) /
@@ -239,13 +245,13 @@ class OLY {
         const pip = (this.weeks['mif2'] = [
             Math.ceil((this.datesOLY.pip[0].getTime() - (this.datesOLY.pentecost[0].getTime() + 864e5 * 7)) / 864e5),
             'Петров пост',
-            'дней'
+            'дн.'
         ]);
-        const mif = (this.weeks['mif'] = [all[0] - 9, 'Седмица МиФ по Пасхе']);
         const zakhey = (this.weeks['zakhey'] = [
-            mif[0] - 1,
+            all[0] - 10,
             'Седмица Закхея по Пасхе',
         ]);
+        const mif = (this.weeks['mif'] = [all[0] - 9, 'Седмица МиФ по Пасхе']);
         const vozdvizgenie = (this.weeks['vozdvizgenie'] = [
             Math.ceil((this.datesOLY.vozdvizgenieKresta[0].getTime() - this.oldEasterMLS) /
                 864e5 /
