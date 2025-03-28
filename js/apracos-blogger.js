@@ -687,12 +687,9 @@ class OLY {
 let apr = new OLY();
 class selectedDay {
     constructor() {
-        this.c = 0;
         this.userDate_ss = sessionStorage.getItem('userDate');
         this.newDate = document.getElementById('form-date');
-        this.v = 'visibility';
-        this.h = 'hidden';
-        this.d = [];
+        this.counter = 0;
         this.setUserData();
         this.setColor();
         this.listener();
@@ -702,9 +699,9 @@ class selectedDay {
             ? '<span style="color: #e34234">'
             : '<span style="color: #000">';
         const color2 = this.userDate_ss
-            ? '<span style="color: #813bff">'
+            ? '<span style="font-weight: 600; color: #5d01ff">'
             : '<span style="color: #000">';
-        if (this.c == 0) {
+        if (this.counter == 0) {
             let easterData = document.querySelector('#easter');
             easterData.innerHTML +=
                 '<span style="font-size: 1.5rem; opasity: .5;"><span style="color: #0005"> Прошедшая Пасха: ' +
@@ -740,16 +737,18 @@ class selectedDay {
                 }
             }
         }
-        this.c = this.c + 1;
+        this.counter = this.counter + 1;
     }
     reloadPage() {
         sessionStorage.removeItem('userDate');
         document.location.reload();
     }
     setColor() {
+        let show = 'visibility';
+        let hide = 'hidden';
         if (this.userDate_ss) {
-            document.getElementById('form-date').classList.add(this.h);
-            document.getElementById('button-date').classList.add(this.v);
+            document.getElementById('form-date').classList.add(hide);
+            document.getElementById('button-date').classList.add(show);
             document
                 .getElementById('warningString')
                 .setAttribute('style', 'color:red; font-wigth: bold; font-weight: bolder;');
@@ -762,28 +761,26 @@ class selectedDay {
         else {
             let dateFromForm = document.querySelector('input[type="date"]');
             dateFromForm.value = "0000-00-00";
-            document.getElementById('form-date').classList.add(this.v);
-            document.getElementById('button-date').classList.add(this.h);
+            document.getElementById('form-date').classList.add(show);
+            document.getElementById('button-date').classList.add(hide);
             document.getElementById('apr-year').innerText = ' СЕГО ДНЯ.';
         }
     }
     serializeForm(formNode_p) {
+        let d = [];
         if (formNode_p != null && formNode_p != undefined) {
             let a = new FormData(formNode_p);
             for (var pair of a.entries()) {
                 let b = pair[1].toString();
-                this.d = [+b.slice(0, 4), +b.slice(5, 7) - 1, +b.slice(-2)];
+                d = [+b.slice(0, 4), +b.slice(5, 7) - 1, +b.slice(-2)];
             }
         }
-        new OLY(this.d);
+        new OLY(d);
     }
     listener() {
         this.newDate.addEventListener('submit', (e) => {
             e.preventDefault();
             this.serializeForm(this.newDate);
-        });
-        document.addEventListener('load', () => {
-            this.setUserData();
         });
     }
 }
