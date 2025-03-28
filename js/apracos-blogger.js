@@ -225,6 +225,7 @@ class OLY {
         const all = (this.weeks['all'] = [
             Math.ceil((this.newEasterMLS - this.oldEasterMLS) / 864e5 / 7),
             'Протяженность ПБГ',
+            'седмиц'
         ]);
         const current = (this.weeks['current'] = [
             Math.ceil((this.theMomentTime.getTime() - this.offsetZone - this.oldEasterMLS) /
@@ -235,6 +236,11 @@ class OLY {
         if (current[0] == 0 || current[0] > 55) {
             this.weeks['current'][0] = 1;
         }
+        const pip = (this.weeks['mif2'] = [
+            Math.ceil((this.datesOLY.pip[0].getTime() - (this.datesOLY.pentecost[0].getTime() + 864e5 * 7)) / 864e5),
+            'Петров пост',
+            'дней'
+        ]);
         const mif = (this.weeks['mif'] = [all[0] - 9, 'Седмица МиФ по Пасхе']);
         const zakhey = (this.weeks['zakhey'] = [
             mif[0] - 1,
@@ -249,10 +255,12 @@ class OLY {
         let stupkaV = (this.weeks['stupkaV'] = [
             Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0],
             'Воздвиженская ступка',
+            'седм.',
         ]);
         let stupkaK = (this.weeks['stupkaK'] = [
             Math.abs(all[0] - 50 - -stupkaV[0]),
             'Крещенская отступка',
+            'седм.',
         ]);
         this.correctorStupka();
         return this.weeks;
@@ -267,9 +275,17 @@ class OLY {
             new Date(this.oldEasterMLS + 864e5 * 49),
             'Пятьдесятница',
         ];
+        this.datesOLY['pip'] = [
+            new Date(this.oldEaster.getFullYear() + '-07-12T00:00:00'),
+            'Начало Петрова поста',
+        ];
         this.datesOLY['vozdvizgenieKresta'] = [
             new Date(this.oldEaster.getFullYear() + '-09-27T00:00:00'),
             'Воздвижение Креста Господня',
+        ];
+        this.datesOLY['week24'] = [
+            new Date(this.oldEasterMLS + 864e5 * 168),
+            '17/24 седмица по Пасхе',
         ];
         this.datesOLY['zakhey'] = [
             new Date(this.newEasterMLS - 864e5 * 77),
@@ -295,9 +311,9 @@ class OLY {
             new Date(this.newEasterMLS - 864e5 * 48),
             'Начало Великого Поста',
         ];
-        this.datesOLY['week24'] = [
-            new Date(this.oldEasterMLS + 864e5 * 168),
-            '17/24 седмица по Пасхе',
+        this.datesOLY['CrossSunday'] = [
+            new Date(this.newEaster - 864e5 * 28),
+            'Неделя Крестопоклонная'
         ];
         return this.datesOLY;
     }
@@ -402,13 +418,13 @@ class OLY {
                 break;
         }
         this.weeks['aprID'] = [aprID, 'Апракос-ID'];
-        this.weeks['evnglElemID'] = [
-            evangelieElemID,
-            'Элемент-ID Евангельского зачала',
-        ];
         this.weeks['apstlElemID'] = [
             apostolElemID,
             'Элемент-ID Апостольского зачала',
+        ];
+        this.weeks['evnglElemID'] = [
+            evangelieElemID,
+            'Элемент-ID Евангельского зачала',
         ];
         return partURL;
     }
@@ -661,8 +677,6 @@ class OLY {
             document.location.reload();
         }, interval);
     }
-    setUserDate() {
-    }
 }
 let apr = new OLY();
 class selectedDay {
@@ -700,7 +714,11 @@ class selectedDay {
                 if (Object.prototype.hasOwnProperty.call(obj, key)) {
                     var element = obj[key];
                     const li = document.createElement('li');
-                    li.innerHTML += element[1] + ': ' + color2 + element[0];
+                    var str = " ";
+                    if (element[2] != undefined) {
+                        str += element[2];
+                    }
+                    li.innerHTML += element[1] + ': ' + color2 + element[0] + str;
                     ul.appendChild(li) + '</span>';
                 }
             }
