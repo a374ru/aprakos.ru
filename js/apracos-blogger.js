@@ -685,7 +685,7 @@ class OLY {
     }
 }
 let apr = new OLY();
-class selectedDay {
+class SelectedDay {
     constructor() {
         this.userDate_ss = sessionStorage.getItem('userDate');
         this.newDate = document.getElementById('form-date');
@@ -784,4 +784,4 @@ class selectedDay {
         });
     }
 }
-let set = new selectedDay();
+let set = new SelectedDay();
