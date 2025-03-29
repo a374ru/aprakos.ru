@@ -761,7 +761,7 @@ class SelectedDay {
         }
         else {
             let dateFromForm = document.querySelector('input[type="date"]');
-            dateFromForm.value = apr.theMomentTime.toISOString().slice(0, 10);
+            dateFromForm.value = new Date(apr.theMomentTime.getTime() - apr.offsetZone).toISOString().slice(0, 10);
             document.getElementById('form-date').classList.add(show);
             document.getElementById('button-date').classList.add(hide);
             document.getElementById('apr-year').innerText = ' СЕГО ДНЯ.';
