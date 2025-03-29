@@ -337,7 +337,7 @@ class OLY {
             location.reload();
         }
         else {
-            console.warn(`${userYear
+            console.info(`${userYear
                 ? 'Формат введенный пользователем не подходит… попробуйте ([2099,0,7])'
                 : 'Год пользователем не предоставлен…'}.\nБудет использован текущий год.\nСПАСИБО ЗА ВНИМАНИЕ!`);
         }
@@ -361,7 +361,7 @@ class OLY {
                 console.log(element[1] + ' | ' + element[0]);
             }
         }
-        console.warn(`
+        console.info(`
 Сегодня: ${this.theMomentTime.toDateString()}
 Ссылка на Апракос: https://aprakos.blogspot.com${this.linkToAprakos}
 Ссылка на праздник: https://aprakos.blogspot.com${(_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : ''}
@@ -761,7 +761,7 @@ class SelectedDay {
         }
         else {
             let dateFromForm = document.querySelector('input[type="date"]');
-            dateFromForm.value = apr.theMoment.toISOString().slice(0, 10);
+            dateFromForm.value = apr.theMomentTime.toISOString().slice(0, 10);
             document.getElementById('form-date').classList.add(show);
             document.getElementById('button-date').classList.add(hide);
             document.getElementById('apr-year').innerText = ' СЕГО ДНЯ.';
