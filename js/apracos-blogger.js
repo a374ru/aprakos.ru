@@ -755,7 +755,7 @@ class SelectedDay {
                 ' для ' +
                     '<span style="padding-left: .4rem; color: #000"> ' +
                     new Date(+this.userDate_ss).toLocaleDateString() +
-                    '</span>';
+                    ' ✔️ </span>';
         }
         else {
             let dateFromForm = document.querySelector('input[type="date"]');
