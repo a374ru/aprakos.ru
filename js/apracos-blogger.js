@@ -188,7 +188,6 @@ class OLY {
         this.linkToAprakos = '/' + this.yearMonthID() + '.html';
         this.anchorElemID = '' + this.weeks.evnglElemID[0];
         this.linkToHolydays = (_a = this.holydays_9()) !== null && _a !== void 0 ? _a : this.linkToAprakos;
-        this.info();
         this.initElementsDOM();
         this.firstViewModal();
         this.eventKeys();
@@ -766,14 +765,11 @@ class SelectedDay {
             document.getElementById('apr-year').innerText = ' СЕГО ДНЯ.';
         }
     }
-    serializeForm(formNode_p) {
+    serializeForm(event) {
         let d = [];
-        if (formNode_p != null && formNode_p != undefined) {
-            let a = new FormData(formNode_p);
-            for (var pair of a.entries()) {
-                let b = pair[1].toString();
-                d = [+b.slice(0, 4), +b.slice(5, 7) - 1, +b.slice(-2)];
-            }
+        if (event != null && event != undefined) {
+            let a = new FormData(event);
+            console.info(a.entries());
         }
         new OLY(d);
     }
