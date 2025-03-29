@@ -782,6 +782,6 @@ class SelectedDay {
         });
     }
 }
-if (document.location.pathname === "/p/aprakos-date.html") {
+if (document.getElementById('form-date')) {
     let set = new SelectedDay();
 }
