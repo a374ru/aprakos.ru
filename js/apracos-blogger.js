@@ -768,8 +768,10 @@ class SelectedDay {
     serializeForm(event) {
         let d = [];
         if (event != null && event != undefined) {
-            let a = new FormData(event);
-            console.info(a.entries());
+            let fd = new FormData(event);
+            fd.forEach((item) => {
+                d = [+item.slice(0, 4), +item.slice(5, 7) - 1, +item.slice(-2)];
+            });
         }
         new OLY(d);
     }
