@@ -686,12 +686,14 @@ class OLY {
 let apr = new OLY();
 class SelectedDay {
     constructor() {
-        this.userDate_ss = sessionStorage.getItem('userDate');
         this.newDate = document.getElementById('form-date');
+        this.userDate_ss = sessionStorage.getItem('userDate');
         this.counter = 0;
-        this.setUserData();
-        this.setColor();
-        this.listener();
+        if (this.newDate) {
+            this.setUserData();
+            this.setColor();
+            this.listener();
+        }
     }
     setUserData() {
         const color = this.userDate_ss
@@ -782,6 +784,4 @@ class SelectedDay {
         });
     }
 }
-if (document.getElementById('form-date')) {
-    let set = new SelectedDay();
-}
+let set = new SelectedDay();
