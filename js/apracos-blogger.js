@@ -782,6 +782,6 @@ class SelectedDay {
         });
     }
 }
-if (document.location.pathname = "/p/aprakos-date.html") {
+if (document.location.pathname === "/p/aprakos-date.html") {
     let set = new SelectedDay();
 }
