@@ -5,6 +5,7 @@ class OLY {
         this.year = year;
         this.theMoment = new Date();
         this.offsetZone = this.theMoment.getTimezoneOffset() * 60000;
+        this.theMomentOffsetZone = new Date(this.theMoment.getTime() - this.offsetZone);
         this.theMomentTime = new Date();
         this.anchorElemID = '#11';
         this.stateModalView = false;
@@ -362,10 +363,10 @@ class OLY {
             }
         }
         console.info(`
-Сегодня: ${this.theMomentTime.toDateString()}
-Ссылка на Апракос: https://aprakos.blogspot.com${this.linkToAprakos}
-Ссылка на праздник: https://aprakos.blogspot.com${(_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : ''}
-Справка здесь: https://aprakos.blogspot.com/p/blog-page_4.html
+            Сегодня: ${this.theMomentTime.toDateString()}
+            Ссылка на Апракос: https://aprakos.blogspot.com${this.linkToAprakos}
+            Ссылка на праздник: https://aprakos.blogspot.com${(_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : ''}
+            Справка здесь: https://aprakos.blogspot.com/p/blog-page_4.html
         `);
     }
     yearMonthID() {
@@ -688,6 +689,7 @@ class SelectedDay {
     constructor() {
         this.newDate = document.getElementById('form-date');
         this.userDate_ss = sessionStorage.getItem('userDate');
+        this.userCheck_ss = sessionStorage.getItem('userCheck');
         this.counter = 0;
         if (this.newDate) {
             this.setUserData();
@@ -749,7 +751,9 @@ class SelectedDay {
         let hide = 'hidden';
         if (this.userDate_ss) {
             document.getElementById('form-date').classList.add(hide);
-            document.getElementById('button-date').classList.add(show);
+            let returnToRealDate = document.getElementById('button-date');
+            returnToRealDate.classList.add(show);
+            returnToRealDate.focus();
             document
                 .getElementById('warningString')
                 .setAttribute('style', 'color:red; font-wigth: bold; font-weight: bolder;');
@@ -761,20 +765,23 @@ class SelectedDay {
         }
         else {
             let dateFromForm = document.querySelector('input[type="date"]');
-            dateFromForm.value = new Date(apr.theMomentTime.getTime() - apr.offsetZone).toISOString().slice(0, 10);
+            !this.userCheck_ss ? dateFromForm.value = apr.theMomentOffsetZone.toISOString().slice(0, 10) : undefined;
             document.getElementById('form-date').classList.add(show);
             document.getElementById('button-date').classList.add(hide);
-            document.getElementById('apr-year').innerText = ' СЕГО ДНЯ.';
+            document.getElementById('apr-year').innerText = ' СЕГО ДНЯ ';
         }
     }
-    serializeForm(event) {
+    serializeForm(dataftf) {
         let d = [];
-        if (event != null && event != undefined) {
-            let fd = new FormData(event);
-            fd.forEach((item) => {
-                d = [+item.slice(0, 4), +item.slice(5, 7) - 1, +item.slice(-2)];
-            });
+        const check = dataftf["fixed-date"].checked;
+        if (check) {
+            sessionStorage.setItem('userCheck', 'yes');
         }
+        else {
+            sessionStorage.removeItem('userCheck');
+        }
+        const inputDate = dataftf["adate"].value;
+        d = [+inputDate.slice(0, 4), +inputDate.slice(5, 7) - 1, +inputDate.slice(-2)];
         new OLY(d);
     }
     listener() {
