@@ -799,11 +799,11 @@ class SelectedDay {
     }
     widthButton() {
         if (window.innerWidth < 660) {
-            document.getElementById('submit').innerText = "✔️";
-            document.getElementById('submit').style.backgroundColor = "#fff3ea";
+            document.getElementById('submit').value = "✔️";
+            document.getElementById('submit').style.backgroundColor = "#ffe6d3";
         }
         if (window.innerWidth < 512) {
-            document.getElementById('button-red').innerText = "СБРОСИТЬ";
+            document.getElementById('button-red').innerText = "••••••";
         }
     }
     listener() {
