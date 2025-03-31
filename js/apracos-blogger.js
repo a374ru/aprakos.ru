@@ -689,7 +689,7 @@ class SelectedDay {
     constructor() {
         this.newDate = document.getElementById('form-date');
         this.userDate_ss = sessionStorage.getItem('userDate');
-        this.checkbox = sessionStorage.getItem('userCheck');
+        this.userCheck_ss = sessionStorage.getItem('userCheck');
         this.counter = 0;
         if (this.newDate) {
             this.setUserData();
@@ -743,15 +743,7 @@ class SelectedDay {
         this.counter = this.counter + 1;
     }
     reloadPage() {
-        if (!this.checkbox) {
-            sessionStorage.removeItem('userCheck');
-            sessionStorage.removeItem('userDate');
-        }
-        else {
-            var lastDate = new Date(Number(this.userDate_ss));
-            sessionStorage.setItem('lastInstalledDate', lastDate.toISOString().slice(0, 10));
-            sessionStorage.removeItem('userDate');
-        }
+        sessionStorage.removeItem('userDate');
         document.location.reload();
     }
     setColor() {
@@ -759,7 +751,7 @@ class SelectedDay {
         let hide = 'hidden';
         if (this.userDate_ss) {
             document.getElementById('form-date').classList.add(hide);
-            let returnToRealDate = document.getElementById('button-red');
+            let returnToRealDate = document.getElementById('button-date');
             returnToRealDate.classList.add(show);
             returnToRealDate.focus();
             document
@@ -773,13 +765,9 @@ class SelectedDay {
         }
         else {
             let dateFromForm = document.querySelector('input[type="date"]');
-            if (this.checkbox) {
-                this.newDate[0].checked = true;
-            }
-            !this.checkbox ? dateFromForm.value = apr.theMomentOffsetZone.toISOString().slice(0, 10)
-                : dateFromForm.value = sessionStorage.getItem('lastInstalledDate');
+            !this.userCheck_ss ? dateFromForm.value = apr.theMomentOffsetZone.toISOString().slice(0, 10) : undefined;
             document.getElementById('form-date').classList.add(show);
-            document.getElementById('button-red').classList.add(hide);
+            document.getElementById('button-date').classList.add(hide);
             document.getElementById('apr-year').innerText = ' СЕГО ДНЯ ';
         }
     }
@@ -787,7 +775,7 @@ class SelectedDay {
         let d = [];
         const check = dataftf["fixed-date"].checked;
         if (check) {
-            sessionStorage.setItem('userCheck', 'check');
+            sessionStorage.setItem('userCheck', 'yes');
         }
         else {
             sessionStorage.removeItem('userCheck');
