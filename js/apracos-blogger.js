@@ -799,7 +799,7 @@ class SelectedDay {
     }
     widthButton() {
         if (window.innerWidth < 660) {
-            document.getElementById('submit').innerText = "✔️";
+            document.getElementById('submit').value = "✔️";
             document.getElementById('submit').style.backgroundColor = "#ffe6d3";
         }
     }
