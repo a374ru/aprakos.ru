@@ -359,6 +359,9 @@ a:visited {
   }
 
   @media only screen and (min-device-width: 240px) and (max-device-width: 444px) and (orientation: portrait) {
+   .userdate{
+      font-size: 5dvw
+    }
     .fp01 {
       position: relative;
       top: 0;
