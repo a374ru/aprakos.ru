@@ -497,10 +497,10 @@ class OLY {
         return undefined;
     }
     modalCweek50() {
-        if (this.weeks.current[0] > 7) {
-            return `по Пять&shy;десят&shy;нице <span class="red bold">${this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет"}.</span>`;
+        if (this.weeks.current[0] < 7) {
+            return "";
         }
-        return "";
+        return `По Пять&shy;десят&shy;нице <span class="red bold">${this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет"}</span>`;
     }
     initModalView() {
         let lastSegment = document.location.pathname.split('/').pop();
@@ -509,7 +509,7 @@ class OLY {
         let str = `
         <section id="fp-content" class="fp-content">
         <b>Седмица Евангелия: </b>
-        <div id="modal-cweek">по Пасхе&nbsp; <span style="background-color: white; border-radius: 50%; padding: 0 .7rem 0" class="red bold">${this.anchorElemID}</span></div>
+        <div id="modal-cweek">По Пасхе&nbsp; <span style="background-color: white; border-radius: 50%; padding: 0 .7rem 0" class="red bold">${this.anchorElemID}</span></div>
         ${this.modalCweek50()}
         <div>${lastSegment === 'stvol.html'
             ? `${this.weeks.stupkaV[1]} <span class="red bold">${Math.abs(this.weeks.stupkaV[0])}</span> седм.`
