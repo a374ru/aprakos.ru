@@ -500,6 +500,7 @@ class OLY {
         let lastSegment = document.location.pathname.split('/').pop();
         const closeClick = '<span id="close" class="close" onclick="apr.closeModalView()"></span>';
         const commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
+        let str50 = ``
         let str = `
         <section id="fp-content" class="fp-content">
         <b>Седмица Евангелия: </b>
@@ -799,8 +800,9 @@ class SelectedDay {
     }
     widthButton() {
         if (window.innerWidth < 660) {
-            document.getElementById('submit').value = "✔️";
-            document.getElementById('submit').style.backgroundColor = "#ffe6d3";
+            let inputElement = document.getElementById('submit');
+            inputElement.value = "✔️";
+            inputElement.style.backgroundColor = "#ffe6d3";
         }
     }
     listener() {
