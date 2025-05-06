@@ -500,10 +500,7 @@ class OLY {
         if (this.weeks.current[0] > 7) {
             return `по Пять&shy;десят&shy;нице <span class="red bold">${this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет"}.</span>`;
         }
-        else {
-            return "<hr>";
-        }
-        ;
+        return "";
     }
     initModalView() {
         let lastSegment = document.location.pathname.split('/').pop();
