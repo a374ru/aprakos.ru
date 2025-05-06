@@ -496,16 +496,21 @@ class OLY {
         }
         return undefined;
     }
+    modalCweek50() {
+        if (this.weeks.current[0] > 7) {
+            return `по Пять&shy;десят&shy;нице <span class="red bold">${this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет"}.</span>`;
+        }
+        ;
+    }
     initModalView() {
         let lastSegment = document.location.pathname.split('/').pop();
         const closeClick = '<span id="close" class="close" onclick="apr.closeModalView()"></span>';
         const commentStvol = "<span class='comment-stvol'>В стволе указаны числа текущих седмиц.<br> Подробнее<a class='a-href' href='https://www.aprakos.ru/p/blog-page.html'> здесь</a>.</div>";
-        let str50 = ``
         let str = `
         <section id="fp-content" class="fp-content">
         <b>Седмица Евангелия: </b>
         <div id="modal-cweek">по Пасхе&nbsp; <span class="red bold">${this.anchorElemID},</span></div>
-        <div id="modal-cweek50">по Пять&shy;десят&shy;нице <span class="red bold">${this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : 'нет'}.</span>
+        <div id="modal-cweek50">${this.modalCweek50()}</span>
         <div>${lastSegment === 'stvol.html'
             ? `${this.weeks.stupkaV[1]} <span class="red bold">${Math.abs(this.weeks.stupkaV[0])}</span> седм.`
             : ''}</div></div>
