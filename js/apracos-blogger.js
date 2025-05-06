@@ -500,6 +500,9 @@ class OLY {
         if (this.weeks.current[0] > 7) {
             return `по Пять&shy;десят&shy;нице <span class="red bold">${this.weeks.current[0] > 7 ? Number(this.anchorElemID) - 7 : "нет"}.</span>`;
         }
+        else {
+            return "<hr>";
+        }
         ;
     }
     initModalView() {
@@ -510,7 +513,7 @@ class OLY {
         <section id="fp-content" class="fp-content">
         <b>Седмица Евангелия: </b>
         <div id="modal-cweek">по Пасхе&nbsp; <span class="red bold">${this.anchorElemID},</span></div>
-        <div id="modal-cweek50">${this.modalCweek50()}</span>
+        ${this.modalCweek50()}
         <div>${lastSegment === 'stvol.html'
             ? `${this.weeks.stupkaV[1]} <span class="red bold">${Math.abs(this.weeks.stupkaV[0])}</span> седм.`
             : ''}</div></div>
