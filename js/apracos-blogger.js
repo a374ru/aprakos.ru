@@ -288,7 +288,7 @@ class OLY {
     }
     initDatesOLY() {
         this.datesOLY['voznesenie'] = [
-            new Date(this.oldEasterMLS + 864e5 * 48),
+            new Date(this.oldEasterMLS + 864e5 * 39),
             "Вознесение Христово"
         ];
         this.datesOLY['pentecost'] = [
