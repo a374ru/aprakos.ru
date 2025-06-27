@@ -316,16 +316,17 @@ class TimeBoxOrthodox {
     }
     linkToID() {
         let anchor = document.location.hash.slice(1);
+
         const segmentsURL = document.location.pathname.split('/');
         const previosURL = localStorage.getItem("about-page");
-        if (!anchor) {
+        if (segmentsURL.lastIndexOf("about.html")) {
             localStorage.setItem("about-page", document.location.pathname);
         }
-        if (anchor != "" && segmentsURL.lastIndexOf("stvol.html") == -1) {
+        if (segmentsURL.lastIndexOf("stvol.html" == -1)) {
             try {
-                document.getElementById(anchor).setAttribute('style', 'cursor: pointer; color: #a55858; background-color: #f4b5ff22; padding: 0px 0.4em 0px; border-radius: 7px;');
+                document.getElementById(anchor).setAttribute('class', 'content-focus');
                 if ((previosURL === null || previosURL === void 0 ? void 0 : previosURL.search("about.html")) != -1) {
-                    document.getElementById(anchor).setAttribute('onclick', 'document.location.replace("../about.html"); return false');
+                    document.getElementById(anchor).setAttribute('onclick', `document.location.replace("../about.html#${anchor}"); return false`);
                 }
             }
             catch (error) {
