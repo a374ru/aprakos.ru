@@ -21,15 +21,16 @@ html {
 
 .content-focus {
   cursor: pointer;
-  background-color: #f4d8d87b;
-  border-bottom: outset 0.1em #4e4e4e14;
-  /* border-style: outset; */
+  background-color: #ebe8f2;
+  text-shadow: 0 2px 2px #ffffff;
+  /* border-bottom: outset 0.1em #4e4e4e14; */
   padding: 7px 0.7em 7px;
   border-radius: 7px;
 }
 
 .content-focus::before {
-  content: " ✔️ ";
+  content: " ➽ ";
+  text-shadow: 0px 2px 2px #ffffff;
 }
 
 .abzac {
