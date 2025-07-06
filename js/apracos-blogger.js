@@ -239,7 +239,7 @@ class OLY {
         const all = (this.weeks['all'] = [
             Math.ceil((this.newEasterMLS - this.oldEasterMLS) / 864e5 / 7),
             'Протяженность ПБГ',
-            'седмиц',
+            'седм.',
         ]);
         const current = (this.weeks['current'] = [
             Math.ceil((this.theMomentTime.getTime() - this.offsetZone - this.oldEasterMLS) /
