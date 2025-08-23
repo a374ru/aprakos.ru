@@ -25,11 +25,18 @@ html {
 }
 
 .content-focus {
+  font-size: 1.8rem;
   cursor: pointer;
-  color: rgb(146, 90, 90);
-  background-color: #f4b5ff22;
+  color: var(--kino-var);
+
   padding: 0px 0.4em 0px;
   border-radius: 7px;
+  text-shadow: #ff8dd7 0px 0px 46px;
+}
+.content-focus::before{
+
+content: " ✔️ ";
+
 }
 
 :root {
@@ -39,7 +46,7 @@ html {
   --seedday-var: #6fbf5f;
   --bg-colorBlock-var: #fdffd0;
   /* --link-cross-relation-var: #693; */
-  --mainfontsize-var: 150%;
+  --mainfontsize-var: 140%;
   --font-size-name-1751: 1.7rem;
   --font-size-abzac-1751: 1.7rem;
   --font-size-name-1753: 3.2rem;

@@ -324,6 +324,8 @@ class TimeBoxOrthodox {
         }
         if (segmentsURL.lastIndexOf("stvol.html" == -1)) {
             try {
+
+
                 document.getElementById(anchor).setAttribute('class', 'content-focus');
                 if ((previosURL === null || previosURL === void 0 ? void 0 : previosURL.search("about.html")) != -1) {
                     document.getElementById(anchor).setAttribute('onclick', `document.location.replace("../about.html#${anchor}"); return false`);
