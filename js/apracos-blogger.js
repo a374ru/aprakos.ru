@@ -269,7 +269,7 @@ class OLY {
             'Седмица Воздвижения по Пасхе',
         ]);
         let stupkaV = (this.weeks['stupkaV'] = [
-            Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0] - this.stupkaVozdvizjenia(),
+            Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0],
             'Воздвиженская ступка',
             'седм.',
         ]);
@@ -282,16 +282,9 @@ class OLY {
         return this.weeks;
     }
     mondayAfterVozdvizgenie() {
-        let mondayDate;
         const daysUntilMonday = 1 + 7 - (this.datesOLY.vozdvizgenieKresta[0].getDay() % 7);
-        if (daysUntilMonday == 0) {
-            mondayDate = new Date(this.datesOLY.vozdvizgenieKresta[0].getTime() + 864e5 * 7);
-        }
-        else {
-            mondayDate = new Date(this.datesOLY.vozdvizgenieKresta[0].getTime() + 864e5 * daysUntilMonday);
-        }
-        console.log(`-=-=-=-=-=-=-=-=-\n\n Дней до понедельника:\n ${daysUntilMonday}`, mondayDate, "\n\n");
-        return this.theMomentTime >= mondayDate;
+        let dateMonday = new Date(this.datesOLY.vozdvizgenieKresta[0].getTime() + 864e5 * daysUntilMonday);
+        return this.theMomentTime >= dateMonday;
     }
     initDatesOLY() {
         this.datesOLY['voznesenie'] = [
@@ -478,14 +471,9 @@ class OLY {
         }
         return 0;
     }
-    stupkaVozdvizjenia() {
-        let v = this.datesOLY.vozdvizgenieKresta[0];
-        if (this.theMomentTime > v) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
+    stupkaVozdvizjenia(week) {
+        this.weeks.evnglElemID = this.weeks.apstlElemID;
+        return 0;
     }
     stupkaK() {
         return 0;
