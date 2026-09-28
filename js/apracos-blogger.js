@@ -269,7 +269,7 @@ class OLY {
             'Седмица Воздвижения по Пасхе',
         ]);
         let stupkaV = (this.weeks['stupkaV'] = [
-            Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0],
+            Math.ceil((this.datesOLY.week24[0].getTime() - this.oldEasterMLS) / 864e5 / 7) - vozdvizgenie[0] - this.mondayAfterVozdvizgenie(),
             'Воздвиженская ступка',
             'седм.',
         ]);
@@ -282,9 +282,16 @@ class OLY {
         return this.weeks;
     }
     mondayAfterVozdvizgenie() {
+        let mondayDate;
         const daysUntilMonday = 1 + 7 - (this.datesOLY.vozdvizgenieKresta[0].getDay() % 7);
-        let dateMonday = new Date(this.datesOLY.vozdvizgenieKresta[0].getTime() + 864e5 * daysUntilMonday);
-        return this.theMomentTime >= dateMonday;
+        if (daysUntilMonday == 0) {
+            mondayDate = new Date(this.datesOLY.vozdvizgenieKresta[0].getTime() + 864e5 * 7);
+        }
+        else {
+            mondayDate = new Date(this.datesOLY.vozdvizgenieKresta[0].getTime() + 864e5 * daysUntilMonday);
+        }
+        console.log(`-=-=-=-=-=-=-=-=-\n\n Дней до понедельника:\n ${daysUntilMonday}`, mondayDate, "\n\n");
+        return this.theMomentTime >= mondayDate ? 0 : 1;
     }
     initDatesOLY() {
         this.datesOLY['voznesenie'] = [
@@ -445,11 +452,11 @@ class OLY {
     stupka() {
         let stupka;
         switch (this.mondayAfterVozdvizgenie()) {
-            case true:
+            case 0:
                 stupka = this.stupkaN();
                 break;
-            case false:
-                stupka = this.stupkaVozdvizjenia();
+            case 1:
+                stupka = -1;
                 break;
             default:
                 stupka = 0;
@@ -471,9 +478,8 @@ class OLY {
         }
         return 0;
     }
-    stupkaVozdvizjenia(week) {
-        this.weeks.evnglElemID = this.weeks.apstlElemID;
-        return 0;
+    stupkaVozdvizjenia(rrr = 0) {
+        return -rrr;
     }
     stupkaK() {
         return 0;
