@@ -1,7 +1,36 @@
 "use strict";
 class OLY {
+    get debug() { return this._debug; }
+    set debug(v) {
+        this._debug = v;
+        try {
+            if (v)
+                localStorage.setItem('apr_debug', '1');
+            else
+                localStorage.removeItem('apr_debug');
+        }
+        catch (_a) { }
+    }
+    static setDebug(on) {
+        try {
+            if (on)
+                localStorage.setItem('apr_debug', '1');
+            else
+                localStorage.removeItem('apr_debug');
+        }
+        catch (_a) { }
+        console.log('%c[OLY] setDebug -> ' + on + ' (apr_debug=' +
+            (() => { try {
+                return localStorage.getItem('apr_debug');
+            }
+            catch (_a) {
+                return 'n/a';
+            } })() +
+            '), перезагрузка…', 'background:#9cf;color:#000;padding:2px 4px');
+        setTimeout(() => document.location.reload(), 50);
+    }
     constructor(year) {
-        var _a;
+        var _a, _b;
         this.year = year;
         this.theMoment = new Date();
         this.offsetZone = this.theMoment.getTimezoneOffset() * 60000;
@@ -9,15 +38,16 @@ class OLY {
         this.theMomentTime = new Date();
         this.anchorElemID = '#11';
         this.stateModalView = false;
-        this.debug = false;
+        this._debug = (() => {
+            try {
+                return localStorage.getItem('apr_debug') === '1';
+            }
+            catch (_a) {
+                return false;
+            }
+        })();
         this.arrayDaysRu = [
-            'ВОСРЕСЕНЬЕ',
-            'ПОНЕДЕЛЬНИК',
-            'ВТОРНИК',
-            'СРЕДА',
-            'ЧЕТВЕРГ',
-            'ПЯТНИЦА',
-            'СУББОТА',
+            'ВОСРЕСЕНЬЕ', 'ПОНЕДЕЛЬНИК', 'ВТОРНИК', 'СРЕДА', 'ЧЕТВЕРГ', 'ПЯТНИЦА', 'СУББОТА',
         ];
         this.weeks = {};
         this.easterDates = {
@@ -60,13 +90,22 @@ class OLY {
             uspenieBogorodici: { year: 2021, month: 7, day: 28, monthRU: '08' },
         };
         this.datesOLY = {};
+        console.log('%c[OLY] экземпляр создан. debug=' + this.debug +
+            ' | apr_debug=' +
+            (() => { try {
+                return localStorage.getItem('apr_debug');
+            }
+            catch (_a) {
+                return 'n/a';
+            } })() +
+            ' | userDate=' + ((_a = sessionStorage.getItem('userDate')) !== null && _a !== void 0 ? _a : '—'), 'background:#9cf;color:#000;padding:2px 4px');
         this.theMomentTime = this.controlDates(year);
         this.initOLY();
         this.initDatesOLY();
         this.initWeeks();
         this.linkToAprakos = '/' + this.yearMonthID() + '.html';
         this.anchorElemID = '' + this.weeks.evnglElemID[0];
-        this.linkToHolydays = (_a = this.holydays_9()) !== null && _a !== void 0 ? _a : this.linkToAprakos;
+        this.linkToHolydays = (_b = this.holydays_9()) !== null && _b !== void 0 ? _b : this.linkToAprakos;
         if (this.debug)
             this.dumpVozdvizhenie();
         this.initElementsDOM();
@@ -134,9 +173,9 @@ class OLY {
         this.weeks['zakhey'] = [all[0] - 10, 'Седмица Закхея по Пасхе'];
         this.weeks['mif'] = [all[0] - 9, 'Седмица МиФ по Пасхе'];
         const vozdvizgenie = (this.weeks['vozdvizgenie'] = [
-            Math.ceil((this.datesOLY.vozdvizgenieKresta[0].getTime() - this.oldEasterMLS) /
+            Math.floor((this.datesOLY.vozdvizgenieKresta[0].getTime() - this.oldEasterMLS) /
                 864e5 /
-                7),
+                7) + 1,
             'Седмица Воздвижения по Пасхе',
         ]);
         let stupkaV = (this.weeks['stupkaV'] = [
@@ -176,7 +215,7 @@ class OLY {
             'Петра и Павла',
         ];
         this.datesOLY['vozdvizgenieKresta'] = [
-            new Date(this.oldEaster.getFullYear() + '-09-27T00:00:00'),
+            new Date(Date.UTC(this.oldEaster.getFullYear(), 8, 27)),
             'Воздвижение Креста Господня',
         ];
         this.datesOLY['week24'] = [
@@ -252,26 +291,143 @@ class OLY {
             }
         }
     }
+    getAllById(id) {
+        const els = document.querySelectorAll('#' + id);
+        return Array.from(els);
+    }
+    addClassToAll(id, cls) {
+        const els = this.getAllById(id);
+        for (const el of els)
+            el.classList.add(cls);
+        return els.length;
+    }
+    removeClassFromAll(id, cls) {
+        const els = this.getAllById(id);
+        for (const el of els)
+            el.classList.remove(cls);
+        return els.length;
+    }
+    setStyleOnAll(id, prop, val) {
+        const els = this.getAllById(id);
+        for (const el of els)
+            el.style.setProperty(prop, val);
+        return els.length;
+    }
+    findDayCell(week, day) {
+        const patterns = [
+            'weekday' + week + day,
+            'weekday' + week + '_' + day,
+            'weekday' + week + '-' + day,
+            'weekday' + week + '0' + day,
+        ];
+        for (const p of patterns) {
+            const els = this.getAllById(p);
+            if (els.length > 0)
+                return els;
+        }
+        const weekRow = document.getElementById('week' + week);
+        if (weekRow) {
+            const prefix = 'weekday' + week;
+            const candidates = [];
+            const walk = (node) => {
+                if (!node)
+                    return;
+                for (const c of Array.from(node.children)) {
+                    const id = c.id || '';
+                    if (id.startsWith(prefix) && id.endsWith(String(day))) {
+                        candidates.push(c);
+                    }
+                    walk(c);
+                }
+            };
+            walk(weekRow);
+            if (candidates.length > 0)
+                return candidates;
+        }
+        const anyWeekDay = document.querySelectorAll('[id^="weekday' + week + '"]');
+        const matching = [];
+        for (const el of Array.from(anyWeekDay)) {
+            const id = el.id;
+            const tail = id.slice(('weekday' + week).length);
+            if (tail.replace(/[^0-9]/g, '') === String(day)) {
+                matching.push(el);
+            }
+        }
+        return matching;
+    }
+    dumpWeekCells(week) {
+        const prefix = 'weekday' + week;
+        const all = Array.from(document.querySelectorAll('[id^="' + prefix + '"]'));
+        console.log('%c[OLY] все id, начинающиеся на "' + prefix + '":', 'background:#9cf;color:#000;padding:2px 4px');
+        if (all.length === 0) {
+            console.log('  (ничего не найдено)');
+            return;
+        }
+        for (const el of all) {
+            const e = el;
+            console.log('  #' + e.id + ' | tag=' + e.tagName + ' | class=' + e.className);
+        }
+    }
+    reportDOMCells() {
+        const w0 = this.weeks.evnglElemID[0];
+        const w1 = this.weeks.apstlElemID[0];
+        const weeks = new Set();
+        for (let w = Math.min(w0, w1) - 2; w <= Math.max(w0, w1) + 2; w++) {
+            if (w >= 1 && w <= 55)
+                weeks.add(w);
+        }
+        console.log('%c[OLY] проверка ячеек stvol.html', 'background:#9cf;color:#000;padding:2px 4px');
+        for (const w of Array.from(weeks).sort((a, b) => a - b)) {
+            const parts = [];
+            for (let d = 1; d <= 7; d++) {
+                const els = this.getAllById('weekday' + w + d);
+                parts.push('d' + d + (els.length === 0 ? '·' : els.length > 1 ? String(els.length) : '+'));
+            }
+            const weekCell = this.getAllById('week' + w).length;
+            console.log('  week ' + String(w).padStart(2) + ' : ' +
+                parts.join(' ') + ' | week=' + (weekCell === 0 ? '·' : weekCell > 1 ? String(weekCell) : '+'));
+        }
+    }
     dumpVozdvizhenie() {
-        var _a, _b, _c, _d, _e;
+        var _a, _b, _c, _d, _e, _f, _g;
         const v = this.datesOLY.vozdvizgenieKresta[0];
         const m = new Date(v.getFullYear(), v.getMonth(), v.getDate() + (((8 - v.getDay()) % 7) || 7));
         const t = this.theMomentTime;
-        console.groupCollapsed('[OLY] Воздвиженская ступка — дамп');
-        console.log('today:              ', t.toLocaleDateString(), '| getDay=' + t.getDay());
-        console.log('vozdvizhenie:       ', v.toLocaleDateString(), '| getDay=' + v.getDay(), '| onSunday=' + this.isVozdvizhenieOnSunday());
-        console.log('monday after:       ', m.toLocaleDateString(), '| getDay=' + m.getDay());
-        console.log('mondayAfter():      ', this.mondayAfterVozdvizgenie());
-        console.log('weeks.vozdvizgenie: ', (_a = this.weeks.vozdvizgenie) === null || _a === void 0 ? void 0 : _a[0]);
-        console.log('weeks.week24:       ', this.datesOLY.week24[0].toLocaleDateString());
-        console.log('weeks.stupkaV[0]:   ', (_b = this.weeks.stupkaV) === null || _b === void 0 ? void 0 : _b[0]);
-        console.log('stupkaVozdvizjenia:', this.stupkaVozdvizjenia());
-        console.log('stupkaN():          ', this.stupkaN());
-        console.log('stupka():           ', this.stupka());
-        console.log('current[0]:         ', (_c = this.weeks.current) === null || _c === void 0 ? void 0 : _c[0]);
-        console.log('apstlElemID:        ', (_d = this.weeks.apstlElemID) === null || _d === void 0 ? void 0 : _d[0]);
-        console.log('evnglElemID:        ', (_e = this.weeks.evnglElemID) === null || _e === void 0 ? void 0 : _e[0]);
-        console.groupEnd();
+        const rows = [
+            ['today', t.toLocaleDateString() + ' | getDay=' + t.getDay()],
+            ['vozdvizhenie', v.toLocaleDateString() + ' | getDay=' + v.getDay() + ' | onSunday=' + this.isVozdvizhenieOnSunday()],
+            ['monday after', m.toLocaleDateString() + ' | getDay=' + m.getDay()],
+            ['mondayAfter()', this.mondayAfterVozdvizgenie()],
+            ['weeks.vozdvizgenie', (_a = this.weeks.vozdvizgenie) === null || _a === void 0 ? void 0 : _a[0]],
+            ['weeks.week24', this.datesOLY.week24[0].toLocaleDateString()],
+            ['weeks.stupkaV[0]', (_b = this.weeks.stupkaV) === null || _b === void 0 ? void 0 : _b[0]],
+            ['stupkaVozdvizjenia()', this.stupkaVozdvizjenia()],
+            ['stupkaN()', this.stupkaN()],
+            ['stupka()', this.stupka()],
+            ['current[0]', (_c = this.weeks.current) === null || _c === void 0 ? void 0 : _c[0]],
+            ['apstlElemID', (_d = this.weeks.apstlElemID) === null || _d === void 0 ? void 0 : _d[0]],
+            ['evnglElemID', (_e = this.weeks.evnglElemID) === null || _e === void 0 ? void 0 : _e[0]],
+            ['aprID', (_f = this.weeks.aprID) === null || _f === void 0 ? void 0 : _f[0]],
+            ['day', (_g = this.weeks.day) === null || _g === void 0 ? void 0 : _g[0]],
+        ];
+        console.log('%c[OLY] Воздвиженская ступка — дамп', 'background:#9cf;color:#000;padding:2px 4px');
+        for (const [k, val] of rows) {
+            console.log('  ' + k.padEnd(22) + ' : ' + val);
+        }
+        let panel = document.getElementById('oly-debug-panel');
+        if (!panel) {
+            panel = document.createElement('pre');
+            panel.id = 'oly-debug-panel';
+            panel.setAttribute('style', 'position:fixed;left:8px;bottom:8px;max-width:calc(100vw - 16px);' +
+                'max-height:40vh;overflow:auto;z-index:99999;' +
+                'background:#eef6ff;color:#000;border:2px solid #39f;' +
+                'border-radius:6px;padding:8px 10px;font:12px/1.35 monospace;' +
+                'box-shadow:0 4px 12px rgba(0,0,0,.25)');
+            document.body.appendChild(panel);
+        }
+        panel.textContent =
+            '[OLY] отладка (apr.debug = true)\n' +
+                rows.map(([k, val]) => '  ' + String(k).padEnd(22) + ' : ' + val).join('\n');
     }
     yearMonthID() {
         var apostolElemID = this.weeks.current[0] > 40
@@ -362,14 +518,6 @@ class OLY {
         return 0;
     }
     stupkaVozdvizjenia(week) {
-        const v = this.datesOLY.vozdvizgenieKresta[0];
-        if (this.compareCalendarDays(this.theMomentTime, v) < 0) {
-            return 0;
-        }
-        const stupkaV = this.weeks.stupkaV[0];
-        if (stupkaV < 0) {
-            return stupkaV;
-        }
         return 0;
     }
     stupkaK() {
@@ -441,20 +589,15 @@ class OLY {
             ? 'Воздвиженская отступка'
             : 'Воздвиженская преступка');
     }
-    getElem(id) {
-        const el = document.getElementById(id);
-        if (!el && this.debug) {
-            console.warn('[OLY] не найден элемент #' + id);
-        }
-        return el;
-    }
     initElementsDOM() {
-        var _a, _b, _c, _d, _e;
+        var _a, _b;
         const stvol = document.location.pathname.split('/').pop();
         if (stvol != 'stvol.html')
             return;
-        (_a = document
-            .getElementById('name')) === null || _a === void 0 ? void 0 : _a.children[0].setAttribute('href', (_b = this.linkToHolydays) !== null && _b !== void 0 ? _b : this.linkToAprakos);
+        const nameEl = document.getElementById('name');
+        if (nameEl && nameEl.children[0])
+            nameEl.children[0]
+                .setAttribute('href', (_a = this.linkToHolydays) !== null && _a !== void 0 ? _a : this.linkToAprakos);
         let elemsID = {
             curweek: `${this.weeks.current[0]}`,
             curweek50: `${this.weeks.current[0] < 8 ? '*' : this.weeks.current[0] - 7}`,
@@ -463,18 +606,15 @@ class OLY {
         for (const atrubuteID in elemsID) {
             if (Object.prototype.hasOwnProperty.call(elemsID, atrubuteID)) {
                 if (atrubuteID === 'curweek') {
-                    const el = this.getElem(atrubuteID);
-                    if (el)
+                    for (const el of this.getAllById(atrubuteID))
                         el.innerHTML = `<a href="#week${this.weeks.apstlElemID[0]}">${elemsID[atrubuteID]}</a>`;
                 }
                 else if (atrubuteID === 'curweek50') {
-                    const el = this.getElem(atrubuteID);
-                    if (el)
+                    for (const el of this.getAllById(atrubuteID))
                         el.innerHTML = `<a href="#week${this.weeks.evnglElemID[0]}">${elemsID[atrubuteID]}</a>`;
                 }
                 else {
-                    const el = this.getElem(atrubuteID);
-                    if (el)
+                    for (const el of this.getAllById(atrubuteID))
                         el.innerHTML = elemsID[atrubuteID];
                 }
                 if (atrubuteID == 'glass') {
@@ -485,55 +625,63 @@ class OLY {
             }
         }
         if (Number(elemsID.curweek) < 8) {
-            (_c = document.getElementById('id50')) === null || _c === void 0 ? void 0 : _c.remove();
+            this.getAllById('id50').forEach(el => el.remove());
         }
-        const apstlDayID = 'weekday' + this.weeks.apstlElemID[0] + this.weeks.day[0];
-        const evnglDayID = 'weekday' + this.weeks.evnglElemID[0] + this.weeks.day[0];
-        const apstlWeekID = 'week' + this.weeks.apstlElemID[0];
-        const evnglWeekID = 'week' + this.weeks.evnglElemID[0];
+        const apstlWeekNum = this.weeks.apstlElemID[0];
+        const evnglWeekNum = this.weeks.evnglElemID[0];
+        const dayNum = this.weeks.day[0];
+        const apstlDayID = 'weekday' + apstlWeekNum + dayNum;
+        const evnglDayID = 'weekday' + evnglWeekNum + dayNum;
+        const apstlWeekID = 'week' + apstlWeekNum;
+        const evnglWeekID = 'week' + evnglWeekNum;
         if (this.debug) {
-            console.log('[OLY] initElementsDOM', {
+            console.log('[OLY] initElementsDOM', JSON.stringify({
                 apstlDayID, evnglDayID, apstlWeekID, evnglWeekID,
-                aprID: (_d = this.weeks.aprID) === null || _d === void 0 ? void 0 : _d[0],
-                day: this.weeks.day[0],
+                aprID: (_b = this.weeks.aprID) === null || _b === void 0 ? void 0 : _b[0],
+                day: dayNum,
                 current: this.weeks.current[0],
                 stupka: this.stupka(),
-            });
+                apstlFound: this.getAllById(apstlDayID).length,
+                evnglFound: this.getAllById(evnglDayID).length,
+                sameWeek: evnglWeekNum === apstlWeekNum,
+            }));
+            this.reportDOMCells();
         }
-        const apstlDay = this.getElem(apstlDayID);
-        if (apstlDay) {
-            apstlDay.className += ' apstl-day';
-            apstlDay.style.lineHeight = '3.5rem';
-        }
-        const apstlWeek = this.getElem(apstlWeekID);
-        if (apstlWeek)
-            apstlWeek.className += ' color-block-apstl-stupka';
-        if (this.weeks.evnglElemID[0] != this.weeks.apstlElemID[0]) {
-            const evnglDay = this.getElem(evnglDayID);
-            if (evnglDay) {
-                evnglDay.className += ' evngl-day';
-                evnglDay.style.lineHeight = '3.5rem';
+        this.addClassToAll(apstlDayID, 'apstl-day');
+        this.setStyleOnAll(apstlDayID, 'line-height', '3.5rem');
+        this.addClassToAll(apstlWeekID, 'color-block-apstl-stupka');
+        if (evnglWeekNum !== apstlWeekNum) {
+            const evnglCells = this.findDayCell(evnglWeekNum, dayNum);
+            if (evnglCells.length > 0) {
+                for (const el of evnglCells) {
+                    el.classList.add('evngl-day');
+                    el.style.setProperty('line-height', '3.5rem');
+                }
+                if (this.debug) {
+                    console.log('[OLY] найдено ячеек Евангелия (' + evnglDayID +
+                        '): ' + evnglCells.length);
+                    for (const el of evnglCells) {
+                        console.log('[OLY] итоговый className #' + el.id + ' : "' +
+                            el.className + '"');
+                    }
+                }
             }
-            const evnglWeek = this.getElem(evnglWeekID);
-            if (evnglWeek)
-                evnglWeek.className += ' color-block-evngl-stupka';
+            else {
+                console.warn('[OLY] не найдена ни одна ячейка для Евангелия ' +
+                    '(week=' + evnglWeekNum + ', day=' + dayNum + ').');
+                if (this.debug)
+                    this.dumpWeekCells(evnglWeekNum);
+            }
+            this.addClassToAll(evnglWeekID, 'color-block-evngl-stupka');
         }
         else {
-            const evnglDay = this.getElem(evnglDayID);
-            if (evnglDay)
-                evnglDay.className += ' evngl-day';
-            const seed = this.getElem('weekday' + this.weeks.aprID[0]);
-            if (seed)
-                seed.className += ' seedday-week-on';
-            const apstlWeek2 = this.getElem(apstlWeekID);
-            if (apstlWeek2) {
-                apstlWeek2.classList.remove('color-block-apstl-stupka');
-                apstlWeek2.className += ' color-block';
-            }
+            this.addClassToAll(evnglDayID, 'evngl-day');
+            this.addClassToAll('weekday' + this.weeks.aprID[0], 'seedday-week-on');
+            this.removeClassFromAll(apstlWeekID, 'color-block-apstl-stupka');
+            this.addClassToAll(apstlWeekID, 'color-block');
         }
         if (this.weeks.evnglElemID[0] == 50) {
-            (_e = document
-                .querySelector('#week50')) === null || _e === void 0 ? void 0 : _e.setAttribute('style', 'border: solid 4rem #fedede; background-color: #fedede;');
+            this.getAllById('week50').forEach(el => el.setAttribute('style', 'border: solid 4rem #fedede; background-color: #fedede;'));
         }
     }
     glas(sedmica) {
@@ -609,6 +757,8 @@ class OLY {
     }
 }
 let apr = new OLY();
+window.OLY = OLY;
+window.apr = apr;
 class SelectedDay {
     constructor() {
         this.newDate = document.getElementById('form-date');
