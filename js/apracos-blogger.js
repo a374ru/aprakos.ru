@@ -104,7 +104,7 @@ class OLY {
         this.initDatesOLY();
         this.initWeeks();
         this.linkToAprakos = '/' + this.yearMonthID() + '.html';
-        this.anchorElemID = '' + this.weeks.evnglElemID[0];
+        this.anchorElemID = '' + this.weeks.current[0];
         this.linkToHolydays = (_b = this.holydays_9()) !== null && _b !== void 0 ? _b : this.linkToAprakos;
         if (this.debug)
             this.dumpVozdvizhenie();
